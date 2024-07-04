@@ -5,12 +5,6 @@
       "furniture:grandfathers_clock_ticking"
     ]
   },
-  "grandfathers_clock_bell": {
-    "subtitle": "subtitles.furniture.grandfathers_clock_bell",
-    "sounds": [
-      "furniture:grandfathers_clock_bell"
-    ]
-  },
   "cabinet_open": {
     "subtitle": "subtitles.furniture.cabinet_open",
     "sounds": [

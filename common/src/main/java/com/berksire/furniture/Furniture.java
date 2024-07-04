@@ -12,8 +12,8 @@ public class Furniture {
                 EntityTypeRegistry.class,
                 CanvasRegistry.class,
                 TabRegistry.class,
-                SoundRegistry.class,
-                FlammableBlockRegistry.class
+                SoundRegistry.class
+                //FlammableBlockRegistry.class
         );
     }
 }

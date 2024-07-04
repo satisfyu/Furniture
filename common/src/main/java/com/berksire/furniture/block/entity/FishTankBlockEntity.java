@@ -1,6 +1,6 @@
 package com.berksire.furniture.block.entity;
 
-import com.berksire.furniture.client.entity.FishTankEntity;
+import com.berksire.furniture.client.entity.FakeFishTankEntity;
 import com.berksire.furniture.registry.EntityTypeRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -68,17 +68,17 @@ public class FishTankBlockEntity extends BlockEntity {
         tag.putInt("LinkedRealTankBlock", linkedRealTankBlock);
     }
 
-    public Optional<FishTankEntity> getLinkedRealEntity() {
-        if (Objects.requireNonNull(this.getLevel()).getEntity(linkedRealTankBlock) instanceof FishTankEntity entity) {
+    public Optional<FakeFishTankEntity> getLinkedRealEntity() {
+        if (Objects.requireNonNull(this.getLevel()).getEntity(linkedRealTankBlock) instanceof FakeFishTankEntity entity) {
             return Optional.of(entity);
         } else return Optional.empty();
     }
 
     public static void tick(Level level, BlockPos pos, FishTankBlockEntity blockEntity) {
         if (blockEntity.linkedRealTankBlock == -1) {
-            level.getEntitiesOfClass(FishTankEntity.class, new AABB(pos)).stream().findAny().ifPresentOrElse(
+            level.getEntitiesOfClass(FakeFishTankEntity.class, new AABB(pos)).stream().findAny().ifPresentOrElse(
                     e -> blockEntity.linkedRealTankBlock = e.getId(), () -> {
-                        FishTankEntity fishTank = EntityTypeRegistry.ACTUAL_FISH_TANK.get().create(level);
+                        FakeFishTankEntity fishTank = EntityTypeRegistry.FAKE_FISH_TANK.get().create(level);
                         assert fishTank != null;
                         fishTank.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
                         level.addFreshEntity(fishTank);

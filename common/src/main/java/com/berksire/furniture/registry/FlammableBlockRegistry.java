@@ -5,7 +5,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
 
 public class FlammableBlockRegistry {
-    static {
+
+    public static void registerFlammables() {
         ObjectRegistry.CLOCKS.forEach((woodType, clock) -> addFlammable(5, 20, clock.get()));
         ObjectRegistry.GRANDFATHER_CLOCKS.forEach((woodType, clock) -> addFlammable(5, 20, clock.get()));
         ObjectRegistry.BENCHES.forEach((woodType, bench) -> addFlammable(5, 20, bench.get()));

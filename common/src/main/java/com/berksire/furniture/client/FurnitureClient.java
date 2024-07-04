@@ -33,7 +33,6 @@ public class FurnitureClient {
         BlockEntityRendererRegistry.register(EntityTypeRegistry.CLOCK_BLOCK_ENTITY.get(), ClockRenderer::new);
         BlockEntityRendererRegistry.register(EntityTypeRegistry.GRAMOPHONE_BLOCK_ENTITY.get(), GramophoneRenderer::new);
         BlockEntityRendererRegistry.register(EntityTypeRegistry.COFFER_BLOCK_ENTITY.get(), CofferRenderer::new);
-        EntityRendererRegistry.register(EntityTypeRegistry.ACTUAL_FISH_TANK, FishTankRenderer::new);
     }
 
     public static void preInitClient() {
@@ -45,7 +44,7 @@ public class FurnitureClient {
         EntityRendererRegistry.register(EntityTypeRegistry.CHAIR, ChairRenderer::new);
         EntityRendererRegistry.register(EntityTypeRegistry.CANVAS, CanvasRenderer::new);
         EntityRendererRegistry.register(EntityTypeRegistry.PELLS, PellsRenderer::new);
-
+        EntityRendererRegistry.register(EntityTypeRegistry.FAKE_FISH_TANK, FishTankRenderer::new);
     }
 
     public static void registerEntityModelLayer() {

@@ -57,12 +57,12 @@ public class GrandfatherClockRenderer implements BlockEntityRenderer<Grandfather
         float ageInTicks = Objects.requireNonNull(blockEntity.getLevel()).getGameTime() + partialTicks;
         this.model.pendulum.zRot = (float) Math.sin(ageInTicks * Math.PI / 30) * 0.15F;
 
-        long gameTime = blockEntity.getLevel().getDayTime() % 24000;
+        long gameTime = Objects.requireNonNull(blockEntity.getLevel()).getDayTime() % 24000;
         int hours = (int) ((gameTime / 1000 + 6) % 24);
         int minutes = (int) ((gameTime % 1000) * 60 / 1000);
 
         this.model.minutes.zRot = (float) (minutes * Math.PI / 30);
-        this.model.hours.zRot = (float) (hours * Math.PI / 12);
+        this.model.hours.zRot = (float) (hours * Math.PI / 6);
 
         GrandfatherClockBlock.WoodType woodType = ((GrandfatherClockBlock) blockstate.getBlock()).getWoodType();
         ResourceLocation texture = TEXTURES.get(woodType);

@@ -5,8 +5,8 @@ license = "Custom"
 [[mods]]
 modId = "furniture"
 version = "${version}"
-displayName = "[Let's Do Addon] Furniture"
-authors = "berksire"
+displayName = "[Let's Do] Furniture"
+authors = "berksire, satisfy, cph101"
 icon = "pack.png"
 description = '''
 Let's expand your world with a whole set of new and exciting furnitures! All in the style of the Let's Do Mods.

@@ -30,6 +30,7 @@ public class GrandfatherClockModel<T extends Entity> extends EntityModel<T> {
     public static LayerDefinition getTexturedModelData() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
+
         PartDefinition grandfatherclock = partdefinition.addOrReplaceChild("grandfatherclock", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(2.0F, 10.5F, -3.5F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
                 .texOffs(0, 0).mirror().addBox(-5.0F, 10.5F, -3.5F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
                 .texOffs(0, 0).mirror().addBox(2.0F, 10.5F, 2.5F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)).mirror(false)
@@ -51,13 +52,14 @@ public class GrandfatherClockModel<T extends Entity> extends EntityModel<T> {
         PartDefinition pendulum_r1 = pendulum.addOrReplaceChild("pendulum_r1", CubeListBuilder.create().texOffs(0, 4).addBox(-2.0F, -1.5F, 0.0F, 3.0F, 3.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 8.25F, 0.0F, 0.0F, 0.0F, 0.7854F));
 
         PartDefinition clock = grandfatherclock.addOrReplaceChild("clock", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
+        
+        PartDefinition minutes = clock.addOrReplaceChild("minutes", CubeListBuilder.create().texOffs(4, 4).addBox(-0.5F, -2.5F, 0.0F, 1.0F, 3.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-0.5F, -14.0F, -3.75F));
 
-        PartDefinition minutes = clock.addOrReplaceChild("minutes", CubeListBuilder.create().texOffs(4, 4).addBox(-1.0F, -2.5F, 0.0F, 1.0F, 3.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -14.0F, -3.75F));
-
-        PartDefinition hours = clock.addOrReplaceChild("hours", CubeListBuilder.create().texOffs(3, 5).addBox(-0.5F, -0F, 0.0F, 3.0F, 1.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -14.0F, -3.75F));
+        PartDefinition hours = clock.addOrReplaceChild("hours", CubeListBuilder.create().texOffs(3, 5).addBox(0.0F, -0.5F, 0.0F, 3.0F, 1.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(-0.5F, -14.0F, -3.75F));
 
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
+
     @Override
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 

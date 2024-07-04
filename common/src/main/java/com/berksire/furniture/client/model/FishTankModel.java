@@ -1,7 +1,7 @@
 package com.berksire.furniture.client.model;
 
 import com.berksire.furniture.Furniture;
-import com.berksire.furniture.client.entity.FishTankEntity;
+import com.berksire.furniture.client.entity.FakeFishTankEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.animation.AnimationChannel;
@@ -16,7 +16,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 
-public class FishTankModel extends HierarchicalModel<FishTankEntity> {
+public class FishTankModel extends HierarchicalModel<FakeFishTankEntity> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Furniture.MODID, "fish_tank"), "main");
     public final ModelPart fish_tank;
     public final ModelPart cod;
@@ -348,7 +348,7 @@ public class FishTankModel extends HierarchicalModel<FishTankEntity> {
             .build();
 
     @Override
-    public void setupAnim(FishTankEntity entity, float f, float g, float h, float i, float j) {
+    public void setupAnim(FakeFishTankEntity entity, float f, float g, float h, float i, float j) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
         this.animate(entity.idleAnimationState, FISHY, h, 1.0F); // state, anim, tick time, speed multiplier
     }

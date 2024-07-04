@@ -2,7 +2,7 @@ package com.berksire.furniture.client.render;
 
 import com.berksire.furniture.block.FishTankBlock;
 import com.berksire.furniture.block.entity.FishTankBlockEntity;
-import com.berksire.furniture.client.entity.FishTankEntity;
+import com.berksire.furniture.client.entity.FakeFishTankEntity;
 import com.berksire.furniture.client.model.FishTankModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -19,7 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
 import org.joml.Quaternionf;
 
-public class FishTankRenderer extends EntityRenderer<FishTankEntity> {
+public class FishTankRenderer extends EntityRenderer<FakeFishTankEntity> {
 
     private final FishTankModel model;
     private static final ResourceLocation TEXTURE = new ResourceLocation("furniture", "textures/entity/fish_tank.png");
@@ -37,7 +37,7 @@ public class FishTankRenderer extends EntityRenderer<FishTankEntity> {
     }
 
     @Override
-    public void render(FishTankEntity entity, float f, float g, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight) {
+    public void render(FakeFishTankEntity entity, float f, float g, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight) {
         poseStack.pushPose();
         FishTankBlockEntity blockEntity = entity.getNearestTankEntity().orElse(null);
         if (assertNonNullOrPop(blockEntity, poseStack)) return;
@@ -101,7 +101,7 @@ public class FishTankRenderer extends EntityRenderer<FishTankEntity> {
 
     @Override
     @SuppressWarnings("all")
-    public ResourceLocation getTextureLocation(FishTankEntity entity) {
+    public ResourceLocation getTextureLocation(FakeFishTankEntity entity) {
         return null;
     }
 }

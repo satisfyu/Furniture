@@ -2,7 +2,7 @@ package com.berksire.furniture.registry;
 
 import com.berksire.furniture.Furniture;
 import com.berksire.furniture.block.entity.*;
-import com.berksire.furniture.client.entity.FishTankEntity;
+import com.berksire.furniture.client.entity.FakeFishTankEntity;
 import com.berksire.furniture.client.entity.CanvasEntity;
 import com.berksire.furniture.client.entity.ChairEntity;
 import com.berksire.furniture.client.entity.PellsEntity;
@@ -34,7 +34,7 @@ public final class EntityTypeRegistry {
 
     public static final RegistrySupplier<EntityType<ChairEntity>> CHAIR = registerEntity("chair", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC).sized(0.001F, 0.001F).build(new FurnitureIdentifier("chair").toString()));
     public static final RegistrySupplier<EntityType<CanvasEntity>> CANVAS = registerEntity("canvas", () -> EntityType.Builder.<CanvasEntity>of(CanvasEntity::new, MobCategory.MISC).sized(1.0F, 2.0F).build(new FurnitureIdentifier("canvas").toString()));
-    public static final RegistrySupplier<EntityType<FishTankEntity>> ACTUAL_FISH_TANK = registerEntity("actual_fish_tank", () -> EntityType.Builder.of(FishTankEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(1000).build(new FurnitureIdentifier("actual_fish_tank").toString()));
+    public static final RegistrySupplier<EntityType<FakeFishTankEntity>> FAKE_FISH_TANK = registerEntity("fake_fish_tank", () -> EntityType.Builder.of(FakeFishTankEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(1000).build(new FurnitureIdentifier("fake_fish_tank").toString()));
     public static final RegistrySupplier<EntityType<PellsEntity>> PELLS = registerEntity("pells", () -> EntityType.Builder.of(PellsEntity::new, MobCategory.MISC).sized(1.0F, 2.0F).build(new FurnitureIdentifier("pells").toString()));
 
     private static <T extends BlockEntityType<?>> RegistrySupplier<T> registerBlockEntity(final String path, final Supplier<T> type) {

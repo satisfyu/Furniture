@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "id": "furniture",
   "version": "${version}",
-  "name": "[Let's Do Addon] Furniture",
-  "description": "Let's expand your world with a whole set of new and exciting furnitures! All in the style of the Let's Do Mods.",
+  "name": "[Let's Do] Furniture",
+  "description": "Let's expand your world with a whole set of new and exciting furnitures!",
   "authors": [
-    "berksire"
+    "berksire, satisfy, cph101"
   ],
   "contact": {
-    "sources": "https://github.com/berksire/lets-do-furniture"
+    "sources": "https://github.com/satisfyu/NeverEnoughFurniture"
   },
   "license": "Custom",
   "icon": "pack.png",

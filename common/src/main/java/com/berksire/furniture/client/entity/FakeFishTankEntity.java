@@ -13,12 +13,12 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
 
-public class FishTankEntity extends Entity {
+public class FakeFishTankEntity extends Entity {
 
     public AnimationState idleAnimationState;
     private int idleAnimationTimeout = 0;
 
-    public FishTankEntity(EntityType<?> entityType, Level level) {
+    public FakeFishTankEntity(EntityType<?> entityType, Level level) {
         super(entityType, level);
         idleAnimationState = new AnimationState();
     }

@@ -1,15 +1,16 @@
 package com.berksire.furniture.block.entity;
 
-import com.berksire.furniture.client.entity.ActualFishTankEntity;
+import com.berksire.furniture.client.entity.FishTankEntity;
 import com.berksire.furniture.registry.EntityTypeRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.phys.AABB;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class FishTankBlockEntity extends BlockEntity {
@@ -29,7 +30,6 @@ public class FishTankBlockEntity extends BlockEntity {
     public void setHasCod(boolean hasCod) {
         this.hasCod = hasCod;
         setChanged();
-        System.out.println("Set HasCod to " + hasCod);
     }
 
     public boolean hasPufferfish() {
@@ -39,7 +39,6 @@ public class FishTankBlockEntity extends BlockEntity {
     public void setHasPufferfish(boolean hasPufferfish) {
         this.hasPufferfish = hasPufferfish;
         setChanged();
-        System.out.println("Set HasPufferfish to " + hasPufferfish);
     }
 
     public boolean hasSalmon() {
@@ -49,7 +48,6 @@ public class FishTankBlockEntity extends BlockEntity {
     public void setHasSalmon(boolean hasSalmon) {
         this.hasSalmon = hasSalmon;
         setChanged();
-        System.out.println("Set HasSalmon to " + hasSalmon);
     }
 
     @Override
@@ -59,7 +57,6 @@ public class FishTankBlockEntity extends BlockEntity {
         hasPufferfish = tag.getBoolean("HasPufferfish");
         hasSalmon = tag.getBoolean("HasSalmon");
         linkedRealTankBlock = tag.getInt("LinkedRealTankBlock");
-        System.out.println("Loaded HasCod: " + hasCod + ", HasPufferfish: " + hasPufferfish + ", HasSalmon: " + hasSalmon);
     }
 
     @Override
@@ -69,20 +66,20 @@ public class FishTankBlockEntity extends BlockEntity {
         tag.putBoolean("HasPufferfish", hasPufferfish);
         tag.putBoolean("HasSalmon", hasSalmon);
         tag.putInt("LinkedRealTankBlock", linkedRealTankBlock);
-        System.out.println("Saved HasCod: " + hasCod + ", HasPufferfish: " + hasPufferfish + ", HasSalmon: " + hasSalmon);
     }
 
-    public Optional<ActualFishTankEntity> getLinkedRealEntity() {
-        if (this.getLevel().getEntity(linkedRealTankBlock) instanceof ActualFishTankEntity entity) {
+    public Optional<FishTankEntity> getLinkedRealEntity() {
+        if (Objects.requireNonNull(this.getLevel()).getEntity(linkedRealTankBlock) instanceof FishTankEntity entity) {
             return Optional.of(entity);
         } else return Optional.empty();
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, FishTankBlockEntity blockEntity) {
+    public static void tick(Level level, BlockPos pos, FishTankBlockEntity blockEntity) {
         if (blockEntity.linkedRealTankBlock == -1) {
-            level.getEntitiesOfClass(ActualFishTankEntity.class, new AABB(pos)).stream().findAny().ifPresentOrElse(
+            level.getEntitiesOfClass(FishTankEntity.class, new AABB(pos)).stream().findAny().ifPresentOrElse(
                     e -> blockEntity.linkedRealTankBlock = e.getId(), () -> {
-                        ActualFishTankEntity fishTank = EntityTypeRegistry.ACTUAL_FISH_TANK.get().create(level);
+                        FishTankEntity fishTank = EntityTypeRegistry.ACTUAL_FISH_TANK.get().create(level);
+                        assert fishTank != null;
                         fishTank.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
                         level.addFreshEntity(fishTank);
                     }
@@ -93,9 +90,7 @@ public class FishTankBlockEntity extends BlockEntity {
     @Override
     public void setRemoved() {
         this.linkedRealTankBlock = -1;
-        this.getLinkedRealEntity().ifPresent(e -> {
-            e.remove(Entity.RemovalReason.DISCARDED);
-        });
+        this.getLinkedRealEntity().ifPresent(e -> e.remove(Entity.RemovalReason.DISCARDED));
         super.setRemoved();
     }
 }

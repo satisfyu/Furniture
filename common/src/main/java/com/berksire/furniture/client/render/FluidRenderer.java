@@ -5,7 +5,6 @@ import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.VertexFormat;
-import com.mojang.math.Axis;
 import dev.architectury.fluid.FluidStack;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.client.renderer.MultiBufferSource;

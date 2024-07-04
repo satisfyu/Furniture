@@ -2,6 +2,7 @@ package com.berksire.furniture.block;
 
 import com.berksire.furniture.util.FurnitureUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -22,7 +23,6 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.sounds.SoundEvents;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;

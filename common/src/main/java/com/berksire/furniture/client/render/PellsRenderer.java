@@ -3,27 +3,26 @@ package com.berksire.furniture.client.render;
 import com.berksire.furniture.Furniture;
 import com.berksire.furniture.client.entity.PellsEntity;
 import com.berksire.furniture.client.model.PellsModel;
-
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.*;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.*;
-import net.minecraft.util.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
-import org.joml.*;
+import org.joml.Matrix4f;
 
 import java.awt.*;
-import java.lang.Math;
-import java.text.*;
-import java.util.*;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 public class PellsRenderer extends MobRenderer<PellsEntity, PellsModel<PellsEntity>>{
-
     protected static final ResourceLocation TEXTURE = new ResourceLocation(Furniture.MODID, "textures/entity/pells.png");
-    private static final DecimalFormat FORMAT = new DecimalFormat("###.##", new DecimalFormatSymbols(Locale.ENGLISH));
+    private static final DecimalFormat FORMAT = new DecimalFormat("###.##", new DecimalFormatSymbols(Locale.GERMAN));
 
     public PellsRenderer(EntityRendererProvider.Context context){
         super(context, new PellsModel<>(PellsModel.createBodyLayer().bakeRoot()), 0.0F);
@@ -39,21 +38,24 @@ public class PellsRenderer extends MobRenderer<PellsEntity, PellsModel<PellsEnti
         super.render(entityIn, entityYaw, partialTicks, stack, bufferIn, packedLightIn);
         float lastDamage = entityIn.getLastDamage();
         if(lastDamage > 0f){
-            Color color = getColorByDamage(entityIn, lastDamage);
+            Color color = getColorByDamage(lastDamage);
             renderText(entityIn, FORMAT.format(lastDamage), stack, bufferIn, packedLightIn, color);
         }
     }
 
-    private Color getColorByDamage(PellsEntity entityIn, float damage) {
-        boolean isCrit = entityIn.isCrit();
-        if (isCrit) {
+    private Color getColorByDamage(float damage) {
+        if (damage >= 0 && damage <= 2) {
+            return Color.GREEN;
+        } else if (damage >= 3 && damage <= 6) {
+            return Color.WHITE;
+        } else if (damage >= 7 && damage <= 12) {
+            return Color.YELLOW;
+        } else if (damage >= 13 && damage <= 19) {
             return Color.ORANGE;
         } else {
-            int red = Math.min(255, (int)(damage * 255 / 100));
-            return new Color(red, 255 - red, 255 - red);
+            return Color.RED;
         }
     }
-
 
     protected void renderText(PellsEntity entityIn, String text, PoseStack matrixStackIn, MultiBufferSource bufferIn, int packedLightIn, Color textColor){
         if(entityIn.hurtTime > 0){

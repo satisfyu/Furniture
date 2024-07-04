@@ -25,11 +25,9 @@ public class FurnitureClient {
 
     public static void onInitializeClient() {
         RenderTypeRegistry.register(RenderType.cutout(), BIN.get(), GRAMOPHONE.get(), CASH_REGISTER.get());
-
         for (RegistrySupplier<Block> block : Stream.concat(LAMPS.values().stream(), BENCHES.values().stream()).toList()) {
             RenderTypeRegistry.register(RenderType.cutout(), block.get());
         }
-
 
         BlockEntityRendererRegistry.register(EntityTypeRegistry.GRANDFATHER_CLOCK_BLOCK_ENTITY.get(), GrandfatherClockRenderer::new);
         BlockEntityRendererRegistry.register(EntityTypeRegistry.CLOCK_BLOCK_ENTITY.get(), ClockRenderer::new);

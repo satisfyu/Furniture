@@ -1,11 +1,6 @@
 package com.berksire.furniture;
 
-import com.berksire.furniture.registry.EntityTypeRegistry;
-import com.berksire.furniture.registry.ObjectRegistry;
-import com.berksire.furniture.registry.CanvasRegistry;
-import com.berksire.furniture.registry.TabRegistry;
-import com.berksire.furniture.registry.SoundRegistry;
-import com.berksire.furniture.registry.FlammableBlockRegistry;
+import com.berksire.furniture.registry.*;
 import com.google.common.reflect.Reflection;
 
 public class Furniture {

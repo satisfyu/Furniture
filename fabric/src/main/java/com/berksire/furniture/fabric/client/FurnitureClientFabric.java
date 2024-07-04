@@ -1,7 +1,7 @@
 package com.berksire.furniture.fabric.client;
 
-import net.fabricmc.api.ClientModInitializer;
 import com.berksire.furniture.client.FurnitureClient;
+import net.fabricmc.api.ClientModInitializer;
 
 public class FurnitureClientFabric implements ClientModInitializer {
     @Override

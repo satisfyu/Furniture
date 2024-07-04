@@ -1,7 +1,7 @@
 package com.berksire.furniture.registry;
 
-import com.berksire.furniture.block.*;
 import com.berksire.furniture.Furniture;
+import com.berksire.furniture.block.*;
 import com.berksire.furniture.item.CanvasItem;
 import com.berksire.furniture.item.PellsSpawnItem;
 import com.berksire.furniture.item.TrashBagItem;

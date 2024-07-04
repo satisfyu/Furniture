@@ -117,7 +117,7 @@ public class CofferBlockEntity extends RandomizableContainerBlockEntity implemen
         double e = (double)this.worldPosition.getY() + 0.5D + (double)vec3i.getY() / 2.0D;
         double f = (double)this.worldPosition.getZ() + 0.5D + (double)vec3i.getZ() / 2.0D;
         assert this.level != null;
-        this.level.playSound(null, d, e, f, SoundRegistry.COFFER_OPEN.get(), SoundSource.BLOCKS, 0.5F, this.level.random.nextFloat() * 0.1F + 0.9F);
+        this.level.playSound(null, d, e, f, SoundRegistry.COFFER_OPEN.get(), SoundSource.BLOCKS, 0.5F, this.level.random.nextFloat());
     }
 
     void playCloseSound(BlockState blockState) {
@@ -126,7 +126,7 @@ public class CofferBlockEntity extends RandomizableContainerBlockEntity implemen
         double e = (double)this.worldPosition.getY() + 0.5D + (double)vec3i.getY() / 2.0D;
         double f = (double)this.worldPosition.getZ() + 0.5D + (double)vec3i.getZ() / 2.0D;
         assert this.level != null;
-        this.level.playSound(null, d, e, f, SoundRegistry.COFFER_CLOSE.get(), SoundSource.BLOCKS, 0.5F, this.level.random.nextFloat() * 0.1F + 0.9F);
+        this.level.playSound(null, d, e, f, SoundRegistry.COFFER_CLOSE.get(), SoundSource.BLOCKS, 0.5F, this.level.random.nextFloat());
     }
 
     @Override

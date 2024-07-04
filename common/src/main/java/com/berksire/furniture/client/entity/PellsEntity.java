@@ -73,8 +73,9 @@ public class PellsEntity extends Mob {
                 }
                 this.removeAfterChangingDimensions();
             } else {
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < 14; i++) {
                     level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, Blocks.HAY_BLOCK.defaultBlockState()), this.getX(), this.getY() + 0.7D, this.getZ(), 0d, 0.02d, 0d);
+                    level.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, Blocks.DARK_OAK_PLANKS.defaultBlockState()), this.getX(), this.getY() + 0.7D, this.getZ(), 0d, 0.02d, 0d);
                 }
                 return InteractionResult.SUCCESS;
             }
@@ -97,7 +98,7 @@ public class PellsEntity extends Mob {
             return false;
         } else {
             BlockState state = Blocks.HAY_BLOCK.defaultBlockState();
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 10; i++) {
                 this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, state), this.getX(), this.getY() + 0.7D, this.getZ(), 0d, 0.02d, 0d);
             }
             entityData.set(LAST_DAMAGE, 0f);
@@ -110,10 +111,6 @@ public class PellsEntity extends Mob {
             this.level().broadcastDamageEvent(this, source);
             return true;
         }
-    }
-
-    public boolean isCrit() {
-        return entityData.get(IS_CRIT);
     }
 
     public float getLastDamage() {

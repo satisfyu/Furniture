@@ -1,9 +1,9 @@
 package com.berksire.furniture.client.render;
 
-import com.berksire.furniture.block.entity.GrandfatherClockBlockEntity;
 import com.berksire.furniture.Furniture;
-import com.berksire.furniture.client.model.GrandfatherClockModel;
 import com.berksire.furniture.block.GrandfatherClockBlock;
+import com.berksire.furniture.block.entity.GrandfatherClockBlockEntity;
+import com.berksire.furniture.client.model.GrandfatherClockModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.geom.ModelPart;
@@ -13,8 +13,8 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.joml.Quaternionf;
 

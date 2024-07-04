@@ -30,8 +30,6 @@ public class CanvasItem extends HangingEntityItem {
 
     public CanvasItem(Properties settings, Supplier<PaintingVariant> defaultVariant, TagKey<PaintingVariant> variants) {
         super(EntityType.PAINTING, settings);
-        
-
 
         this.defaultVariant = defaultVariant;
         this.variants = variants;

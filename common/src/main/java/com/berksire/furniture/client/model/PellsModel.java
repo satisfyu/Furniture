@@ -1,14 +1,16 @@
 package com.berksire.furniture.client.model;
 
 import com.berksire.furniture.client.entity.PellsEntity;
-import com.mojang.blaze3d.vertex.*;
-import net.minecraft.client.model.*;
-import net.minecraft.client.model.geom.*;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.util.*;
-import net.minecraft.world.entity.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-public class PellsModel<T extends Entity> extends EntityModel<T>{
+public class PellsModel<T extends Entity> extends EntityModel<T> {
     private final ModelPart Head;
     private final ModelPart Body;
     private final ModelPart RightArm;
@@ -16,7 +18,7 @@ public class PellsModel<T extends Entity> extends EntityModel<T>{
     private final ModelPart Stand;
     private final ModelPart Baseplate;
 
-    public PellsModel(ModelPart root){
+    public PellsModel(ModelPart root) {
         this.Head = root.getChild("Head");
         this.Body = root.getChild("Body");
         this.RightArm = root.getChild("RightArm");
@@ -26,7 +28,7 @@ public class PellsModel<T extends Entity> extends EntityModel<T>{
     }
 
     @SuppressWarnings("unused")
-    public static LayerDefinition createBodyLayer(){
+    public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
@@ -41,23 +43,26 @@ public class PellsModel<T extends Entity> extends EntityModel<T>{
     }
 
     @Override
-    public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float HeadPitch){
-        if(entityIn instanceof PellsEntity entity){
+    public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float HeadPitch) {
+        if (entityIn instanceof PellsEntity entity) {
             float factor = (float)Math.sin(ageInTicks + entity.getLastDamage() * 0.5);
             float speed = 0.1f;
-            this.Body.xRot = Mth.cos(limbSwing * 0.5662F * speed + (float)Math.PI) * 0.4F * factor * limbSwingAmount;
-            this.Body.zRot = Mth.sin(limbSwing * 0.2262F * speed + (float)Math.PI) * 0.1F * factor * limbSwingAmount;
-            this.Head.xRot = Mth.cos(limbSwing * 0.5662F * speed + (float)Math.PI) * 0.4F * factor * limbSwingAmount;
-            this.Head.zRot = Mth.sin(limbSwing * 0.2262F * speed + (float)Math.PI) * 0.1F * factor * limbSwingAmount;
-            this.LeftArm.xRot = Mth.cos(limbSwing * 0.5662F * speed + (float)Math.PI) * 0.4F * factor * limbSwingAmount;
-            this.LeftArm.zRot = Mth.sin(limbSwing * 0.2262F * speed + (float)Math.PI) * 0.1F * factor * limbSwingAmount;
-            this.RightArm.xRot = Mth.cos(limbSwing * 0.5662F * speed + (float)Math.PI) * 0.4F * factor * limbSwingAmount;
-            this.RightArm.zRot = Mth.sin(limbSwing * 0.2262F * speed + (float)Math.PI) * 0.1F * factor * limbSwingAmount;
-         }
+            float bodyXRot = Mth.cos(limbSwing * 0.5662F * speed + (float)Math.PI) * 0.4F * factor * limbSwingAmount;
+            float bodyZRot = Mth.sin(limbSwing * 0.2262F * speed + (float)Math.PI) * 0.1F * factor * limbSwingAmount;
+
+            this.Body.xRot = bodyXRot;
+            this.Body.zRot = bodyZRot;
+            this.Head.xRot = bodyXRot;
+            this.Head.zRot = bodyZRot;
+            this.LeftArm.xRot = bodyXRot;
+            this.LeftArm.zRot = bodyZRot;
+            this.RightArm.xRot = bodyXRot;
+            this.RightArm.zRot = bodyZRot;
+        }
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         Head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
         Body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
         RightArm.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);

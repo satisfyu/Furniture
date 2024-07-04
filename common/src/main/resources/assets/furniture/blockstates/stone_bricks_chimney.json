@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "sooty=false": {
       "model": "furniture:block/stone_bricks_chimney"
+    },
+    "sooty=true": {
+      "model": "furniture:block/stone_bricks_chimney_sooty"
     }
   }
 }

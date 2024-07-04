@@ -1,7 +1,8 @@
 {
 	"credit": "Made by Berksire",
 	"textures": {
-		"1": "furniture:block/curtain_black_single_open"
+		"1": "furniture:block/curtain_black_single_open",
+		"particle": "furniture:block/curtain_black_single_open"
 	},
 	"elements": [
 		{

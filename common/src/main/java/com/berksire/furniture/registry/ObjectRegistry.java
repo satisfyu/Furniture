@@ -3,14 +3,17 @@ package com.berksire.furniture.registry;
 import com.berksire.furniture.block.*;
 import com.berksire.furniture.Furniture;
 import com.berksire.furniture.item.CanvasItem;
+import com.berksire.furniture.item.PellsSpawnItem;
 import com.berksire.furniture.item.TrashBagItem;
 import com.berksire.furniture.util.FurnitureIdentifier;
 import com.berksire.furniture.util.FurnitureUtil;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.Registrar;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
@@ -21,6 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+
+import static com.berksire.furniture.block.StreetLanternBlock.LIT;
 
 public class ObjectRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Furniture.MODID, Registries.ITEM);
@@ -54,7 +59,10 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> STONE_BRICKS_CHIMNEY = registerWithItem("stone_bricks_chimney", () -> new ChimneyBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistrySupplier<Block> COPPER_CHIMNEY = registerWithItem("copper_chimney", () -> new CopperChimneyBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
     public static final RegistrySupplier<Block> BOAT_IN_A_JAR = registerWithItem("boat_in_a_jar", () -> new BoatInAJarBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)));
-    public static final RegistrySupplier<Block> STREET_LANTERN = registerWithItem("street_lantern", () -> new Block(BlockBehaviour.Properties.copy(Blocks.GLASS)));
+    public static final RegistrySupplier<Block> STREET_LANTERN = registerWithoutItem("street_lantern", () -> new StreetLanternBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel((state) -> state.getValue(LIT) ? 15 : 0)));
+    public static final RegistrySupplier<Block> STREET_WALL_LANTERN = registerWithoutItem("street_lantern_wall", () -> new StreetLanternWallBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel((state) -> state.getValue(LIT) ? 15 : 0)));
+    public static final RegistrySupplier<Item> STREET_LANTERN_ITEM = registerItem("street_lantern_item", () -> new StandingAndWallBlockItem(ObjectRegistry.STREET_LANTERN.get(), ObjectRegistry.STREET_WALL_LANTERN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistrySupplier<Item> PELLS = registerItem("pells", () -> new PellsSpawnItem(getSettings()));
 
     public static final String[] colors = {
             "white", "light_gray", "gray", "black", "red", "orange", "yellow", "lime", "green", "cyan", "light_blue", "blue", "purple", "magenta", "pink", "brown"
@@ -110,6 +118,10 @@ public class ObjectRegistry {
 
     public static <T extends Block> RegistrySupplier<T> registerWithItem(String name, Supplier<T> block) {
         return FurnitureUtil.registerWithItem(BLOCKS, BLOCK_REGISTRAR, ITEMS, ITEM_REGISTRAR, new FurnitureIdentifier(name), block);
+    }
+
+    public static <T extends Block> RegistrySupplier<T> registerWithoutItem(String path, Supplier<T> block) {
+        return FurnitureUtil.registerWithoutItem(BLOCKS, BLOCK_REGISTRAR, new FurnitureIdentifier(path), block);
     }
 
     public static <T extends Item> RegistrySupplier<T> registerItem(String path, Supplier<T> itemSupplier) {

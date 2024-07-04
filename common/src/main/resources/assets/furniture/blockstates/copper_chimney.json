@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "sooty=false": {
       "model": "furniture:block/copper_chimney"
+    },
+    "sooty=true": {
+      "model": "furniture:block/copper_chimney_sooty"
     }
   }
 }

@@ -46,6 +46,7 @@ public class FurnitureClient {
     public static void registerEntityRenderers() {
         EntityRendererRegistry.register(EntityTypeRegistry.CHAIR, ChairRenderer::new);
         EntityRendererRegistry.register(EntityTypeRegistry.CANVAS, CanvasRenderer::new);
+        EntityRendererRegistry.register(EntityTypeRegistry.PELLS, PellsRenderer::new);
 
     }
 

@@ -5,7 +5,9 @@ import com.berksire.furniture.client.entity.ActualFishTankEntity;
 import com.berksire.furniture.client.entity.ChairEntity;
 import com.berksire.furniture.Furniture;
 import com.berksire.furniture.client.entity.CanvasEntity;
+import com.berksire.furniture.client.entity.PellsEntity;
 import com.berksire.furniture.util.FurnitureIdentifier;
+import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.Registrar;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -28,10 +30,12 @@ public final class EntityTypeRegistry {
     public static final RegistrySupplier<BlockEntityType<CabinetBlockEntity>> CABINET_BLOCK_ENTITY = registerBlockEntity("cabinet", () -> BlockEntityType.Builder.of(CabinetBlockEntity::new, CLOCKS.get("oak").get(), CLOCKS.get("birch").get(), CLOCKS.get("acacia").get(), CLOCKS.get("cherry").get(), CLOCKS.get("dark_oak").get(), CLOCKS.get("jungle").get(), CLOCKS.get("mangrove").get(), CLOCKS.get("spruce").get()).build(null));
     public static final RegistrySupplier<BlockEntityType<FishTankBlockEntity>> FISH_TANK_BLOCK_ENTITY = registerBlockEntity("fish_tank", () -> BlockEntityType.Builder.of(FishTankBlockEntity::new, FISH_TANK.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<GramophoneBlockEntity>> GRAMOPHONE_BLOCK_ENTITY = registerBlockEntity("gramophone", () -> BlockEntityType.Builder.of(GramophoneBlockEntity::new, GRAMOPHONE.get()).build(null));
+    public static final RegistrySupplier<BlockEntityType<ChimneyBlockEntity>> CHIMNEY_BLOCK_ENTITY = registerBlockEntity("chimney", () -> BlockEntityType.Builder.of(ChimneyBlockEntity::new, COPPER_CHIMNEY.get(), STONE_BRICKS_CHIMNEY.get(), BRICK_CHIMNEY.get()).build(null));
 
     public static final RegistrySupplier<EntityType<ChairEntity>> CHAIR = registerEntity("chair", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC).sized(0.001F, 0.001F).build(new FurnitureIdentifier("chair").toString()));
     public static final RegistrySupplier<EntityType<CanvasEntity>> CANVAS = registerEntity("canvas", () -> EntityType.Builder.<CanvasEntity>of(CanvasEntity::new, MobCategory.MISC).sized(1.0F, 2.0F).build(new FurnitureIdentifier("canvas").toString()));
     public static final RegistrySupplier<EntityType<ActualFishTankEntity>> ACTUAL_FISH_TANK = registerEntity("actual_fish_tank", () -> EntityType.Builder.of(ActualFishTankEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(1000).build(new FurnitureIdentifier("actual_fish_tank").toString()));
+    public static final RegistrySupplier<EntityType<PellsEntity>> PELLS = registerEntity("pells", () -> EntityType.Builder.of(PellsEntity::new, MobCategory.MISC).sized(1.0F, 2.0F).build(new FurnitureIdentifier("pells").toString()));
 
     private static <T extends BlockEntityType<?>> RegistrySupplier<T> registerBlockEntity(final String path, final Supplier<T> type) {
         return BLOCK_ENTITY_TYPES.register(new FurnitureIdentifier(path), type);
@@ -41,7 +45,12 @@ public final class EntityTypeRegistry {
         return ENTITY_TYPES.register(path, type);
     }
 
+    public static void registerAttributes() {
+        EntityAttributeRegistry.register(PELLS, PellsEntity::createMobAttributes);
+    }
+
     static {
         ENTITY_TYPES.register();
+        registerAttributes();
     }
 }

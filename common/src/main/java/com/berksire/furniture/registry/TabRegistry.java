@@ -65,7 +65,8 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.FISH_TANK.get());
                 out.accept(ObjectRegistry.BOAT_IN_A_JAR.get());
                 out.accept(ObjectRegistry.CANVAS.get());
-                out.accept(ObjectRegistry.STREET_LANTERN.get());
+                out.accept(ObjectRegistry.STREET_LANTERN_ITEM.get());
+                out.accept(ObjectRegistry.PELLS.get());
                 out.accept(ObjectRegistry.BIN.get());
                 out.accept(ObjectRegistry.TRASH_BAG.get());
             })

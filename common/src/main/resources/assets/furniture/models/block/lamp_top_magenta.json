@@ -1,55 +1,9 @@
 {
-	"credit": "Made by Berksire",
+	"parent": "furniture:block/lamp_top_green",
 	"textures": {
 		"0": "furniture:block/lamp_magenta_side",
 		"1": "furniture:block/lamp_magenta_top",
 		"2": "furniture:block/lamp_parts",
-		"particle": "furniture:block/lamp_green_side"
-	},
-	"elements": [
-		{
-			"from": [7, 0, 7],
-			"to": [9, 16, 9],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 10, 8]},
-			"faces": {
-				"north": {"uv": [0, 0, 2, 16], "texture": "#2"},
-				"east": {"uv": [2, 0, 4, 16], "texture": "#2"},
-				"south": {"uv": [0, 0, 2, 16], "texture": "#2"},
-				"west": {"uv": [2, 0, 4, 16], "texture": "#2"}
-			}
-		},
-		{
-			"from": [2, 8, 2],
-			"to": [14, 16, 14],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 10, 8]},
-			"faces": {
-				"north": {"uv": [2, 4, 14, 12], "texture": "#0"},
-				"east": {"uv": [2, 4, 14, 12], "texture": "#0"},
-				"south": {"uv": [2, 4, 14, 12], "texture": "#0"},
-				"west": {"uv": [2, 4, 14, 12], "texture": "#0"},
-				"up": {"uv": [2, 2, 14, 14], "texture": "#1"}
-			}
-		},
-		{
-			"from": [14, 8, 2],
-			"to": [2, 16, 14],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 10, 8]},
-			"faces": {
-				"north": {"uv": [2, 4, 14, 12], "texture": "#0"},
-				"east": {"uv": [2, 4, 14, 12], "texture": "#0"},
-				"south": {"uv": [2, 4, 14, 12], "texture": "#0"},
-				"west": {"uv": [2, 4, 14, 12], "texture": "#0"},
-				"up": {"uv": [2, 2, 14, 14], "texture": "#1"}
-			}
-		}
-	],
-	"groups": [
-		{
-			"name": "top",
-			"origin": [-2, 8, -15],
-			"color": 0,
-			"nbt": "{}",
-			"children": [0, 1, 2]
-		}
-	]
+		"particle": "furniture:block/lamp_magenta_side"
+	}
 }

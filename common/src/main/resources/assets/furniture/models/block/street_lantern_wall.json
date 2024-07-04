@@ -1,0 +1,75 @@
+{
+	"credit": "Made by Berksire",
+	"textures": {
+		"0": "street_lantern",
+		"particle": "street_lantern"
+	},
+	"elements": [
+		{
+			"name": "lamp",
+			"from": [5, 9, 7],
+			"to": [11, 16, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, 9, 7]},
+			"faces": {
+				"north": {"uv": [6, 0, 12, 7], "texture": "#0"},
+				"east": {"uv": [6, 0, 12, 7], "texture": "#0"},
+				"south": {"uv": [6, 0, 12, 7], "texture": "#0"},
+				"west": {"uv": [6, 0, 12, 7], "texture": "#0"},
+				"up": {"uv": [0, 0, 6, 6], "texture": "#0"},
+				"down": {"uv": [0, 0, 6, 6], "texture": "#0"}
+			}
+		},
+		{
+			"name": "metal",
+			"from": [6, 8, 8],
+			"to": [10, 9, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 8, 8]},
+			"color": 3,
+			"faces": {
+				"north": {"uv": [0, 0, 4, 1], "texture": "#missing"},
+				"east": {"uv": [0, 0, 4, 1], "texture": "#missing"},
+				"south": {"uv": [0, 0, 4, 1], "texture": "#missing"},
+				"west": {"uv": [0, 0, 4, 1], "texture": "#missing"},
+				"up": {"uv": [0, 0, 4, 4], "texture": "#missing"},
+				"down": {"uv": [0, 0, 4, 4], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "metal",
+			"from": [8, 4, 10],
+			"to": [8, 9, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4, 10]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 3], "texture": "#missing"},
+				"east": {"uv": [0, 7, 12, 11], "texture": "#0"},
+				"south": {"uv": [0, 0, 0, 3], "texture": "#missing"},
+				"west": {"uv": [0, 0, 13, 3], "texture": "#missing"},
+				"up": {"uv": [0, 0, 0, 13], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 13], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [5, 2, 15],
+			"to": [11, 8, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, 2, 15]},
+			"color": 0,
+			"faces": {
+				"north": {"uv": [0, 0, 6, 6], "texture": "#missing"},
+				"east": {"uv": [0, 0, 1, 6], "texture": "#missing"},
+				"south": {"uv": [0, 0, 6, 6], "texture": "#missing"},
+				"west": {"uv": [0, 0, 1, 6], "texture": "#missing"},
+				"up": {"uv": [0, 0, 6, 1], "texture": "#missing"},
+				"down": {"uv": [0, 0, 6, 1], "texture": "#missing"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "double",
+			"origin": [6, 0, 6],
+			"color": 0,
+			"nbt": "{}",
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

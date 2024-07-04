@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "furniture:block/boat_in_a_jar"
+    },
+    "facing=south": {
+      "model": "furniture:block/boat_in_a_jar",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/boat_in_a_jar",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "furniture:block/boat_in_a_jar",
+      "y": 90
+    }
+  }
+}

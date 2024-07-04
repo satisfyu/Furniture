@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,bulbs=0": {
+      "model": "furniture:block/street_lantern_wall"
+    },
+    "facing=north,bulbs=1": {
+      "model": "furniture:block/street_lantern_wall_double"
+    },
+    "facing=south,bulbs=0": {
+      "model": "furniture:block/street_lantern_wall",
+      "y": 180
+    },
+    "facing=south,bulbs=1": {
+      "model": "furniture:block/street_lantern_wall_double",
+      "y": 180
+    },
+    "facing=west,bulbs=0": {
+      "model": "furniture:block/street_lantern_wall",
+      "y": 270
+    },
+    "facing=west,bulbs=1": {
+      "model": "furniture:block/street_lantern_wall_double",
+      "y": 270
+    },
+    "facing=east,bulbs=0": {
+      "model": "furniture:block/street_lantern_wall",
+      "y": 90
+    },
+    "facing=east,bulbs=1": {
+      "model": "furniture:block/street_lantern_wall_double",
+      "y": 90
+    }
+  }
+}

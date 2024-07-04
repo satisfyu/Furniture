@@ -1,3 +1,5 @@
 {
-	"credit": "Made by Berksire"
+	"textures": {
+		"particle": "furniture:block/empty"
+	}
 }

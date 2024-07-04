@@ -1,48 +1,8 @@
 {
-	"credit": "Made by Satisfy",
+	"parent": "furniture:block/oak_bench_middle_no_lean",
 	"textures": {
 		"0": "furniture:block/jungle_bench_top",
 		"1": "furniture:block/jungle_bench_front_middle",
 		"particle": "furniture:block/jungle_bench_top"
-	},
-	"elements": [
-		{
-			"from": [0, 4, 1],
-			"to": [16, 6, 15],
-			"rotation": {"angle": 0, "axis": "y", "origin": [15, 4, 1]},
-			"faces": {
-				"north": {"uv": [16, 10, 0, 12], "texture": "#1"},
-				"south": {"uv": [16, 10, 0, 12], "texture": "#1"},
-				"up": {"uv": [0, 15, 16, 1], "texture": "#0"},
-				"down": {"uv": [0, 15, 16, 1], "texture": "#0"}
-			}
-		},
-		{
-			"from": [16, 1, 1.01],
-			"to": [0, 3, 14.99],
-			"rotation": {"angle": 0, "axis": "y", "origin": [31, 1, 1]},
-			"faces": {
-				"north": {"uv": [16, 13, 0, 15], "texture": "#1"},
-				"south": {"uv": [16, 13, 0, 15], "texture": "#1"}
-			}
-		},
-		{
-			"from": [0, 1, 1.01],
-			"to": [16, 3, 14.99],
-			"rotation": {"angle": 0, "axis": "y", "origin": [16, 1, 1]},
-			"faces": {
-				"north": {"uv": [16, 13, 0, 15], "texture": "#1"},
-				"south": {"uv": [16, 13, 0, 15], "texture": "#1"}
-			}
-		}
-	],
-	"groups": [
-		{
-			"name": "right",
-			"origin": [15, 1, 1],
-			"color": 0,
-			"nbt": "{}",
-			"children": [0, 1, 2]
-		}
-	]
+	}
 }

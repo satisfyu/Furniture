@@ -22,5 +22,17 @@
     "sounds": [
       "furniture:cabinet_close"
     ]
+  },
+  "coffer_open": {
+    "subtitle": "subtitles.furniture.coffer_open",
+    "sounds": [
+      "furniture:coffer_open"
+    ]
+  },
+  "coffer_close": {
+    "subtitle": "subtitles.furniture.coffer_close",
+    "sounds": [
+      "furniture:coffer_close"
+    ]
   }
 }

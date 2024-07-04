@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,has_record=false,half=lower": {
+      "model": "furniture:block/gramophone"
+    },
+    "facing=north,has_record=true,half=lower": {
+      "model": "furniture:block/gramophone_record"
+    },
+    "facing=south,has_record=false,half=lower": {
+      "model": "furniture:block/gramophone",
+      "y": 180
+    },
+    "facing=south,has_record=true,half=lower": {
+      "model": "furniture:block/gramophone_record",
+      "y": 180
+    },
+    "facing=west,has_record=false,half=lower": {
+      "model": "furniture:block/gramophone",
+      "y": 270
+    },
+    "facing=west,has_record=true,half=lower": {
+      "model": "furniture:block/gramophone_record",
+      "y": 270
+    },
+    "facing=east,has_record=false,half=lower": {
+      "model": "furniture:block/gramophone",
+      "y": 90
+    },
+    "facing=east,has_record=true,half=lower": {
+      "model": "furniture:block/gramophone_record",
+      "y": 90
+    },
+    "facing=north,has_record=false,half=upper": {
+      "model": "furniture:block/gramophone_top"
+    },
+    "facing=north,has_record=true,half=upper": {
+      "model": "furniture:block/gramophone_top"
+    },
+    "facing=south,has_record=false,half=upper": {
+      "model": "furniture:block/gramophone_top",
+      "y": 180
+    },
+    "facing=south,has_record=true,half=upper": {
+      "model": "furniture:block/gramophone_top",
+      "y": 180
+    },
+    "facing=west,has_record=false,half=upper": {
+      "model": "furniture:block/gramophone_top",
+      "y": 270
+    },
+    "facing=west,has_record=true,half=upper": {
+      "model": "furniture:block/gramophone_top",
+      "y": 270
+    },
+    "facing=east,has_record=false,half=upper": {
+      "model": "furniture:block/gramophone_top",
+      "y": 90
+    },
+    "facing=east,has_record=true,half=upper": {
+      "model": "furniture:block/gramophone_top",
+      "y": 90
+    }
+  }
+}

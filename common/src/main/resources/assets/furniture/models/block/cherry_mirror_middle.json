@@ -1,41 +1,8 @@
 {
-	"credit": "Made by berksire",
+	"parent": "furniture:block/oak_mirror_middle",
 	"textures": {
 		"0": "furniture:block/cherry_mirror_middle",
 		"1": "furniture:block/cherry_mirror_back",
 		"particle": "furniture:block/cherry_mirror_middle"
-	},
-	"elements": [
-		{
-			"from": [1, 0, 14],
-			"to": [3, 16, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 14]},
-			"faces": {
-				"north": {"uv": [14, 0, 16, 16], "texture": "#0"},
-				"east": {"uv": [15, 0, 13, 16], "texture": "#0"},
-				"south": {"uv": [2, 0, 4, 16], "texture": "#0"},
-				"west": {"uv": [2, 0, 0, 16], "texture": "#0"}
-			}
-		},
-		{
-			"from": [13, 0, 14],
-			"to": [15, 16, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [13, 0, 14]},
-			"faces": {
-				"north": {"uv": [2, 0, 4, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 2, 16], "texture": "#0"},
-				"south": {"uv": [14, 0, 16, 16], "texture": "#0"},
-				"west": {"uv": [3, 0, 1, 16], "texture": "#0"}
-			}
-		},
-		{
-			"from": [3, 0, 15],
-			"to": [13, 16, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0, 15]},
-			"faces": {
-				"north": {"uv": [4, 0, 14, 16], "texture": "#0"},
-				"south": {"uv": [3, 0, 13, 16], "texture": "#1"}
-			}
-		}
-	]
+	}
 }

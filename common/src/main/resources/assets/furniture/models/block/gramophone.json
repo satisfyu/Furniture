@@ -1,0 +1,37 @@
+{
+	"textures": {
+		"particle": "minecraft:block/jukebox_side"
+	},
+	"elements": [
+		{
+			"name": "stick",
+			"from": [6, 11, 8],
+			"to": [7, 12, 14],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [6, 11, 8]},
+			"color": 4,
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#missing"},
+				"east": {"uv": [0, 0, 6, 1], "texture": "#missing"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#missing"},
+				"west": {"uv": [0, 0, 6, 1], "texture": "#missing"},
+				"up": {"uv": [0, 0, 1, 6], "texture": "#missing"},
+				"down": {"uv": [0, 0, 1, 6], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "stick",
+			"from": [6, 9.95, 7.62],
+			"to": [7, 10.95, 7.62],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [6, 10, 8]},
+			"color": 4,
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#missing"},
+				"east": {"uv": [0, 0, 0, 1], "texture": "#missing"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#missing"},
+				"west": {"uv": [0, 0, 0, 1], "texture": "#missing"},
+				"up": {"uv": [0, 0, 1, 0], "texture": "#missing"},
+				"down": {"uv": [0, 0, 1, 0], "texture": "#missing"}
+			}
+		}
+	]
+}

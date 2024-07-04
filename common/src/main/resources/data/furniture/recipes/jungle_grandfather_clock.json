@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " B ",
+    " B "
+  ],
+  "key": {
+    "#": {
+      "item": "furniture:jungle_clock"
+    },
+    "B": {
+      "item": "minecraft:jungle_planks"
+    }
+  },
+  "result": {
+    "item": "furniture:jungle_grandfather_clock",
+    "count": 1
+  }
+}

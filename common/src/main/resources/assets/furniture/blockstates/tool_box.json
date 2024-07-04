@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "furniture:block/tool_box"
+    },
+    "facing=south": {
+      "model": "furniture:block/tool_box",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/tool_box",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "furniture:block/tool_box",
+      "y": 90
+    }
+  }
+}

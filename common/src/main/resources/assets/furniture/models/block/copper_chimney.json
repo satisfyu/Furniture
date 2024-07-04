@@ -1,0 +1,49 @@
+{
+	"credit": "Made by Satisfy",
+	"textures": {
+		"0": "furniture:block/copper_chimney_side",
+		"1": "furniture:block/copper_chimney_top",
+		"particle": "furniture:block/copper_chimney_side"
+	},
+	"elements": [
+		{
+			"from": [4, 0, 4],
+			"to": [12, 3, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 4]},
+			"faces": {
+				"north": {"uv": [4, 13, 12, 16], "texture": "#0"},
+				"east": {"uv": [12, 13, 4, 16], "texture": "#0"},
+				"south": {"uv": [4, 13, 12, 16], "texture": "#0"},
+				"west": {"uv": [12, 13, 4, 16], "texture": "#0"},
+				"up": {"uv": [8, 8, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 8, 8], "texture": "#1"}
+			}
+		},
+		{
+			"from": [4, 12, 4],
+			"to": [12, 15, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 12, 4]},
+			"faces": {
+				"north": {"uv": [4, 1, 12, 4], "texture": "#0"},
+				"east": {"uv": [12, 1, 4, 4], "texture": "#0"},
+				"south": {"uv": [4, 1, 12, 4], "texture": "#0"},
+				"west": {"uv": [12, 1, 4, 4], "texture": "#0"},
+				"up": {"uv": [8, 8, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 8, 8, 16], "texture": "#1"}
+			}
+		},
+		{
+			"from": [5, 3, 5],
+			"to": [11, 16, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, 3, 5]},
+			"faces": {
+				"north": {"uv": [11, 0, 5, 13], "texture": "#0"},
+				"east": {"uv": [5, 0, 11, 13], "texture": "#0"},
+				"south": {"uv": [11, 0, 5, 13], "texture": "#0"},
+				"west": {"uv": [5, 0, 11, 13], "texture": "#0"},
+				"up": {"uv": [9, 1, 15, 7], "texture": "#1"},
+				"down": {"uv": [0, 0, 6, 6], "texture": "#missing"}
+			}
+		}
+	]
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "furniture:block/sofa_middle_template",
+  "textures": {
+    "0": "furniture:block/sofa_back_magenta",
+    "1": "furniture:block/sofa_bottom",
+    "2": "furniture:block/sofa_front_magenta",
+    "3": "furniture:block/sofa_parts_magenta",
+    "4": "furniture:block/sofa_side_magenta",
+    "7": "furniture:block/sofa_top_middle_magenta",
+    "particle": "furniture:block/sofa_back_magenta"
+  },
+  "credit": "Made by berksire"
+}

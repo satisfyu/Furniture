@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BB ",
+    "## ",
+    "## "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "minecraft:lime_wool"
+    }
+  },
+  "result": {
+    "item": "furniture:curtain_lime",
+    "count": 4
+  }
+}

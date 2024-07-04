@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furniture:block/cash_register",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furniture:block/cash_register"
+    },
+    "facing=south": {
+      "model": "furniture:block/cash_register",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/cash_register",
+      "y": 270
+    }
+  }
+}

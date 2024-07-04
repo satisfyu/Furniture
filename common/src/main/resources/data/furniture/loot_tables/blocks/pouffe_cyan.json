@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:cyan_wool"
+    }
+  },
+  "result": {
+    "item": "furniture:pouffe_cyan",
+    "count": 2
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "furniture:block/blueprints"
+    },
+    "facing=south": {
+      "model": "furniture:block/blueprints",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/blueprints",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "furniture:block/blueprints",
+      "y": 90
+    }
+  }
+}

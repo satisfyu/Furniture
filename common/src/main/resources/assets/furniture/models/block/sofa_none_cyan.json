@@ -1,0 +1,13 @@
+{
+  "parent": "furniture:block/sofa_none_template",
+  "textures": {
+    "0": "furniture:block/sofa_back_cyan",
+    "1": "furniture:block/sofa_bottom",
+    "2": "furniture:block/sofa_front_cyan",
+    "3": "furniture:block/sofa_parts_cyan",
+    "4": "furniture:block/sofa_side_cyan",
+    "6": "furniture:block/sofa_top_cyan",
+    "particle": "furniture:block/sofa_back_cyan"
+  },
+  "credit": "Made by berksire"
+}

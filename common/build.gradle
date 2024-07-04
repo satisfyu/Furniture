@@ -1,0 +1,26 @@
+architectury {
+    common(rootProject.enabled_platforms.split(","))
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/furniture.accesswidener")
+}
+
+dependencies {
+    modApi "dev.architectury:architectury:${rootProject.architectury_version}"
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    modCompileOnly ("me.shedaniel:RoughlyEnoughItems-api:$rei_version") { exclude group: 'net.fabricmc', module: 'fabric-loader' }
+    modCompileOnly ("me.shedaniel:RoughlyEnoughItems-default-plugin:$rei_version") { exclude group: 'net.fabricmc', module: 'fabric-loader' }
+
+}
+
+publishing {
+    publications {
+        mavenCommon(MavenPublication) {
+            artifactId = rootProject.archives_base_name
+            from components.java
+        }
+    }
+    repositories {
+    }
+}

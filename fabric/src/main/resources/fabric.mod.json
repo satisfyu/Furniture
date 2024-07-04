@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "furniture",
+  "version": "${version}",
+  "name": "[Let's Do Addon] Furniture",
+  "description": "Let's expand your world with a whole set of new and exciting furnitures! All in the style of the Let's Do Mods.",
+  "authors": [
+    "berksire"
+  ],
+  "contact": {
+    "sources": "https://github.com/berksire/lets-do-furniture"
+  },
+  "license": "Custom",
+  "icon": "pack.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.berksire.furniture.fabric.FurnitureFabric"
+    ],
+    "client": [
+      "com.berksire.furniture.fabric.client.FurnitureClientFabric"
+    ]
+  },
+  "mixins": [
+    "furniture-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.1",
+    "architectury": ">=6.5.77"
+  }
+}

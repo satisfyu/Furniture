@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "BBB",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "B": {
+      "item": "minecraft:birch_slab"
+    }
+  },
+  "result": {
+    "item": "furniture:birch_bench",
+    "count": 2
+  }
+}

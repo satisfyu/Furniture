@@ -1,0 +1,13 @@
+{
+  "parent": "furniture:block/sofa_none_template",
+  "textures": {
+    "0": "furniture:block/sofa_back_lime",
+    "1": "furniture:block/sofa_bottom",
+    "2": "furniture:block/sofa_front_lime",
+    "3": "furniture:block/sofa_parts_lime",
+    "4": "furniture:block/sofa_side_lime",
+    "6": "furniture:block/sofa_top_lime",
+    "particle": "furniture:block/sofa_back_lime"
+  },
+  "credit": "Made by berksire"
+}

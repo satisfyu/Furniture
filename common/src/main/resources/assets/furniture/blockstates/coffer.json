@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furniture:block/coffer",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furniture:block/coffer"
+    },
+    "facing=south": {
+      "model": "furniture:block/coffer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/coffer",
+      "y": 270
+    }
+  }
+}

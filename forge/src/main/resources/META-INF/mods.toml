@@ -1,0 +1,34 @@
+modLoader = "javafml"
+loaderVersion = "[43,)"
+license = "Custom"
+
+[[mods]]
+modId = "furniture"
+version = "${version}"
+displayName = "[Let's Do Addon] Furniture"
+authors = "berksire"
+icon = "pack.png"
+description = '''
+Let's expand your world with a whole set of new and exciting furnitures! All in the style of the Let's Do Mods.
+'''
+
+[[dependencies.furniture]]
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.furniture]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.furniture]]
+modId = "architectury"
+mandatory = true
+versionRange = "[9.0.8,)"
+ordering = "AFTER"
+side = "BOTH"

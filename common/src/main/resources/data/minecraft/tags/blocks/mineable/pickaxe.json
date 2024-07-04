@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "furniture:bin",
+    "furniture:cash_register",
+    "furniture:grammophone",
+    "furniture:sewing_kit",
+    "furniture:telescope",
+    "furniture:tool_box",
+    "furniture:steam_vent"
+  ]
+}

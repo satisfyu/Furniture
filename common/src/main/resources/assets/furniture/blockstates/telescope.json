@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,half=lower": {
+      "model": "furniture:block/telescope_lower",
+      "y": 0
+    },
+    "facing=south,half=lower": {
+      "model": "furniture:block/telescope_lower",
+      "y": 180
+    },
+    "facing=west,half=lower": {
+      "model": "furniture:block/telescope_lower",
+      "y": 270
+    },
+    "facing=east,half=lower": {
+      "model": "furniture:block/telescope_lower",
+      "y": 90
+    },
+    "facing=north,half=upper": {
+      "model": "furniture:block/telescope_upper",
+      "y": 0
+    },
+    "facing=south,half=upper": {
+      "model": "furniture:block/telescope_upper",
+      "y": 180
+    },
+    "facing=west,half=upper": {
+      "model": "furniture:block/telescope_upper",
+      "y": 270
+    },
+    "facing=east,half=upper": {
+      "model": "furniture:block/telescope_upper",
+      "y": 90
+    }
+  }
+}

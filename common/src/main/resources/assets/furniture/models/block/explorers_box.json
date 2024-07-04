@@ -1,0 +1,19 @@
+{
+	"credit": "Made by Berksire",
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 10, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 2]},
+			"color": 0,
+			"faces": {
+				"north": {"uv": [0, 0, 12, 10], "texture": "#missing"},
+				"east": {"uv": [0, 0, 12, 10], "texture": "#missing"},
+				"south": {"uv": [0, 0, 12, 10], "texture": "#missing"},
+				"west": {"uv": [0, 0, 12, 10], "texture": "#missing"},
+				"up": {"uv": [0, 0, 12, 12], "texture": "#missing"},
+				"down": {"uv": [0, 0, 12, 12], "texture": "#missing"}
+			}
+		}
+	]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " B ",
+    " B "
+  ],
+  "key": {
+    "#": {
+      "item": "furniture:acacia_clock"
+    },
+    "B": {
+      "item": "minecraft:acacia_planks"
+    }
+  },
+  "result": {
+    "item": "furniture:acacia_grandfather_clock",
+    "count": 1
+  }
+}

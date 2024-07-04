@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_nugget"
+    },
+    "B": {
+      "item": "minecraft:smithing_table"
+    }
+  },
+  "result": {
+    "item": "furniture:tool_box",
+    "count": 1
+  }
+}

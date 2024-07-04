@@ -1,0 +1,40 @@
+{
+  "variants": {
+    "fill_stage=0": {
+      "model": "furniture:block/bin_stage_0"
+    },
+    "fill_stage=1": {
+      "model": "furniture:block/bin_stage_1"
+    },
+    "fill_stage=2": {
+      "model": "furniture:block/bin_stage_2"
+    },
+    "fill_stage=3": {
+      "model": "furniture:block/bin_stage_3"
+    },
+    "fill_stage=4": {
+      "model": "furniture:block/bin_stage_4"
+    },
+    "fill_stage=5": {
+      "model": "furniture:block/bin_stage_5"
+    },
+    "fill_stage=6": {
+      "model": "furniture:block/bin_stage_6"
+    },
+    "fill_stage=7": {
+      "model": "furniture:block/bin_stage_7"
+    },
+    "fill_stage=8": {
+      "model": "furniture:block/bin_stage_8"
+    },
+    "fill_stage=9": {
+      "model": "furniture:block/bin_stage_9"
+    },
+    "fill_stage=10": {
+      "model": "furniture:block/bin_stage_10"
+    },
+    "fill_stage=11": {
+      "model": "furniture:block/bin_stage_11"
+    }
+  }
+}

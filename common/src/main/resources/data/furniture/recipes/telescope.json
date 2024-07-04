@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " U ",
+    " # ",
+    "# #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "U": {
+      "item": "minecraft:spyglass"
+    }
+  },
+  "result": {
+    "item": "furniture:telescope",
+    "count": 1
+  }
+}

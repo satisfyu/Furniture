@@ -1,0 +1,10 @@
+{
+  "parent": "furniture:block/pouffe_template",
+  "textures": {
+    "0": "furniture:block/sofa_side_lime",
+    "1": "furniture:block/sofa_top_lime",
+    "2": "furniture:block/sofa_bottom",
+    "particle": "furniture:block/sofa_side_lime"
+  },
+  "credit": "Made by berksire"
+}

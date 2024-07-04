@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "type=none,lit=false": {
+      "model": "furniture:block/lamp_single_light_blue"
+    },
+    "type=none,lit=true": {
+      "model": "furniture:block/lamp_single_light_blue"
+    },
+    "type=top,lit=false": {
+      "model": "furniture:block/lamp_top_light_blue"
+    },
+    "type=top,lit=true": {
+      "model": "furniture:block/lamp_top_light_blue"
+    },
+    "type=middle,lit=false": {
+      "model": "furniture:block/lamp_middle"
+    },
+    "type=middle,lit=true": {
+      "model": "furniture:block/lamp_middle"
+    },
+    "type=bottom,lit=false": {
+      "model": "furniture:block/lamp_bottom"
+    },
+    "type=bottom,lit=true": {
+      "model": "furniture:block/lamp_bottom"
+    }
+  }
+}

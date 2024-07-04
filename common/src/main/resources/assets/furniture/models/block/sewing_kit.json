@@ -1,0 +1,38 @@
+{
+	"credit": "Made by Berksire",
+	"textures": {
+		"0": "furniture:block/sewing_kit_top",
+		"1": "furniture:block/sewing_kit_inner",
+		"2": "furniture:block/sewing_kit_bottom",
+		"3": "furniture:block/sewing_kit_inner_top",
+		"particle": "furniture:block/sofa_side_yellow"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 4, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0, 3]},
+			"faces": {
+				"north": {"uv": [2, 11, 14, 15], "texture": "#0"},
+				"east": {"uv": [3, 11, 13, 15], "texture": "#0"},
+				"south": {"uv": [2, 11, 14, 15], "texture": "#0"},
+				"west": {"uv": [3, 11, 13, 15], "texture": "#0"},
+				"up": {"uv": [0, 0, 12, 10], "texture": "#1"},
+				"down": {"uv": [2, 0, 14, 10], "texture": "#2"}
+			}
+		},
+		{
+			"from": [2, 4, 11],
+			"to": [14, 14, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 4, 12]},
+			"faces": {
+				"north": {"uv": [2, 3, 14, 13], "texture": "#3"},
+				"east": {"uv": [12, 0, 15, 10], "texture": "#1"},
+				"south": {"uv": [2, 0, 14, 10], "texture": "#0"},
+				"west": {"uv": [15, 0, 12, 10], "texture": "#1"},
+				"up": {"uv": [0, 13, 12, 10], "texture": "#1"},
+				"down": {"uv": [0, 10, 12, 13], "texture": "#1"}
+			}
+		}
+	]
+}

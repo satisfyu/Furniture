@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,type=left": {
+      "model": "furniture:block/sofa_left_blue"
+    },
+    "facing=east,type=left": {
+      "y": 90,
+      "model": "furniture:block/sofa_left_blue"
+    },
+    "facing=west,type=middle": {
+      "y": 270,
+      "model": "furniture:block/sofa_middle_blue"
+    },
+    "facing=west,type=left": {
+      "y": 270,
+      "model": "furniture:block/sofa_left_blue"
+    },
+    "facing=north,type=right": {
+      "model": "furniture:block/sofa_right_blue"
+    },
+    "facing=east,type=middle": {
+      "y": 90,
+      "model": "furniture:block/sofa_middle_blue"
+    },
+    "facing=east,type=right": {
+      "y": 90,
+      "model": "furniture:block/sofa_right_blue"
+    },
+    "facing=south,type=none": {
+      "y": 180,
+      "model": "furniture:block/sofa_none_blue"
+    },
+    "facing=north,type=middle": {
+      "model": "furniture:block/sofa_middle_blue"
+    },
+    "facing=north,type=none": {
+      "model": "furniture:block/sofa_none_blue"
+    },
+    "facing=east,type=none": {
+      "y": 90,
+      "model": "furniture:block/sofa_none_blue"
+    },
+    "facing=south,type=middle": {
+      "y": 180,
+      "model": "furniture:block/sofa_middle_blue"
+    },
+    "facing=south,type=right": {
+      "y": 180,
+      "model": "furniture:block/sofa_right_blue"
+    },
+    "facing=south,type=left": {
+      "y": 180,
+      "model": "furniture:block/sofa_left_blue"
+    },
+    "facing=west,type=right": {
+      "y": 270,
+      "model": "furniture:block/sofa_right_blue"
+    },
+    "facing=west,type=none": {
+      "y": 270,
+      "model": "furniture:block/sofa_none_blue"
+    }
+  }
+}

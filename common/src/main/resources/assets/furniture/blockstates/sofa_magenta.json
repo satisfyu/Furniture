@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,type=left": {
+      "model": "furniture:block/sofa_left_magenta"
+    },
+    "facing=east,type=left": {
+      "y": 90,
+      "model": "furniture:block/sofa_left_magenta"
+    },
+    "facing=west,type=middle": {
+      "y": 270,
+      "model": "furniture:block/sofa_middle_magenta"
+    },
+    "facing=west,type=left": {
+      "y": 270,
+      "model": "furniture:block/sofa_left_magenta"
+    },
+    "facing=north,type=right": {
+      "model": "furniture:block/sofa_right_magenta"
+    },
+    "facing=east,type=middle": {
+      "y": 90,
+      "model": "furniture:block/sofa_middle_magenta"
+    },
+    "facing=east,type=right": {
+      "y": 90,
+      "model": "furniture:block/sofa_right_magenta"
+    },
+    "facing=south,type=none": {
+      "y": 180,
+      "model": "furniture:block/sofa_none_magenta"
+    },
+    "facing=north,type=middle": {
+      "model": "furniture:block/sofa_middle_magenta"
+    },
+    "facing=north,type=none": {
+      "model": "furniture:block/sofa_none_magenta"
+    },
+    "facing=east,type=none": {
+      "y": 90,
+      "model": "furniture:block/sofa_none_magenta"
+    },
+    "facing=south,type=middle": {
+      "y": 180,
+      "model": "furniture:block/sofa_middle_magenta"
+    },
+    "facing=south,type=right": {
+      "y": 180,
+      "model": "furniture:block/sofa_right_magenta"
+    },
+    "facing=south,type=left": {
+      "y": 180,
+      "model": "furniture:block/sofa_left_magenta"
+    },
+    "facing=west,type=right": {
+      "y": 270,
+      "model": "furniture:block/sofa_right_magenta"
+    },
+    "facing=west,type=none": {
+      "y": 270,
+      "model": "furniture:block/sofa_none_magenta"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "type=none": {
+      "model": "furniture:block/steam_vent_single"
+    },
+    "type=bottom": {
+      "model": "furniture:block/steam_vent_bottom"
+    },
+    "type=top": {
+      "model": "furniture:block/steam_vent_top"
+    },
+    "type=middle": {
+      "model": "furniture:block/steam_vent_middle"
+    }
+  }
+}

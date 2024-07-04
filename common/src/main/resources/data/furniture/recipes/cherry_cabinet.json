@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "UUU",
+    "#B#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "B": {
+      "item": "minecraft:chest"
+    },
+    "U": {
+      "item": "minecraft:cherry_slab"
+    }
+  },
+  "result": {
+    "item": "furniture:cherry_cabinet",
+    "count": 2
+  }
+}

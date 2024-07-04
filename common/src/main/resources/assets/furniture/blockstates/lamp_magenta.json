@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "type=none,lit=false": {
+      "model": "furniture:block/lamp_single_magenta"
+    },
+    "type=none,lit=true": {
+      "model": "furniture:block/lamp_single_magenta"
+    },
+    "type=top,lit=false": {
+      "model": "furniture:block/lamp_top_magenta"
+    },
+    "type=top,lit=true": {
+      "model": "furniture:block/lamp_top_magenta"
+    },
+    "type=middle,lit=false": {
+      "model": "furniture:block/lamp_middle"
+    },
+    "type=middle,lit=true": {
+      "model": "furniture:block/lamp_middle"
+    },
+    "type=bottom,lit=false": {
+      "model": "furniture:block/lamp_bottom"
+    },
+    "type=bottom,lit=true": {
+      "model": "furniture:block/lamp_bottom"
+    }
+  }
+}

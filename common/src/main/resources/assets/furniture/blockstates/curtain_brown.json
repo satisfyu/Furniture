@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "facing=north,type=none,open=false": {
+      "model": "furniture:block/curtain_single_closed_brown"
+    },
+    "facing=south,type=none,open=false": {
+      "model": "furniture:block/curtain_single_closed_brown",
+      "y": 180
+    },
+    "facing=east,type=none,open=false": {
+      "model": "furniture:block/curtain_single_closed_brown",
+      "y": 90
+    },
+    "facing=west,type=none,open=false": {
+      "model": "furniture:block/curtain_single_closed_brown",
+      "y": 270
+    },
+    "facing=north,type=top,open=false": {
+      "model": "furniture:block/curtain_top_closed_brown"
+    },
+    "facing=south,type=top,open=false": {
+      "model": "furniture:block/curtain_top_closed_brown",
+      "y": 180
+    },
+    "facing=east,type=top,open=false": {
+      "model": "furniture:block/curtain_top_closed_brown",
+      "y": 90
+    },
+    "facing=west,type=top,open=false": {
+      "model": "furniture:block/curtain_top_closed_brown",
+      "y": 270
+    },
+    "facing=north,type=middle,open=false": {
+      "model": "furniture:block/curtain_middle_closed_brown"
+    },
+    "facing=south,type=middle,open=false": {
+      "model": "furniture:block/curtain_middle_closed_brown",
+      "y": 180
+    },
+    "facing=east,type=middle,open=false": {
+      "model": "furniture:block/curtain_middle_closed_brown",
+      "y": 90
+    },
+    "facing=west,type=middle,open=false": {
+      "model": "furniture:block/curtain_middle_closed_brown",
+      "y": 270
+    },
+    "facing=north,type=bottom,open=false": {
+      "model": "furniture:block/curtain_bottom_closed_brown"
+    },
+    "facing=south,type=bottom,open=false": {
+      "model": "furniture:block/curtain_bottom_closed_brown",
+      "y": 180
+    },
+    "facing=east,type=bottom,open=false": {
+      "model": "furniture:block/curtain_bottom_closed_brown",
+      "y": 90
+    },
+    "facing=west,type=bottom,open=false": {
+      "model": "furniture:block/curtain_bottom_closed_brown",
+      "y": 270
+    },
+    "facing=north,type=none,open=true": {
+      "model": "furniture:block/curtain_single_open_brown"
+    },
+    "facing=south,type=none,open=true": {
+      "model": "furniture:block/curtain_single_open_brown",
+      "y": 180
+    },
+    "facing=east,type=none,open=true": {
+      "model": "furniture:block/curtain_single_open_brown",
+      "y": 90
+    },
+    "facing=west,type=none,open=true": {
+      "model": "furniture:block/curtain_single_open_brown",
+      "y": 270
+    },
+    "facing=north,type=top,open=true": {
+      "model": "furniture:block/curtain_single_open_brown"
+    },
+    "facing=south,type=top,open=true": {
+      "model": "furniture:block/curtain_single_open_brown",
+      "y": 180
+    },
+    "facing=east,type=top,open=true": {
+      "model": "furniture:block/curtain_single_open_brown",
+      "y": 90
+    },
+    "facing=west,type=top,open=true": {
+      "model": "furniture:block/curtain_single_open_brown",
+      "y": 270
+    },
+    "facing=north,type=middle,open=true": {
+      "model": "furniture:block/empty"
+    },
+    "facing=south,type=middle,open=true": {
+      "model": "furniture:block/empty",
+      "y": 180
+    },
+    "facing=east,type=middle,open=true": {
+      "model": "furniture:block/empty",
+      "y": 90
+    },
+    "facing=west,type=middle,open=true": {
+      "model": "furniture:block/empty",
+      "y": 270
+    },
+    "facing=north,type=bottom,open=true": {
+      "model": "furniture:block/empty"
+    },
+    "facing=south,type=bottom,open=true": {
+      "model": "furniture:block/empty",
+      "y": 180
+    },
+    "facing=east,type=bottom,open=true": {
+      "model": "furniture:block/empty",
+      "y": 90
+    },
+    "facing=west,type=bottom,open=true": {
+      "model": "furniture:block/empty",
+      "y": 270
+    }
+  }
+}

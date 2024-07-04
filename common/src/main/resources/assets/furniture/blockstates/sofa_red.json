@@ -1,0 +1,65 @@
+{
+  "variants": {
+    "facing=north,type=none": {
+      "model": "furniture:block/sofa_none_red"
+    },
+    "facing=east,type=none": {
+      "model": "furniture:block/sofa_none_red",
+      "y": 90
+    },
+    "facing=south,type=none": {
+      "model": "furniture:block/sofa_none_red",
+      "y": 180
+    },
+    "facing=west,type=none": {
+      "model": "furniture:block/sofa_none_red",
+      "y": 270
+    },
+    "facing=north,type=middle": {
+      "model": "furniture:block/sofa_middle_red"
+    },
+    "facing=east,type=middle": {
+      "model": "furniture:block/sofa_middle_red",
+      "y": 90
+    },
+    "facing=south,type=middle": {
+      "model": "furniture:block/sofa_middle_red",
+      "y": 180
+    },
+    "facing=west,type=middle": {
+      "model": "furniture:block/sofa_middle_red",
+      "y": 270
+    },
+    "facing=north,type=left": {
+      "model": "furniture:block/sofa_left_red"
+    },
+    "facing=east,type=left": {
+      "model": "furniture:block/sofa_left_red",
+      "y": 90
+    },
+    "facing=south,type=left": {
+      "model": "furniture:block/sofa_left_red",
+      "y": 180
+    },
+    "facing=west,type=left": {
+      "model": "furniture:block/sofa_left_red",
+      "y": 270
+    },
+    "facing=north,type=right": {
+      "model": "furniture:block/sofa_right_red",
+      "y": 0
+    },
+    "facing=east,type=right": {
+      "model": "furniture:block/sofa_right_red",
+      "y": 90
+    },
+    "facing=south,type=right": {
+      "model": "furniture:block/sofa_right_red",
+      "y": 180
+    },
+    "facing=west,type=right": {
+      "model": "furniture:block/sofa_right_red",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:pink_wool"
+    }
+  },
+  "result": {
+    "item": "furniture:pouffe_pink",
+    "count": 2
+  }
+}

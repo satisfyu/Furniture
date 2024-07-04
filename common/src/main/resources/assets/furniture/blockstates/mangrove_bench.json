@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "facing=north,type=right,rest=true": {
+      "model": "furniture:block/mangrove_bench_right"
+    },
+    "facing=east,type=right,rest=true": {
+      "y": 90,
+      "model": "furniture:block/mangrove_bench_right"
+    },
+    "facing=west,type=middle,rest=true": {
+      "y": 270,
+      "model": "furniture:block/mangrove_bench_middle"
+    },
+    "facing=west,type=right,rest=true": {
+      "y": 270,
+      "model": "furniture:block/mangrove_bench_right"
+    },
+    "facing=north,type=left,rest=true": {
+      "model": "furniture:block/mangrove_bench_left"
+    },
+    "facing=east,type=middle,rest=true": {
+      "y": 90,
+      "model": "furniture:block/mangrove_bench_middle"
+    },
+    "facing=east,type=left,rest=true": {
+      "y": 90,
+      "model": "furniture:block/mangrove_bench_left"
+    },
+    "facing=south,type=none,rest=true": {
+      "y": 180,
+      "model": "furniture:block/mangrove_bench_single"
+    },
+    "facing=north,type=middle,rest=true": {
+      "model": "furniture:block/mangrove_bench_middle"
+    },
+    "facing=north,type=none,rest=true": {
+      "model": "furniture:block/mangrove_bench_single"
+    },
+    "facing=east,type=none,rest=true": {
+      "y": 90,
+      "model": "furniture:block/mangrove_bench_single"
+    },
+    "facing=south,type=middle,rest=true": {
+      "y": 180,
+      "model": "furniture:block/mangrove_bench_middle"
+    },
+    "facing=south,type=left,rest=true": {
+      "y": 180,
+      "model": "furniture:block/mangrove_bench_left"
+    },
+    "facing=south,type=right,rest=true": {
+      "y": 180,
+      "model": "furniture:block/mangrove_bench_right"
+    },
+    "facing=west,type=left,rest=true": {
+      "y": 270,
+      "model": "furniture:block/mangrove_bench_left"
+    },
+    "facing=west,type=none,rest=true": {
+      "y": 270,
+      "model": "furniture:block/mangrove_bench_single"
+    },
+    "facing=north,type=right,rest=false": {
+      "model": "furniture:block/mangrove_bench_right_no_lean"
+    },
+    "facing=east,type=right,rest=false": {
+      "y": 90,
+      "model": "furniture:block/mangrove_bench_right_no_lean"
+    },
+    "facing=west,type=middle,rest=false": {
+      "y": 270,
+      "model": "furniture:block/mangrove_bench_middle_no_lean"
+    },
+    "facing=west,type=right,rest=false": {
+      "y": 270,
+      "model": "furniture:block/mangrove_bench_right_no_lean"
+    },
+    "facing=north,type=left,rest=false": {
+      "model": "furniture:block/mangrove_bench_left_no_lean"
+    },
+    "facing=east,type=middle,rest=false": {
+      "y": 90,
+      "model": "furniture:block/mangrove_bench_middle_no_lean"
+    },
+    "facing=east,type=left,rest=false": {
+      "y": 90,
+      "model": "furniture:block/mangrove_bench_left_no_lean"
+    },
+    "facing=south,type=none,rest=false": {
+      "y": 180,
+      "model": "furniture:block/mangrove_bench_single_no_lean"
+    },
+    "facing=north,type=middle,rest=false": {
+      "model": "furniture:block/mangrove_bench_middle_no_lean"
+    },
+    "facing=north,type=none,rest=false": {
+      "model": "furniture:block/mangrove_bench_single_no_lean"
+    },
+    "facing=east,type=none,rest=false": {
+      "y": 90,
+      "model": "furniture:block/mangrove_bench_single_no_lean"
+    },
+    "facing=south,type=middle,rest=false": {
+      "y": 180,
+      "model": "furniture:block/mangrove_bench_middle_no_lean"
+    },
+    "facing=south,type=left,rest=false": {
+      "y": 180,
+      "model": "furniture:block/mangrove_bench_left_no_lean"
+    },
+    "facing=south,type=right,rest=false": {
+      "y": 180,
+      "model": "furniture:block/mangrove_bench_right_no_lean"
+    },
+    "facing=west,type=left,rest=false": {
+      "y": 270,
+      "model": "furniture:block/mangrove_bench_left_no_lean"
+    },
+    "facing=west,type=none,rest=false": {
+      "y": 270,
+      "model": "furniture:block/mangrove_bench_single_no_lean"
+    }
+  }
+}

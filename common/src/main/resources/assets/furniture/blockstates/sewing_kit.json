@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furniture:block/sewing_kit",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furniture:block/sewing_kit"
+    },
+    "facing=south": {
+      "model": "furniture:block/sewing_kit",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/sewing_kit",
+      "y": 270
+    }
+  }
+}

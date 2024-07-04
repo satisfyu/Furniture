@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.berksire.furniture.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "CartographyTableMenuMixin",
+    "CraftingMenuMixin",
+    "LoomMenuMixin",
+    "SmithingMenuMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

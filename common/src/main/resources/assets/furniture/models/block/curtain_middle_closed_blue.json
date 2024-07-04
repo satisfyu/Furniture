@@ -1,0 +1,29 @@
+{
+	"credit": "Made by Berksire",
+	"textures": {
+		"0": "furniture:block/curtain_blue_middle",
+		"particle": "furniture:block/curtain_blue_middle"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 15],
+			"to": [16, 16, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 15]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [15, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 1, 16], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "connected, middle",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"nbt": "{}",
+			"children": [0]
+		}
+	]
+}

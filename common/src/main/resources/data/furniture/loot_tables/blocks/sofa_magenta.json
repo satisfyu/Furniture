@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "UUU",
+    "B B"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:stick"
+    },
+    "U": {
+      "item": "minecraft:oak_slab"
+    },
+    "X": {
+      "item": "minecraft:magenta_wool"
+    }
+  },
+  "result": {
+    "item": "furniture:sofa_magenta",
+    "count": 3
+  }
+}

@@ -86,4 +86,9 @@ public class ActualFishTankEntity extends Entity {
     public boolean isAlwaysTicking() {
         return true;
     }
+
+    @Override
+    public boolean shouldBeSaved() {
+        return true;
+    }
 }

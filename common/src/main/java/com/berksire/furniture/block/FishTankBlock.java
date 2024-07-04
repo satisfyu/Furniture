@@ -70,7 +70,7 @@ public class FishTankBlock extends BaseEntityBlock implements EntityBlock {
         shape = Shapes.join(shape, Shapes.box(-0.9375, 0.125, 0.0625, 0.9375, 0.875, 0.9375), BooleanOp.OR);
         shape = Shapes.join(shape, Shapes.box(-1, 0.875, 0, 1, 1, 1), BooleanOp.OR);
 
-        return shape;
+        return rotate(shape, Direction.NORTH, state.getValue(FACING));
     }
 
     @Override
@@ -103,4 +103,18 @@ public class FishTankBlock extends BaseEntityBlock implements EntityBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
         return createTickerHelper(blockEntityType, EntityTypeRegistry.FISH_TANK_BLOCK_ENTITY.get(), FishTankBlockEntity::tick);
     }
+
+    private static VoxelShape rotate(VoxelShape shape, Direction originalDir, Direction newDir) {
+        if (originalDir != newDir) {
+            VoxelShape[] newShape = new VoxelShape[] { Shapes.empty() };
+            shape.forAllBoxes((x, y, z, a, b, c) -> {
+                double i = 1 - c;
+                double j = 1 - z;
+                newShape[0] = Shapes.or(newShape[0], Shapes.box(Math.min(i, j), y, x, Math.max(i, j), b, a));
+            });
+            return rotate(newShape[0], originalDir.getClockWise(), newDir);
+        }
+        return shape;
+    }
+
 }

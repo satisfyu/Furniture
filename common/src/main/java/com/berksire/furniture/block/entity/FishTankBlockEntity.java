@@ -1,6 +1,5 @@
 package com.berksire.furniture.block.entity;
 
-import com.berksire.furniture.Furniture;
 import com.berksire.furniture.client.entity.ActualFishTankEntity;
 import com.berksire.furniture.registry.EntityTypeRegistry;
 import net.minecraft.core.BlockPos;
@@ -10,7 +9,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.phys.AABB;
-import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 

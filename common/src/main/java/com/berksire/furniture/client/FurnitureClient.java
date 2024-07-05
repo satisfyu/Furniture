@@ -24,7 +24,7 @@ import static com.berksire.furniture.registry.ObjectRegistry.*;
 public class FurnitureClient {
 
     public static void onInitializeClient() {
-        RenderTypeRegistry.register(RenderType.cutout(), BIN.get(), GRAMOPHONE.get(), CASH_REGISTER.get());
+        RenderTypeRegistry.register(RenderType.cutout(), BIN.get(), GRAMOPHONE.get(), CASH_REGISTER.get(), BOAT_IN_A_JAR.get(), STREET_LANTERN.get(), STREET_WALL_LANTERN.get());
         for (RegistrySupplier<Block> block : Stream.concat(LAMPS.values().stream(), BENCHES.values().stream()).toList()) {
             RenderTypeRegistry.register(RenderType.cutout(), block.get());
         }

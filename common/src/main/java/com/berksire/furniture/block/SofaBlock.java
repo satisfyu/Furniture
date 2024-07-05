@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.BooleanOp;
@@ -140,5 +141,11 @@ public class SofaBlock extends LineConnectingBlock {
                 map.put(direction, FurnitureUtil.rotateShape(Direction.NORTH, direction, rightShapeSupplier.get()));
             }
         });
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public boolean isPathfindable(BlockState state, BlockGetter level, BlockPos pos, PathComputationType type) {
+        return false;
     }
 }

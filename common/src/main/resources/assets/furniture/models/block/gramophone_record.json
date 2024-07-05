@@ -1,6 +1,8 @@
 {
+	"credit": "Made by Satisfy",
 	"textures": {
-		"particle": "minecraft:block/jukebox_side"
+		"1": "furniture:block/gramophone",
+		"particle": "block/jukebox_side"
 	},
 	"elements": [
 		{
@@ -8,14 +10,13 @@
 			"from": [6, 9, 8],
 			"to": [7, 10, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [6, 9, 8]},
-			"color": 4,
 			"faces": {
-				"north": {"uv": [0, 0, 1, 1], "texture": "#missing"},
-				"east": {"uv": [0, 0, 6, 1], "texture": "#missing"},
-				"south": {"uv": [0, 0, 1, 1], "texture": "#missing"},
-				"west": {"uv": [0, 0, 6, 1], "texture": "#missing"},
-				"up": {"uv": [0, 0, 1, 6], "texture": "#missing"},
-				"down": {"uv": [0, 0, 1, 6], "texture": "#missing"}
+				"north": {"uv": [14, 1, 15, 2], "texture": "#1"},
+				"east": {"uv": [16, 1, 10, 0], "texture": "#1"},
+				"south": {"uv": [14, 2, 15, 3], "texture": "#1"},
+				"west": {"uv": [10, 0, 16, 1], "texture": "#1"},
+				"up": {"uv": [15, 1, 16, 7], "texture": "#1"},
+				"down": {"uv": [16, 7, 15, 1], "texture": "#1"}
 			}
 		},
 		{
@@ -23,14 +24,9 @@
 			"from": [6, 8, 8],
 			"to": [7, 9, 8],
 			"rotation": {"angle": 0, "axis": "x", "origin": [6, 8, 9]},
-			"color": 4,
 			"faces": {
-				"north": {"uv": [0, 0, 1, 1], "texture": "#missing"},
-				"east": {"uv": [0, 0, 0, 1], "texture": "#missing"},
-				"south": {"uv": [0, 0, 1, 1], "texture": "#missing"},
-				"west": {"uv": [0, 0, 0, 1], "texture": "#missing"},
-				"up": {"uv": [0, 0, 1, 0], "texture": "#missing"},
-				"down": {"uv": [0, 0, 1, 0], "texture": "#missing"}
+				"north": {"uv": [14, 2, 15, 3], "texture": "#1"},
+				"south": {"uv": [14, 2, 15, 3], "texture": "#1"}
 			}
 		}
 	]

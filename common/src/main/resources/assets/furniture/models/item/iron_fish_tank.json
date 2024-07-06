@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "furniture:item/fish_tank"
+    "layer0": "furniture:item/iron_fish_tank"
   }
 }

@@ -7,14 +7,14 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:iron_nugget"
+      "item": "minecraft:iron_ingot"
     },
     "B": {
       "item": "minecraft:glass"
     }
   },
   "result": {
-    "item": "furniture:fish_tank",
+    "item": "furniture:iron_fish_tank",
     "count": 1
   }
 }

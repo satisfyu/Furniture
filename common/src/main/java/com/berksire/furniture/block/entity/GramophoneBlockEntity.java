@@ -22,12 +22,11 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
     private ItemStack recordItem = ItemStack.EMPTY;
     private long tickCount;
     private long recordStartedTick;
-
     private boolean isPlaying;
+    private boolean repeat;
 
     public GramophoneBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(EntityTypeRegistry.GRAMOPHONE_BLOCK_ENTITY.get(), blockPos, blockState);
-
     }
 
     @Override
@@ -39,6 +38,7 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
         this.isPlaying = tag.getBoolean("IsPlaying");
         this.recordStartedTick = tag.getLong("RecordStartTick");
         this.tickCount = tag.getLong("TickCount");
+        this.repeat = tag.getBoolean("Repeat");
     }
 
     @Override
@@ -50,10 +50,11 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
         tag.putBoolean("IsPlaying", this.isPlaying);
         tag.putLong("RecordStartTick", this.recordStartedTick);
         tag.putLong("TickCount", this.tickCount);
+        tag.putBoolean("Repeat", this.repeat);
     }
 
     public boolean isRecordPlaying() {
-        return !this.recordItem.isEmpty() && this.isPlaying;
+        return !this.recordItem.isEmpty() && this.isPlaying && this.getBlockState().getValue(JukeboxBlock.HAS_RECORD);
     }
 
     private void startPlaying() {
@@ -74,9 +75,12 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
         if (this.isRecordPlaying()) {
             ItemStack item = this.recordItem;
             if (item.getItem() instanceof RecordItem recordItem) {
-
                 if (this.tickCount >= this.recordStartedTick + (long) recordItem.getLengthInTicks() + 20L) {
-                    this.stopPlaying();
+                    if (this.repeat) {
+                        this.startPlaying();
+                    } else {
+                        this.stopPlaying();
+                    }
                 } else if (this.tickCount % 20 == 0) {
                     level.gameEvent(GameEvent.JUKEBOX_PLAY, pos, GameEvent.Context.of(state));
                     this.spawnMusicParticles(level, pos);
@@ -124,6 +128,15 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
         this.setChanged();
     }
 
+    public void setRepeat(boolean repeat) {
+        this.repeat = repeat;
+        this.setChanged();
+    }
+
+    public boolean isRepeat() {
+        return this.repeat;
+    }
+
     private void setHasRecordBlockState(boolean hasRecord) {
         if (this.level != null && !this.level.getBlockState(this.worldPosition).is(Blocks.AIR)) {
             BlockState state = this.level.getBlockState(this.worldPosition);
@@ -132,7 +145,7 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
         }
     }
 
-    private void stopPlaying() {
+    public void stopPlaying() {
         this.isPlaying = false;
         assert this.level != null;
         this.level.gameEvent(GameEvent.JUKEBOX_STOP_PLAY, this.worldPosition, GameEvent.Context.of(this.getBlockState()));
@@ -146,10 +159,6 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
         this.recordItem = ItemStack.EMPTY;
         this.setHasRecordBlockState(false);
         this.stopPlaying();
-    }
-
-    public ItemStack getItem(int index) {
-        return index == 0 ? this.recordItem : ItemStack.EMPTY;
     }
 
     public ItemStack getFirstItem() {

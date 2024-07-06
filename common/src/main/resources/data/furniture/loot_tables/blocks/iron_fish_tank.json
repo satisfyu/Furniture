@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "furniture:fish_tank",
+              "block": "furniture:iron_fish_tank",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "part": "foot"
               }
             }
           ],
-          "name": "furniture:fish_tank"
+          "name": "furniture:iron_fish_tank"
         }
       ],
       "rolls": 1.0

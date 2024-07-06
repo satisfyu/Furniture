@@ -4,6 +4,7 @@ import com.berksire.furniture.block.FishTankBlock;
 import com.berksire.furniture.block.entity.FishTankBlockEntity;
 import com.berksire.furniture.client.entity.FakeFishTankEntity;
 import com.berksire.furniture.client.model.FishTankModel;
+import com.berksire.furniture.registry.ObjectRegistry;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -22,7 +23,8 @@ import org.joml.Quaternionf;
 public class FishTankRenderer extends EntityRenderer<FakeFishTankEntity> {
 
     private final FishTankModel model;
-    private static final ResourceLocation TEXTURE = new ResourceLocation("furniture", "textures/entity/fish_tank.png");
+    private static final ResourceLocation NORMAL_TEXTURE = new ResourceLocation("furniture", "textures/entity/copper_fish_tank.png");
+    private static final ResourceLocation IRON_TEXTURE = new ResourceLocation("furniture", "textures/entity/iron_fish_tank.png");
 
     public FishTankRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -50,7 +52,13 @@ public class FishTankRenderer extends EntityRenderer<FakeFishTankEntity> {
 
         poseStack.mulPose(Axis.XP.rotationDegrees(180));
 
-        VertexConsumer vertexConsumer = bufferSource.getBuffer(model.renderType(TEXTURE));
+        ResourceLocation texture;
+        if (blockEntity.getBlockState().getBlock() == ObjectRegistry.IRON_FISH_TANK.get()) {
+            texture = IRON_TEXTURE;
+        } else {
+            texture = NORMAL_TEXTURE;
+        }
+        VertexConsumer vertexConsumer = bufferSource.getBuffer(model.renderType(texture));
 
         Level world = Minecraft.getInstance().level;
         if (assertNonNullOrPop(world, poseStack)) return;

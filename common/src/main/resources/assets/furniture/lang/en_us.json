@@ -44,6 +44,7 @@
   "block.furniture.dark_oak_mirror": "Dark Oak Mirror",
   "block.furniture.explorers_box": "Explorers Box",
   "block.furniture.gramophone": "Gramophone",
+  "block.furniture.iron_fish_tank": "Iron Fish Tank",
   "block.furniture.jungle_bench": "Jungle Bench",
   "block.furniture.jungle_cabinet": "Jungle Cabinet",
   "block.furniture.jungle_clock": "Jungle Clock",
@@ -118,7 +119,7 @@
   "block.furniture.stone_bricks_chimney": "Stone Bricks Chimney",
   "block.furniture.telescope": "Telescope",
   "block.furniture.tool_box": "Tool Box",
-  "block.furniture.fish_tank": "Fish Tank",
+  "block.furniture.copper_fish_tank": "Copper Fish Tank",
   "container.furniture.blueprints": "Blueprints",
   "container.furniture.explorers_box": "Explorers Box",
   "container.furniture.sewing_kit": "Sewing Kit",
@@ -128,6 +129,7 @@
   "item.furniture.canvas": "Canvas",
   "item.furniture.pells": "Pells",
   "item.furniture.trash_bag": "Trash Bag",
+  "item.furniture.cphs_pride": "Music Disc",
   "itemGroup.furniture.furniture_tab": "[Let's Do] Furniture",
   "subtitles.furniture.cabinet_close": "Cabinet close",
   "subtitles.furniture.cabinet_open": "Cabinet open",
@@ -142,6 +144,9 @@
   "tooltip.furniture.smoke_type.smoke": "Moderate smoke",
   "tooltip.furniture.vent_disabled": "Vent disabled",
   "tooltip.furniture.vent_enabled": "Vent enabled",
+  "tooltip.furniture.repeat_mode": "Repeat mode: %s",
+  "tooltip.furniture.on": "ON",
+  "tooltip.furniture.off": "OFF",
   "tooltip.furniture.trash_bag": "Strange what some people throw away...",
   "painting.furniture.lonely_daisy.title": "Lonely Daisy",
   "painting.furniture.lonely_daisy.author": "Tugkan",
@@ -174,6 +179,8 @@
   "painting.furniture.tulip_fields.title": "Tulip Fields",
   "painting.furniture.tulip_fields.author": "Tugkan",
   "painting.furniture.hopper.title": "Hopper",
-  "painting.furniture.hopper.author": "Tugkan"
+  "painting.furniture.hopper.author": "Tugkan",
+  "subtitles.furniture.cphs_pride": "CPH101 - Pride",
+  "item.furniture.cphs_pride.desc": "CPH101 - Pride"
 
 }

@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,part=foot": {
+      "model": "furniture:block/fish_tank_foot",
+      "y": 0
+    },
+    "facing=south,part=foot": {
+      "model": "furniture:block/fish_tank_foot",
+      "y": 180
+    },
+    "facing=west,part=foot": {
+      "model": "furniture:block/fish_tank_foot",
+      "y": 270
+    },
+    "facing=east,part=foot": {
+      "model": "furniture:block/fish_tank_foot",
+      "y": 90
+    },
+    "facing=north,part=head": {
+      "model": "furniture:block/fish_tank_head",
+      "y": 0
+    },
+    "facing=south,part=head": {
+      "model": "furniture:block/fish_tank_head",
+      "y": 180
+    },
+    "facing=west,part=head": {
+      "model": "furniture:block/fish_tank_head",
+      "y": 270
+    },
+    "facing=east,part=head": {
+      "model": "furniture:block/fish_tank_head",
+      "y": 90
+    }
+  }
+}

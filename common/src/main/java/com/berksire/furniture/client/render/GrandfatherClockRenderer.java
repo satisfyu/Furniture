@@ -54,8 +54,9 @@ public class GrandfatherClockRenderer implements BlockEntityRenderer<Grandfather
         float rotation = direction.getOpposite().toYRot();
         poseStack.mulPose(new Quaternionf().rotateYXZ((float) Math.toRadians(rotation), 0.0F, 0.0F));
 
-        float ageInTicks = Objects.requireNonNull(blockEntity.getLevel()).getGameTime() + partialTicks;
-        this.model.pendulum.zRot = (float) Math.sin(ageInTicks * Math.PI / 30) * 0.15F;
+        long totalTime = System.currentTimeMillis();
+        float smoothTime = (totalTime % 60000) / 50.0f;
+        this.model.pendulum.zRot = (float) Math.sin(smoothTime * Math.PI / 30) * 0.15F;
 
         long gameTime = Objects.requireNonNull(blockEntity.getLevel()).getDayTime() % 24000;
         int hours = (int) ((gameTime / 1000 + 6) % 24);

@@ -1,4 +1,3 @@
-
 package com.berksire.furniture.block;
 
 import com.berksire.furniture.block.entity.GramophoneBlockEntity;
@@ -6,6 +5,7 @@ import com.berksire.furniture.registry.EntityTypeRegistry;
 import com.berksire.furniture.util.FurnitureUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -45,6 +45,7 @@ public class GramophoneBlock extends BaseEntityBlock {
     public static final BooleanProperty HAS_RECORD = BlockStateProperties.HAS_RECORD;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
+    public static final BooleanProperty REPEAT = BooleanProperty.create("repeat");
 
     private static final VoxelShape SHAPE_LOWER = makeLowerShape();
     private static final VoxelShape SHAPE_UPPER = makeUpperShape();
@@ -63,7 +64,7 @@ public class GramophoneBlock extends BaseEntityBlock {
 
     public GramophoneBlock(BlockBehaviour.Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(HAS_RECORD, false).setValue(FACING, Direction.NORTH).setValue(HALF, DoubleBlockHalf.LOWER));
+        this.registerDefaultState(this.stateDefinition.any().setValue(HAS_RECORD, false).setValue(FACING, Direction.NORTH).setValue(HALF, DoubleBlockHalf.LOWER).setValue(REPEAT, false));
     }
 
     private static VoxelShape makeLowerShape() {
@@ -86,7 +87,7 @@ public class GramophoneBlock extends BaseEntityBlock {
     @Override
     public void setPlacedBy(Level level, BlockPos blockPos, BlockState blockState, @Nullable LivingEntity livingEntity, ItemStack itemStack) {
         BlockPos abovePos = blockPos.above();
-        level.setBlock(abovePos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER).setValue(FACING, blockState.getValue(FACING)).setValue(HAS_RECORD, blockState.getValue(HAS_RECORD)), 3);
+        level.setBlock(abovePos, this.defaultBlockState().setValue(HALF, DoubleBlockHalf.UPPER).setValue(FACING, blockState.getValue(FACING)).setValue(HAS_RECORD, blockState.getValue(HAS_RECORD)).setValue(REPEAT, blockState.getValue(REPEAT)), 3);
         super.setPlacedBy(level, blockPos, blockState, livingEntity, itemStack);
     }
 
@@ -97,6 +98,10 @@ public class GramophoneBlock extends BaseEntityBlock {
             if (blockEntity instanceof GramophoneBlockEntity) {
                 ((GramophoneBlockEntity) blockEntity).popOutRecord();
                 level.removeBlockEntity(blockPos);
+            }
+
+            if (blockEntity instanceof GramophoneBlockEntity) {
+                ((GramophoneBlockEntity) blockEntity).stopPlaying();
             }
 
             DoubleBlockHalf half = blockState.getValue(HALF);
@@ -110,7 +115,6 @@ public class GramophoneBlock extends BaseEntityBlock {
         }
         super.onRemove(blockState, level, blockPos, newState, isMoving);
     }
-
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
@@ -131,7 +135,7 @@ public class GramophoneBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(HAS_RECORD, FACING, HALF);
+        builder.add(HAS_RECORD, FACING, HALF, REPEAT);
     }
 
     @Override
@@ -200,7 +204,12 @@ public class GramophoneBlock extends BaseEntityBlock {
                     return InteractionResult.sidedSuccess(level.isClientSide);
                 }
             } else {
-                if (itemStack.getItem() instanceof RecordItem && !blockState.getValue(HAS_RECORD)) {
+                if (itemStack.isEmpty()) {
+                    boolean repeat = discPlayerBlockEntity.isRepeat();
+                    discPlayerBlockEntity.setRepeat(!repeat);
+                    player.displayClientMessage(Component.translatable("tooltip.furniture.repeat_mode", Component.translatable(!repeat ? "tooltip.furniture.on" : "tooltip.furniture.off")), true);
+                    return InteractionResult.sidedSuccess(level.isClientSide);
+                } else if (itemStack.getItem() instanceof RecordItem && !blockState.getValue(HAS_RECORD)) {
                     discPlayerBlockEntity.setRecord(itemStack.copy());
                     itemStack.shrink(1);
                     level.setBlock(blockPos, blockState.setValue(HAS_RECORD, true), 3);

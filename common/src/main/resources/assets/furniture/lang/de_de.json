@@ -118,7 +118,7 @@
   "block.furniture.stone_bricks_chimney": "Steinziegelschornstein",
   "block.furniture.telescope": "Teleskop",
   "block.furniture.tool_box": "Werkzeugkasten",
-  "block.furniture.fish_tank": "Aquarium",
+  "block.furniture.copper_fish_tank": "Kupferaquarium",
   "container.furniture.blueprints": "Blaupausen",
   "container.furniture.explorers_box": "Forscherkiste",
   "container.furniture.sewing_kit": "Nähset",
@@ -174,5 +174,12 @@
   "painting.furniture.tulip_fields.title": "Tulpenfelder",
   "painting.furniture.tulip_fields.author": "Tugkan",
   "painting.furniture.hopper.title": "Hüpfer",
-  "painting.furniture.hopper.author": "Tugkan"
+  "painting.furniture.hopper.author": "Tugkan",
+  "block.furniture.iron_fish_tank": "Eisenaquarium",
+  "item.furniture.cphs_pride": "Music Disc",
+  "tooltip.furniture.repeat_mode": "Repeat mode: %s",
+  "tooltip.furniture.on": "ON",
+  "tooltip.furniture.off": "OFF",
+  "subtitles.furniture.cphs_pride": "CPH101 - Pride",
+  "item.furniture.cphs_pride.desc": "CPH101 - Pride"
 }

@@ -51,9 +51,9 @@ public class GramophoneRenderer implements BlockEntityRenderer<GramophoneBlockEn
         model.gramophone.getChild("horn").render(poseStack, bufferSource.getBuffer(model.renderType(TEXTURE)), combinedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
         if (blockState.getValue(GramophoneBlock.HAS_RECORD)) {
-            float gameTime = Objects.requireNonNull(blockEntity.getLevel()).getGameTime() + partialTicks;
-            float discRotation = gameTime * 5 % 360;
-            float verticalMovement = (float) Math.sin(gameTime * 0.1) * 0.002f;
+            float totalGameTime = (Objects.requireNonNull(blockEntity.getLevel()).getGameTime() % 360) + partialTicks;
+            float discRotation = totalGameTime * 5 % 360;
+            float verticalMovement = (float) Math.sin(totalGameTime * 0.1) * 0.002f;
 
             poseStack.pushPose();
             poseStack.translate(0.5, 0 + verticalMovement, -0.5);
@@ -66,4 +66,5 @@ public class GramophoneRenderer implements BlockEntityRenderer<GramophoneBlockEn
 
         poseStack.popPose();
     }
+
 }

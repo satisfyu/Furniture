@@ -28,5 +28,11 @@
     "sounds": [
       "furniture:coffer_close"
     ]
+  },
+  "cphs_pride": {
+    "subtitle": "subtitles.furniture.cphs_price",
+    "sounds": [
+      "furniture:cphs_pride"
+    ]
   }
 }

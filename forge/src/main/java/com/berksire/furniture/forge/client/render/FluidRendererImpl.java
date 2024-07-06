@@ -1,4 +1,4 @@
-package com.berksire.furniture.client.render.forge;
+package com.berksire.furniture.forge.client.render;
 
 import com.berksire.furniture.client.render.FluidRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -14,6 +14,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidType;
 
+@SuppressWarnings("all")
 public class FluidRendererImpl {
     public static void renderFluidBox(FluidStack archStack, float xMin, float yMin, float zMin, float xMax, float yMax,
                                       float zMax, VertexConsumer builder, PoseStack ms, int light, boolean renderBottom) {

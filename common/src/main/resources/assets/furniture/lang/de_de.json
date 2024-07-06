@@ -176,10 +176,13 @@
   "painting.furniture.hopper.title": "Hüpfer",
   "painting.furniture.hopper.author": "Tugkan",
   "block.furniture.iron_fish_tank": "Eisenaquarium",
-  "item.furniture.cphs_pride": "Music Disc",
-  "tooltip.furniture.repeat_mode": "Repeat mode: %s",
-  "tooltip.furniture.on": "ON",
-  "tooltip.furniture.off": "OFF",
+  "item.furniture.cphs_pride": "Schallplatte",
+  "tooltip.furniture.repeat_mode": "Dauerschleife: %s",
+  "tooltip.furniture.on": "EIN",
+  "tooltip.furniture.off": "AUS",
   "subtitles.furniture.cphs_pride": "CPH101 - Pride",
-  "item.furniture.cphs_pride.desc": "CPH101 - Pride"
+  "item.furniture.cphs_pride.desc": "CPH101 - Pride",
+  "item.furniture.cphs_pride_remix": "Schallplatte",
+  "subtitles.furniture.cphs_pride_remix": "CPH101 - Pride (Lilitu Remix)",
+  "item.furniture.cphs_pride_remix.desc": "CPH101 - Pride (Lilitu Remix)"
 }

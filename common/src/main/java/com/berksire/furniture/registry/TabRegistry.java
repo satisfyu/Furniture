@@ -29,7 +29,7 @@ public class TabRegistry {
                     ObjectRegistry.POUFFE.get(color).ifPresent(out::accept);
                 }
                 for (String color : colorOrder) {
-                    ObjectRegistry.LAMPS.get(color).ifPresent(out::accept);
+                    ObjectRegistry.LAMP_ITEMS.get(color).ifPresent(out::accept);
                 }
                 for (String color : colorOrder) {
                     ObjectRegistry.CURTAINS.get(color).ifPresent(out::accept);
@@ -47,7 +47,6 @@ public class TabRegistry {
                 for (String woodType : woodTypeOrder) {
                     ObjectRegistry.CLOCKS.get(woodType).ifPresent(out::accept);
                 }
-
                 for (String woodType : woodTypeOrder) {
                     ObjectRegistry.GRANDFATHER_CLOCKS.get(woodType).ifPresent(out::accept);
                 }
@@ -69,6 +68,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.STREET_LANTERN_ITEM.get());
                 out.accept(ObjectRegistry.PELLS.get());
                 out.accept(ObjectRegistry.CPHS_PRIDE.get());
+                out.accept(ObjectRegistry.CPHS_PRIDE_REMIX.get());
                 out.accept(ObjectRegistry.BIN.get());
                 out.accept(ObjectRegistry.TRASH_BAG.get());
             })

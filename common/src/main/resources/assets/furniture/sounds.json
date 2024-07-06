@@ -34,5 +34,11 @@
     "sounds": [
       "furniture:cphs_pride"
     ]
+  },
+  "cphs_pride_remix": {
+    "subtitle": "subtitles.furniture.cphs_price_remix",
+    "sounds": [
+      "furniture:cphs_pride_remix"
+    ]
   }
 }

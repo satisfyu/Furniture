@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "furniture:block/lamp_wall_red"
+    },
+    "facing=south": {
+      "model": "furniture:block/lamp_wall_red",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/lamp_wall_red",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "furniture:block/lamp_wall_red",
+      "y": 90
+    }
+  }
+}

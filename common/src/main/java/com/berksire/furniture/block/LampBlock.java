@@ -65,15 +65,19 @@ public class LampBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        BlockState blockState = this.defaultBlockState();
-
-        Level world = context.getLevel();
         BlockPos clickedPos = context.getClickedPos();
+        Level world = context.getLevel();
+        BlockPos belowPos = clickedPos.below();
 
-        blockState = blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.above()), world.getBlockState(clickedPos.below())));
+        if (!world.getBlockState(belowPos).isFaceSturdy(world, belowPos, context.getClickedFace())) {
+            return null;
+        }
 
+        BlockState blockState = this.defaultBlockState();
+        blockState = blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.above()), world.getBlockState(belowPos)));
         return blockState.setValue(WATERLOGGED, world.getFluidState(clickedPos).getType() == Fluids.WATER);
     }
+
 
     @Override
     @SuppressWarnings("deprecation")

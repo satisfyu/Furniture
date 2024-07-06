@@ -15,7 +15,7 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "furniture:street_lantern",
+              "block": "furniture:street_lantern_wall",
               "properties": {
                 "bulbs": 0
               }
@@ -34,7 +34,7 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "furniture:street_lantern",
+              "block": "furniture:street_lantern_wall",
               "properties": {
                 "bulbs": 1
               }

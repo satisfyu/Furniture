@@ -81,14 +81,22 @@ public class StreetLanternBlock extends HorizontalDirectionalBlock implements Si
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        BlockState blockState = context.getLevel().getBlockState(context.getClickedPos());
+        BlockPos clickedPos = context.getClickedPos();
+        BlockPos belowPos = clickedPos.below();
+        BlockState belowBlockState = context.getLevel().getBlockState(belowPos);
+
+        if (!belowBlockState.isFaceSturdy(context.getLevel(), belowPos, Direction.UP)) {
+            return null;
+        }
+
+        BlockState blockState = context.getLevel().getBlockState(clickedPos);
         if (blockState.is(this) && (blockState.getValue(TYPE) == FurnitureUtil.VerticalConnectingType.TOP || blockState.getValue(TYPE) == FurnitureUtil.VerticalConnectingType.NONE)) {
             return blockState.setValue(BULBS, Math.min(1, blockState.getValue(BULBS) + 1));
         }
-        boolean flag = context.getLevel().getFluidState(context.getClickedPos()).getType() == Fluids.WATER;
+        boolean flag = context.getLevel().getFluidState(clickedPos).getType() == Fluids.WATER;
         Direction direction = context.getHorizontalDirection().getOpposite();
         blockState = this.defaultBlockState().setValue(FACING, direction);
-        blockState = blockState.setValue(TYPE, getType(blockState, context.getLevel().getBlockState(context.getClickedPos().above()), context.getLevel().getBlockState(context.getClickedPos().below())));
+        blockState = blockState.setValue(TYPE, getType(blockState, context.getLevel().getBlockState(clickedPos.above()), context.getLevel().getBlockState(clickedPos.below())));
         return blockState.setValue(WATERLOGGED, flag);
     }
 

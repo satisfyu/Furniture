@@ -130,6 +130,7 @@
   "item.furniture.pells": "Pells",
   "item.furniture.trash_bag": "Trash Bag",
   "item.furniture.cphs_pride": "Music Disc",
+  "item.furniture.cphs_pride_remix": "Music Disc",
   "itemGroup.furniture.furniture_tab": "[Let's Do] Furniture",
   "subtitles.furniture.cabinet_close": "Cabinet close",
   "subtitles.furniture.cabinet_open": "Cabinet open",
@@ -181,6 +182,7 @@
   "painting.furniture.hopper.title": "Hopper",
   "painting.furniture.hopper.author": "Tugkan",
   "subtitles.furniture.cphs_pride": "CPH101 - Pride",
-  "item.furniture.cphs_pride.desc": "CPH101 - Pride"
-
+  "item.furniture.cphs_pride.desc": "CPH101 - Pride",
+  "subtitles.furniture.cphs_pride_remix": "CPH101 - Pride (Lilitu Remix)",
+  "item.furniture.cphs_pride_remix.desc": "CPH101 - Pride (Lilitu Remix)"
 }

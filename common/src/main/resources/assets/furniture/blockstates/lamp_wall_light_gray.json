@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "furniture:block/lamp_wall_light_gray"
+    },
+    "facing=south": {
+      "model": "furniture:block/lamp_wall_light_gray",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/lamp_wall_light_gray",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "furniture:block/lamp_wall_light_gray",
+      "y": 90
+    }
+  }
+}

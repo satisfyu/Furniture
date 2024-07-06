@@ -1,0 +1,74 @@
+{
+	"credit": "Made by Berksire",
+	"textures": {
+		"0": "furniture:block/street_lantern",
+		"particle": "furniture:block/street_lantern"
+	},
+	"elements": [
+		{
+			"name": "lamp",
+			"from": [5, 1, 5],
+			"to": [11, 8, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, 8, 5]},
+			"faces": {
+				"north": {"uv": [6, 7, 12, 0], "texture": "#0"},
+				"east": {"uv": [6, 7, 12, 0], "texture": "#0"},
+				"south": {"uv": [6, 7, 12, 0], "texture": "#0"},
+				"west": {"uv": [6, 7, 12, 0], "texture": "#0"},
+				"up": {"uv": [0, 6, 6, 0], "texture": "#0"},
+				"down": {"uv": [0, 6, 6, 0], "texture": "#0"}
+			}
+		},
+		{
+			"name": "metal",
+			"from": [6, 8, 6],
+			"to": [10, 9, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 9, 6]},
+			"faces": {
+				"north": {"uv": [0, 12, 4, 11], "texture": "#0"},
+				"east": {"uv": [0, 12, 4, 11], "texture": "#0"},
+				"south": {"uv": [0, 12, 4, 11], "texture": "#0"},
+				"west": {"uv": [0, 12, 4, 11], "texture": "#0"},
+				"up": {"uv": [4, 12, 0, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [4, 12, 0, 16], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "metal",
+			"from": [7, 9, 7],
+			"to": [9, 14, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 14, 7]},
+			"faces": {
+				"north": {"uv": [14, 5, 16, 0], "texture": "#0"},
+				"east": {"uv": [14, 5, 16, 0], "texture": "#0"},
+				"south": {"uv": [14, 5, 16, 0], "texture": "#0"},
+				"west": {"uv": [14, 5, 16, 0], "texture": "#0"},
+				"up": {"uv": [16, 5, 14, 7], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [16, 5, 14, 7], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "wood",
+			"from": [6, 14, 6],
+			"to": [10, 16, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6, 16, 6]},
+			"faces": {
+				"north": {"uv": [12, 12, 16, 10], "texture": "#0"},
+				"east": {"uv": [12, 12, 16, 10], "texture": "#0"},
+				"south": {"uv": [12, 12, 16, 10], "texture": "#0"},
+				"west": {"uv": [12, 12, 16, 10], "texture": "#0"},
+				"up": {"uv": [16, 12, 12, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [12, 12, 8, 16], "rotation": 90, "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "single",
+			"origin": [26, 0, 6],
+			"color": 0,
+			"nbt": "{}",
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

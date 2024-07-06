@@ -23,10 +23,7 @@ import net.minecraft.world.level.material.PushReaction;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Consumer;
 import java.util.function.Supplier;
-
-import static com.berksire.furniture.block.StreetLanternBlock.LIT;
 
 public class ObjectRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Furniture.MODID, Registries.ITEM);
@@ -37,12 +34,15 @@ public class ObjectRegistry {
     public static final Map<String, RegistrySupplier<Block>> SOFAS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> POUFFE = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> LAMPS = new HashMap<>();
+    public static final Map<String, RegistrySupplier<Block>> WALL_LAMPS = new HashMap<>();
+    public static final Map<String, RegistrySupplier<Item>> LAMP_ITEMS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> CURTAINS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> CABINETS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> GRANDFATHER_CLOCKS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> CLOCKS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> BENCHES = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> MIRRORS = new HashMap<>();
+
     public static final RegistrySupplier<Block> GRAMOPHONE = registerWithItem("gramophone", () -> new GramophoneBlock(BlockBehaviour.Properties.copy(Blocks.JUKEBOX)));
     public static final RegistrySupplier<Block> TELESCOPE = registerWithItem("telescope", () -> new TelescopeBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistrySupplier<Block> COFFER = registerWithItem("coffer", () -> new CofferBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL).pushReaction(PushReaction.DESTROY)));
@@ -53,7 +53,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> SEWING_KIT = registerWithItem("sewing_kit", () -> new SewingKitBlock(BlockBehaviour.Properties.copy(Blocks.LOOM)));
     public static final RegistrySupplier<Item> CANVAS = registerItem("canvas", () -> new CanvasItem(new Item.Properties(), CanvasRegistry.LONELY_DAISY, TagRegistry.PAINTINGS));
     public static final RegistrySupplier<Block> BIN = registerWithItem("bin", () -> new BinBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-    public static final RegistrySupplier<Item> TRASH_BAG = registerItem("trash_bag", () -> new TrashBagItem(getSettings()));
+    public static final RegistrySupplier<Item> TRASH_BAG = registerItem("trash_bag", () -> new TrashBagItem(new Item.Properties()));
     public static final RegistrySupplier<Block> STEAM_VENT = registerWithItem("steam_vent", () -> new SteamVentBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistrySupplier<Block> COPPER_FISH_TANK = registerWithItem("copper_fish_tank", () -> new FishTankBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
     public static final RegistrySupplier<Block> IRON_FISH_TANK = registerWithItem("iron_fish_tank", () -> new FishTankBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
@@ -61,11 +61,12 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> STONE_BRICKS_CHIMNEY = registerWithItem("stone_bricks_chimney", () -> new ChimneyBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
     public static final RegistrySupplier<Block> COPPER_CHIMNEY = registerWithItem("copper_chimney", () -> new CopperChimneyBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
     public static final RegistrySupplier<Block> BOAT_IN_A_JAR = registerWithItem("boat_in_a_jar", () -> new BoatInAJarBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)));
-    public static final RegistrySupplier<Block> STREET_LANTERN = registerWithoutItem("street_lantern", () -> new StreetLanternBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel((state) -> state.getValue(LIT) ? 15 : 0)));
-    public static final RegistrySupplier<Block> STREET_WALL_LANTERN = registerWithoutItem("street_lantern_wall", () -> new StreetLanternWallBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel((state) -> state.getValue(LIT) ? 15 : 0)));
+    public static final RegistrySupplier<Block> STREET_LANTERN = registerWithoutItem("street_lantern", () -> new StreetLanternBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel(state -> state.getValue(StreetLanternBlock.LIT) ? 15 : 0)));
+    public static final RegistrySupplier<Block> STREET_WALL_LANTERN = registerWithoutItem("street_lantern_wall", () -> new StreetLanternWallBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel(state -> state.getValue(StreetLanternBlock.LIT) ? 15 : 0)));
     public static final RegistrySupplier<Item> STREET_LANTERN_ITEM = registerItem("street_lantern_item", () -> new StandingAndWallBlockItem(ObjectRegistry.STREET_LANTERN.get(), ObjectRegistry.STREET_WALL_LANTERN.get(), new Item.Properties(), Direction.DOWN));
-    public static final RegistrySupplier<Item> PELLS = registerItem("pells", () -> new PellsSpawnItem(getSettings()));
-    public static final RegistrySupplier<Item> CPHS_PRIDE = registerItem("cphs_pride", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE.get(), getSettings().stacksTo(1), 196));
+    public static final RegistrySupplier<Item> PELLS = registerItem("pells", () -> new PellsSpawnItem(new Item.Properties()));
+    public static final RegistrySupplier<Item> CPHS_PRIDE = registerItem("cphs_pride", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE.get(), new Item.Properties().stacksTo(1), 196));
+    public static final RegistrySupplier<Item> CPHS_PRIDE_REMIX = registerItem("cphs_pride_remix", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE_REMIX.get(), new Item.Properties().stacksTo(1), 196));
 
     public static final String[] colors = {
             "white", "light_gray", "gray", "black", "red", "orange", "yellow", "lime", "green", "cyan", "light_blue", "blue", "purple", "magenta", "pink", "brown"
@@ -86,10 +87,15 @@ public class ObjectRegistry {
         for (String color : colors) {
             SOFAS.put(color, registerWithItem("sofa_" + color, () -> new SofaBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).pushReaction(PushReaction.DESTROY))));
             POUFFE.put(color, registerWithItem("pouffe_" + color, () -> new PouffeBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL).pushReaction(PushReaction.NORMAL))));
-            LAMPS.put(color, registerWithItem("lamp_" + color, () -> new LampBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).lightLevel(state -> state.getValue(LampBlock.LIT) ? 15 : 0).pushReaction(PushReaction.DESTROY))));
             CURTAINS.put(color, registerWithItem("curtain_" + color, () -> new CurtainBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL).pushReaction(PushReaction.DESTROY))));
+            String lampName = "lamp_" + color;
+            String wallLampName = "lamp_wall_" + color;
+            RegistrySupplier<Block> lamp = registerWithoutItem(lampName, () -> new LampBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).lightLevel(state -> state.getValue(LampBlock.LIT) ? 15 : 0).pushReaction(PushReaction.DESTROY)));
+            LAMPS.put(color, lamp);
+            RegistrySupplier<Block> wallLamp = registerWithoutItem(wallLampName, () -> new LampWallBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).lightLevel(state -> state.getValue(LampBlock.LIT) ? 15 : 0).pushReaction(PushReaction.DESTROY)));
+            WALL_LAMPS.put(color, wallLamp);
+            LAMP_ITEMS.put(color, registerItem(lampName, () -> new StandingAndWallBlockItem(lamp.get(), wallLamp.get(), new Item.Properties(), Direction.DOWN)));
         }
-
         BLOCKS.register();
         ITEMS.register();
     }
@@ -105,18 +111,6 @@ public class ObjectRegistry {
             case "cherry" -> Blocks.CHERRY_PLANKS;
             default -> Blocks.OAK_PLANKS;
         };
-    }
-
-
-    private static Item.Properties getSettings(Consumer<Item.Properties> consumer) {
-        Item.Properties settings = new Item.Properties();
-        consumer.accept(settings);
-        return settings;
-    }
-
-    static Item.Properties getSettings() {
-        return getSettings((settings) -> {
-        });
     }
 
     public static <T extends Block> RegistrySupplier<T> registerWithItem(String name, Supplier<T> block) {

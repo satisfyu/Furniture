@@ -7,6 +7,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -85,7 +86,7 @@ public class StreetLanternBlock extends HorizontalDirectionalBlock implements Si
         BlockPos belowPos = clickedPos.below();
         BlockState belowBlockState = context.getLevel().getBlockState(belowPos);
 
-        if (!belowBlockState.isFaceSturdy(context.getLevel(), belowPos, Direction.UP)) {
+        if (!belowBlockState.is(this) && !belowBlockState.isFaceSturdy(context.getLevel(), belowPos, Direction.UP)) {
             return null;
         }
 
@@ -98,6 +99,13 @@ public class StreetLanternBlock extends HorizontalDirectionalBlock implements Si
         blockState = this.defaultBlockState().setValue(FACING, direction);
         blockState = blockState.setValue(TYPE, getType(blockState, context.getLevel().getBlockState(clickedPos.above()), context.getLevel().getBlockState(clickedPos.below())));
         return blockState.setValue(WATERLOGGED, flag);
+    }
+
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+        BlockPos belowPos = pos.below();
+        BlockState belowState = world.getBlockState(belowPos);
+        return belowState.is(this) || belowState.isFaceSturdy(world, belowPos, Direction.UP);
     }
 
     @Override

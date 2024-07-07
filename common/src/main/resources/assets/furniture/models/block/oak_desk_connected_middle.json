@@ -1,0 +1,49 @@
+{
+	"credit": "Made by Satisfy",
+	"textures": {
+		"0": "furniture:block/oak_desk",
+		"1": "furniture:block/oak_desk_mid",
+		"2": "furniture:block/oak_desk_support",
+		"particle": "furniture:block/oak_desk"
+	},
+	"elements": [
+		{
+			"from": [0, 13, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 13, 0]},
+			"faces": {
+				"north": {"uv": [16, 0, 0, 3], "texture": "#0"},
+				"east": {"uv": [16, 0, 0, 3], "texture": "#0"},
+				"south": {"uv": [16, 0, 0, 3], "texture": "#0"},
+				"west": {"uv": [16, 0, 0, 3], "texture": "#0"},
+				"up": {"uv": [0, 16, 16, 0], "rotation": 90, "texture": "#1"},
+				"down": {"uv": [0, 16, 16, 0], "rotation": 90, "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 5, 2],
+			"to": [16, 13, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14, 5, 2]},
+			"faces": {
+				"south": {"uv": [16, 0, 0, 8], "texture": "#2"}
+			}
+		},
+		{
+			"from": [16, 5, 2],
+			"to": [0, 13, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 5, 2]},
+			"faces": {
+				"south": {"uv": [16, 0, 0, 8], "texture": "#2"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "table_single",
+			"origin": [-16, 13, 6],
+			"color": 0,
+			"nbt": "{}",
+			"children": [0, 1, 2]
+		}
+	]
+}

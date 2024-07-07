@@ -1,49 +1,189 @@
 {
-	"credit": "Made by berksire",
-	"textures": {
-		"0": "furniture:block/sofa_back_red",
-		"1": "furniture:block/sofa_bottom",
-		"2": "furniture:block/sofa_front_red",
-		"3": "furniture:block/sofa_parts_red",
-		"4": "furniture:block/sofa_side_red",
-		"7": "furniture:block/sofa_top_middle_red",
-		"particle": "furniture:block/sofa_back_red"
-	},
-	"elements": [
-		{
-			"from": [0, 7, 12],
-			"to": [16, 16, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11.5, 14]},
-			"faces": {
-				"north": {"uv": [0, 2, 16, 11], "texture": "#2"},
-				"east": {"uv": [0, 0, 4, 9], "texture": "#3"},
-				"south": {"uv": [0, 2, 16, 11], "texture": "#2"},
-				"west": {"uv": [0, 0, 4, 9], "texture": "#3"},
-				"up": {"uv": [16, 14, 0, 10], "texture": "#4"},
-				"down": {"uv": [32.02, 6, 16, 10], "texture": "#missing"}
-			}
-		},
-		{
-			"from": [0, 2, 0],
-			"to": [16, 7, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5.5, 8]},
-			"faces": {
-				"north": {"uv": [0, 11, 16, 16], "texture": "#2", "tintindex": 1},
-				"east": {"uv": [0, 11, 16, 16], "texture": "#2", "tintindex": 1},
-				"south": {"uv": [0, 11, 16, 16], "texture": "#0"},
-				"west": {"uv": [0, 11, 16, 16], "texture": "#2", "tintindex": 1},
-				"up": {"uv": [16, 16, 0, 0], "texture": "#7", "tintindex": 1},
-				"down": {"uv": [16, 0, 0, 16], "texture": "#1", "tintindex": 1}
-			}
-		}
-	],
-	"groups": [
-		{
-			"name": "single",
-			"origin": [14, 1, -2],
-			"color": 0,
-			"nbt": "{}",
-			"children": [0, 1]
-		}
-	]
+  "credit": "Made by berksire",
+  "textures": {
+    "0": "furniture:block/sofa_back_red",
+    "1": "furniture:block/sofa_bottom",
+    "2": "furniture:block/sofa_front_red",
+    "3": "furniture:block/sofa_parts_red",
+    "4": "furniture:block/sofa_side_red",
+    "7": "furniture:block/sofa_top_middle_red",
+    "particle": "furniture:block/sofa_back_red"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        7,
+        12
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          8,
+          11.5,
+          14
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            2,
+            16,
+            11
+          ],
+          "texture": "#2"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            4,
+            9
+          ],
+          "texture": "#3"
+        },
+        "south": {
+          "uv": [
+            0,
+            2,
+            16,
+            11
+          ],
+          "texture": "#2"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            4,
+            9
+          ],
+          "texture": "#3"
+        },
+        "up": {
+          "uv": [
+            16,
+            14,
+            0,
+            10
+          ],
+          "texture": "#4"
+        },
+        "down": {
+          "uv": [
+            32.02,
+            6,
+            16,
+            10
+          ],
+          "texture": "#missing"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        2,
+        0
+      ],
+      "to": [
+        16,
+        7,
+        16
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          8,
+          5.5,
+          8
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            11,
+            16,
+            16
+          ],
+          "texture": "#2",
+          "tintindex": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            11,
+            16,
+            16
+          ],
+          "texture": "#2",
+          "tintindex": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            11,
+            16,
+            16
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            0,
+            11,
+            16,
+            16
+          ],
+          "texture": "#2",
+          "tintindex": 1
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            0,
+            0
+          ],
+          "texture": "#7",
+          "tintindex": 1
+        },
+        "down": {
+          "uv": [
+            16,
+            0,
+            0,
+            16
+          ],
+          "texture": "#1",
+          "tintindex": 1
+        }
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "single",
+      "origin": [
+        14,
+        1,
+        -2
+      ],
+      "color": 0,
+      "nbt": "{}",
+      "children": [
+        0,
+        1
+      ]
+    }
+  ]
 }

@@ -14,17 +14,17 @@ import net.minecraft.world.entity.Entity;
 public class ClockModel<T extends Entity> extends EntityModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Furniture.MODID, "clock"), "main");
     private final ModelPart wallclock;
-    private final ModelPart clockwork;
     public final ModelPart hours;
     public final ModelPart minutes;
 
     public ClockModel(ModelPart root) {
         this.wallclock = root.getChild("wallclock");
-        this.clockwork = wallclock.getChild("clockwork");
+        ModelPart clockwork = wallclock.getChild("clockwork");
         this.hours = clockwork.getChild("hours");
         this.minutes = clockwork.getChild("minutes");
     }
 
+    @SuppressWarnings("unused")
     public static LayerDefinition getTexturedModelData() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();

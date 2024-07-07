@@ -109,6 +109,14 @@
     "furniture:spruce_mirror",
     "furniture:telescope",
     "furniture:boat_in_a_jar",
-    "furniture:explorers_box"
+    "furniture:explorers_box",
+    "furniture:oak_shutter",
+    "furniture:spruce_shutter",
+    "furniture:birch_shutter",
+    "furniture:jungle_shutter",
+    "furniture:acacia_shutter",
+    "furniture:dark_oak_shutter",
+    "furniture:mangrove_shutter",
+    "furniture:cherry_shutter"
   ]
 }

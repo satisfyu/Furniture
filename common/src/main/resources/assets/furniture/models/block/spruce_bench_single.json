@@ -1,8 +1,8 @@
 {
-	"parent": "furniture:block/oak_bench_single",
-	"textures": {
-		"0": "furniture:block/spruce_bench_top",
-		"1": "furniture:block/spruce_bench_front",
-		"particle": "furniture:block/spruce_bench_top"
-	}
+  "parent": "furniture:block/oak_bench_single",
+  "textures": {
+    "0": "furniture:block/spruce_bench_top",
+    "1": "furniture:block/spruce_bench_front",
+    "particle": "furniture:block/spruce_bench_top"
+  }
 }

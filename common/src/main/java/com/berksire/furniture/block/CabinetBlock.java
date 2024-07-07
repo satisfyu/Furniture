@@ -134,8 +134,16 @@ public class CabinetBlock extends BaseEntityBlock {
 
 	private static final Supplier<VoxelShape> voxelShapeSupplier = () -> {
 		VoxelShape shape = Shapes.empty();
-		shape = Shapes.join(shape, Shapes.box(0, 0, 0.0625, 1, 0.875, 1), BooleanOp.OR);
+		shape = Shapes.join(shape, Shapes.box(0, 0, 0.125, 1, 0.875, 1), BooleanOp.OR);
 		shape = Shapes.join(shape, Shapes.box(0, 0.875, 0, 1, 1, 1), BooleanOp.OR);
+		return shape;
+	};
+
+	private static final Supplier<VoxelShape> openVoxelShapeSupplier = () -> {
+		VoxelShape shape = Shapes.empty();
+		shape = Shapes.join(shape, Shapes.box(0, 0, 0.125, 1, 0.875, 1), BooleanOp.OR);
+		shape = Shapes.join(shape, Shapes.box(0, 0.875, 0, 1, 1, 1), BooleanOp.OR);
+		shape = Shapes.join(shape, Shapes.box(0.0625, 0.4375, -0.125, 0.9375, 0.8125, 0.125), BooleanOp.OR);
 		return shape;
 	};
 
@@ -145,9 +153,15 @@ public class CabinetBlock extends BaseEntityBlock {
 		}
 	});
 
+	public static final Map<Direction, VoxelShape> OPEN_SHAPE = net.minecraft.Util.make(new HashMap<>(), map -> {
+		for (Direction direction : Direction.Plane.HORIZONTAL.stream().toList()) {
+			map.put(direction, FurnitureUtil.rotateShape(Direction.NORTH, direction, openVoxelShapeSupplier.get()));
+		}
+	});
+
 	@Override
 	@SuppressWarnings("deprecation")
 	public @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		return SHAPE.get(state.getValue(FACING));
+		return state.getValue(OPEN) ? OPEN_SHAPE.get(state.getValue(FACING)) : SHAPE.get(state.getValue(FACING));
 	}
 }

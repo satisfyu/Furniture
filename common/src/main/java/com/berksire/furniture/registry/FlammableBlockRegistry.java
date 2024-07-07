@@ -11,6 +11,9 @@ public class FlammableBlockRegistry {
         ObjectRegistry.GRANDFATHER_CLOCKS.forEach((woodType, clock) -> addFlammable(5, 20, clock.get()));
         ObjectRegistry.BENCHES.forEach((woodType, bench) -> addFlammable(5, 20, bench.get()));
         ObjectRegistry.MIRRORS.forEach((woodType, mirror) -> addFlammable(5, 20, mirror.get()));
+        ObjectRegistry.SHUTTERS.forEach((woodType, shutter) -> addFlammable(5, 20, shutter.get()));
+        ObjectRegistry.LAMPS.forEach((woodType, lamp) -> addFlammable(5, 20, lamp.get()));
+        ObjectRegistry.WALL_LAMPS.forEach((woodType, wall_lamp) -> addFlammable(5, 20, wall_lamp.get()));
 
         addFlammableSofas(5, 5);
         addFlammable(30, 60,

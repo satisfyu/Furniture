@@ -1,0 +1,132 @@
+{
+  "variants": {
+    "type=none,bulbs=0,facing=north": {
+      "model": "furniture:block/plated_street_lantern_single",
+      "y": 0
+    },
+    "type=none,bulbs=0,facing=south": {
+      "model": "furniture:block/plated_street_lantern_single",
+      "y": 180
+    },
+    "type=none,bulbs=0,facing=west": {
+      "model": "furniture:block/plated_street_lantern_single",
+      "y": 270
+    },
+    "type=none,bulbs=0,facing=east": {
+      "model": "furniture:block/plated_street_lantern_single",
+      "y": 90
+    },
+    "type=none,bulbs=1,facing=north": {
+      "model": "furniture:block/plated_street_lantern_single_double",
+      "y": 0
+    },
+    "type=none,bulbs=1,facing=south": {
+      "model": "furniture:block/plated_street_lantern_single_double",
+      "y": 180
+    },
+    "type=none,bulbs=1,facing=west": {
+      "model": "furniture:block/plated_street_lantern_single_double",
+      "y": 270
+    },
+    "type=none,bulbs=1,facing=east": {
+      "model": "furniture:block/plated_street_lantern_single_double",
+      "y": 90
+    },
+    "type=top,bulbs=0,facing=north": {
+      "model": "furniture:block/plated_street_lantern_single",
+      "y": 0
+    },
+    "type=top,bulbs=0,facing=south": {
+      "model": "furniture:block/plated_street_lantern_single",
+      "y": 180
+    },
+    "type=top,bulbs=0,facing=west": {
+      "model": "furniture:block/plated_street_lantern_single",
+      "y": 270
+    },
+    "type=top,bulbs=0,facing=east": {
+      "model": "furniture:block/plated_street_lantern_single",
+      "y": 90
+    },
+    "type=top,bulbs=1,facing=north": {
+      "model": "furniture:block/plated_street_lantern_single_double",
+      "y": 0
+    },
+    "type=top,bulbs=1,facing=south": {
+      "model": "furniture:block/plated_street_lantern_single_double",
+      "y": 180
+    },
+    "type=top,bulbs=1,facing=west": {
+      "model": "furniture:block/plated_street_lantern_single_double",
+      "y": 270
+    },
+    "type=top,bulbs=1,facing=east": {
+      "model": "furniture:block/plated_street_lantern_single_double",
+      "y": 90
+    },
+    "type=middle,bulbs=0,facing=north": {
+      "model": "furniture:block/plated_street_lantern_middle",
+      "y": 0
+    },
+    "type=middle,bulbs=0,facing=south": {
+      "model": "furniture:block/plated_street_lantern_middle",
+      "y": 180
+    },
+    "type=middle,bulbs=0,facing=west": {
+      "model": "furniture:block/plated_street_lantern_middle",
+      "y": 270
+    },
+    "type=middle,bulbs=0,facing=east": {
+      "model": "furniture:block/plated_street_lantern_middle",
+      "y": 90
+    },
+    "type=middle,bulbs=1,facing=north": {
+      "model": "furniture:block/plated_street_lantern_middle",
+      "y": 0
+    },
+    "type=middle,bulbs=1,facing=south": {
+      "model": "furniture:block/plated_street_lantern_middle",
+      "y": 180
+    },
+    "type=middle,bulbs=1,facing=west": {
+      "model": "furniture:block/plated_street_lantern_middle",
+      "y": 270
+    },
+    "type=middle,bulbs=1,facing=east": {
+      "model": "furniture:block/plated_street_lantern_middle",
+      "y": 90
+    },
+    "type=bottom,bulbs=0,facing=north": {
+      "model": "furniture:block/plated_street_lantern_bottom",
+      "y": 0
+    },
+    "type=bottom,bulbs=0,facing=south": {
+      "model": "furniture:block/plated_street_lantern_bottom",
+      "y": 180
+    },
+    "type=bottom,bulbs=0,facing=west": {
+      "model": "furniture:block/plated_street_lantern_bottom",
+      "y": 270
+    },
+    "type=bottom,bulbs=0,facing=east": {
+      "model": "furniture:block/plated_street_lantern_bottom",
+      "y": 90
+    },
+    "type=bottom,bulbs=1,facing=north": {
+      "model": "furniture:block/plated_street_lantern_bottom",
+      "y": 0
+    },
+    "type=bottom,bulbs=1,facing=south": {
+      "model": "furniture:block/plated_street_lantern_bottom",
+      "y": 180
+    },
+    "type=bottom,bulbs=1,facing=west": {
+      "model": "furniture:block/plated_street_lantern_bottom",
+      "y": 270
+    },
+    "type=bottom,bulbs=1,facing=east": {
+      "model": "furniture:block/plated_street_lantern_bottom",
+      "y": 90
+    }
+  }
+}

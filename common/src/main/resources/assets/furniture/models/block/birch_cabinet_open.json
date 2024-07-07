@@ -1,11 +1,11 @@
 {
-	"parent": "furniture:block/oak_cabinet_open",
-	"textures": {
-		"2": "furniture:block/birch_drawer",
-		"3": "furniture:block/birch_cabinet_side",
-		"4": "furniture:block/birch_cabinet_top",
-		"5": "furniture:block/birch_drawer_bottom",
-		"6": "furniture:block/birch_cabinet_front",
-		"particle": "furniture:block/birch_cabinet_top"
-	}
+  "parent": "furniture:block/oak_cabinet_open",
+  "textures": {
+    "2": "furniture:block/birch_drawer",
+    "3": "furniture:block/birch_cabinet_side",
+    "4": "furniture:block/birch_cabinet_top",
+    "5": "furniture:block/birch_drawer_bottom",
+    "6": "furniture:block/birch_cabinet_front",
+    "particle": "furniture:block/birch_cabinet_top"
+  }
 }

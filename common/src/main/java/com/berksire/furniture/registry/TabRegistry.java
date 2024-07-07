@@ -35,10 +35,19 @@ public class TabRegistry {
                     ObjectRegistry.CURTAINS.get(color).ifPresent(out::accept);
                 }
                 for (String woodType : woodTypeOrder) {
+                    ObjectRegistry.SHUTTERS.get(woodType).ifPresent(out::accept);
+                }
+                for (String woodType : woodTypeOrder) {
                     ObjectRegistry.BENCHES.get(woodType).ifPresent(out::accept);
                 }
                 for (String woodType : woodTypeOrder) {
                     ObjectRegistry.CABINETS.get(woodType).ifPresent(out::accept);
+                }
+                for (String woodType : woodTypeOrder) {
+                    ObjectRegistry.DRAWERS.get(woodType).ifPresent(out::accept);
+                }
+                for (String woodType : woodTypeOrder) {
+                    ObjectRegistry.DESKS.get(woodType).ifPresent(out::accept);
                 }
                 out.accept(ObjectRegistry.STEAM_VENT.get());
                 out.accept(ObjectRegistry.STONE_BRICKS_CHIMNEY.get());
@@ -66,6 +75,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.IRON_FISH_TANK.get());
                 out.accept(ObjectRegistry.CANVAS.get());
                 out.accept(ObjectRegistry.STREET_LANTERN_ITEM.get());
+                out.accept(ObjectRegistry.PLATED_STREET_LANTERN_ITEM.get());
                 out.accept(ObjectRegistry.PELLS.get());
                 out.accept(ObjectRegistry.CPHS_PRIDE.get());
                 out.accept(ObjectRegistry.CPHS_PRIDE_REMIX.get());

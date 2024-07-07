@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BB ",
+    "BB ",
+    "BB "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:spruce_slab"
+    }
+  },
+  "result": {
+    "item": "furniture:spruce_shutter",
+    "count": 4
+  }
+}

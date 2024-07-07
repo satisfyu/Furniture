@@ -1,22 +1,78 @@
 {
-	"credit": "Made by Berksire",
-	"textures": {
-		"2": "furniture:block/steam_vent_top",
-		"4": "furniture:block/steam_vent_pipe",
-		"particle": "furniture:block/steam_vent_bottom"
-	},
-	"elements": [
-		{
-			"from": [4, 0, 4],
-			"to": [12, 16, 12],
-			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 4]},
-			"faces": {
-				"north": {"uv": [4, 0, 12, 16], "texture": "#4"},
-				"east": {"uv": [4, 0, 12, 16], "texture": "#4"},
-				"south": {"uv": [4, 0, 12, 16], "texture": "#4"},
-				"west": {"uv": [4, 0, 12, 16], "texture": "#4"},
-				"down": {"uv": [4, 4, 12, 12], "texture": "#2"}
-			}
-		}
-	]
+  "credit": "Made by Berksire",
+  "textures": {
+    "2": "furniture:block/steam_vent_top",
+    "4": "furniture:block/steam_vent_pipe",
+    "particle": "furniture:block/steam_vent_bottom"
+  },
+  "elements": [
+    {
+      "from": [
+        4,
+        0,
+        4
+      ],
+      "to": [
+        12,
+        16,
+        12
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          4,
+          0,
+          4
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            4,
+            0,
+            12,
+            16
+          ],
+          "texture": "#4"
+        },
+        "east": {
+          "uv": [
+            4,
+            0,
+            12,
+            16
+          ],
+          "texture": "#4"
+        },
+        "south": {
+          "uv": [
+            4,
+            0,
+            12,
+            16
+          ],
+          "texture": "#4"
+        },
+        "west": {
+          "uv": [
+            4,
+            0,
+            12,
+            16
+          ],
+          "texture": "#4"
+        },
+        "down": {
+          "uv": [
+            4,
+            4,
+            12,
+            12
+          ],
+          "texture": "#2"
+        }
+      }
+    }
+  ]
 }

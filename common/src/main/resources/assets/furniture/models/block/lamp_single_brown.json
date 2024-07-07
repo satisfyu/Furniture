@@ -1,9 +1,9 @@
 {
-	"parent": "furniture:block/lamp_single_green",
-	"textures": {
-		"0": "furniture:block/lamp_brown_side",
-		"1": "furniture:block/lamp_brown_top",
-		"2": "furniture:block/lamp_parts",
-		"particle": "furniture:block/lamp_brown_side"
-	}
+  "parent": "furniture:block/lamp_single_green",
+  "textures": {
+    "0": "furniture:block/lamp_brown_side",
+    "1": "furniture:block/lamp_brown_top",
+    "2": "furniture:block/lamp_parts",
+    "particle": "furniture:block/lamp_brown_side"
+  }
 }

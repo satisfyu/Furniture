@@ -1,9 +1,9 @@
 {
-	"parent": "furniture:block/oak_bench_left",
-	"textures": {
-		"0": "furniture:block/dark_oak_bench_top",
-		"1": "furniture:block/dark_oak_bench_front_side",
-		"2": "furniture:block/dark_oak_bench_front",
-		"particle": "furniture:block/dark_oak_bench_top"
-	}
+  "parent": "furniture:block/oak_bench_left",
+  "textures": {
+    "0": "furniture:block/dark_oak_bench_top",
+    "1": "furniture:block/dark_oak_bench_front_side",
+    "2": "furniture:block/dark_oak_bench_front",
+    "particle": "furniture:block/dark_oak_bench_top"
+  }
 }

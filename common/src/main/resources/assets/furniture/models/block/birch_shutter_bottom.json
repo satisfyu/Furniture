@@ -1,0 +1,7 @@
+{
+  "parent": "furniture:block/oak_shutter_bottom",
+  "textures": {
+    "particle": "furniture:block/birch_shutter_bottom",
+    "middle": "furniture:block/birch_shutter_bottom"
+  }
+}

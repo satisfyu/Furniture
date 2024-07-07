@@ -1,8 +1,8 @@
 {
-	"parent": "furniture:block/oak_mirror_bottom",
-	"textures": {
-		"0": "furniture:block/cherry_mirror_bottom",
-		"1": "furniture:block/cherry_mirror_back",
-		"particle": "furniture:block/cherry_mirror_bottom"
-	}
+  "parent": "furniture:block/oak_mirror_bottom",
+  "textures": {
+    "0": "furniture:block/cherry_mirror_bottom",
+    "1": "furniture:block/cherry_mirror_back",
+    "particle": "furniture:block/cherry_mirror_bottom"
+  }
 }

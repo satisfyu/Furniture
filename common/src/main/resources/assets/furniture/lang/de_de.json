@@ -109,6 +109,7 @@
   "block.furniture.sofa_white": "Weißes Sofa",
   "block.furniture.sofa_yellow": "Gelbes Sofa",
   "block.furniture.street_lantern": "Straßenlaterne",
+  "block.furniture.plated_street_lantern": "Vergoldete Straßenlaterne",
   "block.furniture.spruce_bench": "Fichtenholzbank",
   "block.furniture.spruce_cabinet": "Fichtenholzschrank",
   "block.furniture.spruce_clock": "Fichtenholzuhr",
@@ -184,5 +185,13 @@
   "item.furniture.cphs_pride.desc": "CPH101 - Pride",
   "item.furniture.cphs_pride_remix": "Schallplatte",
   "subtitles.furniture.cphs_pride_remix": "CPH101 - Pride (Lilitu Remix)",
-  "item.furniture.cphs_pride_remix.desc": "CPH101 - Pride (Lilitu Remix)"
+  "item.furniture.cphs_pride_remix.desc": "CPH101 - Pride (Lilitu Remix)",
+  "block.furniture.oak_shutter": "Eichenholzfensterladen",
+  "block.furniture.spruce_shutter": "Fichtenholzfensterladen",
+  "block.furniture.acacia_shutter": "Akazienholzfensterladen",
+  "block.furniture.dark_oak_shutter": "Schwarzeichenholzfensterladen",
+  "block.furniture.mangrove_shutter": "Mangrovenholzfensterladen",
+  "block.furniture.jungle_shutter": "Dschungelholzfensterladen",
+  "block.furniture.cherry_shutter": "Kirschholzfensterladen",
+  "block.furniture.birch_shutter": "Birkenholzfensterladen"
 }

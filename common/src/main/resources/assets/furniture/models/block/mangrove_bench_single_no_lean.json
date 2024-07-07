@@ -1,8 +1,8 @@
 {
-	"parent": "furniture:block/oak_bench_single_no_lean",
-	"textures": {
-		"0": "furniture:block/mangrove_bench_top",
-		"1": "furniture:block/mangrove_bench_front",
-		"particle": "furniture:block/mangrove_bench_top"
-	}
+  "parent": "furniture:block/oak_bench_single_no_lean",
+  "textures": {
+    "0": "furniture:block/mangrove_bench_top",
+    "1": "furniture:block/mangrove_bench_front",
+    "particle": "furniture:block/mangrove_bench_top"
+  }
 }

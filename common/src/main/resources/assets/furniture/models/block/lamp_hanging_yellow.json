@@ -1,9 +1,9 @@
 {
-    "parent": "furniture:block/lamp_hanging_green",
-    "textures": {
-        "0": "furniture:block/lamp_yellow_side",
-        "1": "furniture:block/lamp_yellow_top",
-        "2": "furniture:block/lamp_parts",
-        "particle": "furniture:block/lamp_yellow_side"
-    }
+  "parent": "furniture:block/lamp_hanging_green",
+  "textures": {
+    "0": "furniture:block/lamp_yellow_side",
+    "1": "furniture:block/lamp_yellow_top",
+    "2": "furniture:block/lamp_parts",
+    "particle": "furniture:block/lamp_yellow_side"
+  }
 }

@@ -1,8 +1,8 @@
 {
-	"parent": "furniture:block/oak_bench_middle",
-	"textures": {
-		"0": "furniture:block/jungle_bench_top",
-		"1": "furniture:block/jungle_bench_front_middle",
-		"particle": "furniture:block/jungle_bench_top"
-	}
+  "parent": "furniture:block/oak_bench_middle",
+  "textures": {
+    "0": "furniture:block/jungle_bench_top",
+    "1": "furniture:block/jungle_bench_front_middle",
+    "particle": "furniture:block/jungle_bench_top"
+  }
 }

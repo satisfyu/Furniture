@@ -38,10 +38,13 @@ public class ObjectRegistry {
     public static final Map<String, RegistrySupplier<Item>> LAMP_ITEMS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> CURTAINS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> CABINETS = new HashMap<>();
+    public static final Map<String, RegistrySupplier<Block>> DESKS = new HashMap<>();
+    public static final Map<String, RegistrySupplier<Block>> DRAWERS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> GRANDFATHER_CLOCKS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> CLOCKS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> BENCHES = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> MIRRORS = new HashMap<>();
+    public static final Map<String, RegistrySupplier<Block>> SHUTTERS = new HashMap<>();
 
     public static final RegistrySupplier<Block> GRAMOPHONE = registerWithItem("gramophone", () -> new GramophoneBlock(BlockBehaviour.Properties.copy(Blocks.JUKEBOX)));
     public static final RegistrySupplier<Block> TELESCOPE = registerWithItem("telescope", () -> new TelescopeBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
@@ -64,6 +67,9 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> STREET_LANTERN = registerWithoutItem("street_lantern", () -> new StreetLanternBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel(state -> state.getValue(StreetLanternBlock.LIT) ? 15 : 0)));
     public static final RegistrySupplier<Block> STREET_WALL_LANTERN = registerWithoutItem("street_lantern_wall", () -> new StreetLanternWallBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel(state -> state.getValue(StreetLanternBlock.LIT) ? 15 : 0)));
     public static final RegistrySupplier<Item> STREET_LANTERN_ITEM = registerItem("street_lantern_item", () -> new StandingAndWallBlockItem(ObjectRegistry.STREET_LANTERN.get(), ObjectRegistry.STREET_WALL_LANTERN.get(), new Item.Properties(), Direction.DOWN));
+    public static final RegistrySupplier<Block> PLATED_STREET_LANTERN = registerWithoutItem("plated_street_lantern", () -> new StreetLanternBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel(state -> state.getValue(StreetLanternBlock.LIT) ? 15 : 0)));
+    public static final RegistrySupplier<Block> PLATED_STREET_WALL_LANTERN = registerWithoutItem("plated_street_lantern_wall", () -> new StreetLanternWallBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel(state -> state.getValue(StreetLanternBlock.LIT) ? 15 : 0)));
+    public static final RegistrySupplier<Item> PLATED_STREET_LANTERN_ITEM = registerItem("plated_street_lantern_item", () -> new StandingAndWallBlockItem(ObjectRegistry.PLATED_STREET_LANTERN.get(), ObjectRegistry.PLATED_STREET_WALL_LANTERN.get(), new Item.Properties(), Direction.DOWN));
     public static final RegistrySupplier<Item> PELLS = registerItem("pells", () -> new PellsSpawnItem(new Item.Properties()));
     public static final RegistrySupplier<Item> CPHS_PRIDE = registerItem("cphs_pride", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE.get(), new Item.Properties().stacksTo(1), 196));
     public static final RegistrySupplier<Item> CPHS_PRIDE_REMIX = registerItem("cphs_pride_remix", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE_REMIX.get(), new Item.Properties().stacksTo(1), 196));
@@ -83,6 +89,9 @@ public class ObjectRegistry {
             CLOCKS.put(woodType, registerWithItem(woodType + "_clock", () -> new ClockBlock(BlockBehaviour.Properties.copy(getCorrespondingPlank(woodType)).pushReaction(PushReaction.IGNORE), ClockBlock.WoodType.valueOf(woodType.toUpperCase()))));
             GRANDFATHER_CLOCKS.put(woodType, registerWithItem(woodType + "_grandfather_clock", () -> new GrandfatherClockBlock(BlockBehaviour.Properties.copy(getCorrespondingPlank(woodType)).pushReaction(PushReaction.IGNORE), GrandfatherClockBlock.WoodType.valueOf(woodType.toUpperCase()))));
             MIRRORS.put(woodType, registerWithItem(woodType + "_mirror", () -> new MirrorBlock(BlockBehaviour.Properties.copy(getCorrespondingPlank(woodType)).pushReaction(PushReaction.IGNORE))));
+            SHUTTERS.put(woodType, registerWithItem(woodType + "_shutter", () -> new ShutterBlock(BlockBehaviour.Properties.copy(getCorrespondingPlank(woodType)).pushReaction(PushReaction.IGNORE))));
+            DESKS.put(woodType, registerWithItem(woodType + "_desk", () -> new DeskBlock(BlockBehaviour.Properties.copy(getCorrespondingPlank(woodType)).pushReaction(PushReaction.IGNORE))));
+            DRAWERS.put(woodType, registerWithItem(woodType + "_drawer", () -> new DrawerBlock(BlockBehaviour.Properties.of().strength(2.0F, 3.0F).sound(SoundType.WOOD), SoundRegistry.CABINET_OPEN, SoundRegistry.CABINET_CLOSE)));
         }
         for (String color : colors) {
             SOFAS.put(color, registerWithItem("sofa_" + color, () -> new SofaBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).pushReaction(PushReaction.DESTROY))));

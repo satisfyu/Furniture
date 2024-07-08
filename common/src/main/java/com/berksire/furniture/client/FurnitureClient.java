@@ -24,15 +24,18 @@ import static com.berksire.furniture.registry.ObjectRegistry.*;
 public class FurnitureClient {
 
     public static void onInitializeClient() {
-        RenderTypeRegistry.register(RenderType.cutout(), BIN.get(), GRAMOPHONE.get(), CASH_REGISTER.get(), BOAT_IN_A_JAR.get(), STREET_LANTERN.get(), STREET_WALL_LANTERN.get(), PLATED_STREET_LANTERN.get(), PLATED_STREET_WALL_LANTERN.get());
-        for (RegistrySupplier<Block> block : Stream.concat(Stream.concat(LAMPS.values().stream(), WALL_LAMPS.values().stream()), BENCHES.values().stream()).toList()) {
-            RenderTypeRegistry.register(RenderType.cutout(), block.get());
-        }
+        RenderTypeRegistry.register(RenderType.cutout(), BIN.get(), GRAMOPHONE.get(), CASH_REGISTER.get(), BOAT_IN_A_JAR.get(), STREET_LANTERN.get(), STREET_WALL_LANTERN.get(), PLATED_STREET_LANTERN.get(), PLATED_STREET_WALL_LANTERN.get(), DISPLAY.get());
+        for (RegistrySupplier<Block> block : Stream.concat(Stream.concat(LAMPS.values().stream(), WALL_LAMPS.values().stream()), Stream.concat(BENCHES.values().stream(), Stream.concat(DESKS.values().stream(), DESK_CHAIRS.values().stream()))).toList()) {
+            RenderTypeRegistry.register(RenderType.cutout(), block.get());}
+
+
 
         BlockEntityRendererRegistry.register(EntityTypeRegistry.GRANDFATHER_CLOCK_BLOCK_ENTITY.get(), GrandfatherClockRenderer::new);
         BlockEntityRendererRegistry.register(EntityTypeRegistry.CLOCK_BLOCK_ENTITY.get(), ClockRenderer::new);
         BlockEntityRendererRegistry.register(EntityTypeRegistry.GRAMOPHONE_BLOCK_ENTITY.get(), GramophoneRenderer::new);
         BlockEntityRendererRegistry.register(EntityTypeRegistry.COFFER_BLOCK_ENTITY.get(), CofferRenderer::new);
+        BlockEntityRendererRegistry.register(EntityTypeRegistry.DISPLAY_BLOCK_ENTITY.get(), context -> new DisplayRenderer());
+        BlockEntityRendererRegistry.register(EntityTypeRegistry.DESK_CHAIR_BLOCK_ENTITY.get(), context -> new DeskChairRenderer());
     }
 
     public static void preInitClient() {

@@ -1,15 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "BBB"
-  ],
-  "key": {
-    "B": {
-      "item": "minecraft:brown_wool"
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "furniture:pouffe_brown"
+        }
+      ],
+      "rolls": 1
     }
-  },
-  "result": {
-    "item": "furniture:pouffe_brown",
-    "count": 2
-  }
+  ]
 }

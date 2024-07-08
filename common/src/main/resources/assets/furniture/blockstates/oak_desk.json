@@ -16,7 +16,6 @@
       "model": "furniture:block/oak_desk_single",
       "y": 270
     },
-
     "facing=north,type=middle": {
       "model": "furniture:block/oak_desk_connected_middle"
     },
@@ -48,7 +47,6 @@
       "model": "furniture:block/oak_desk_connected_left",
       "y": 270
     },
-
     "facing=north,type=right": {
       "model": "furniture:block/oak_desk_connected_right",
       "y": 180

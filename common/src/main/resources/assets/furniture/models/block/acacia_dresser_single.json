@@ -1,0 +1,9 @@
+{
+  "parent": "furniture:block/oak_dresser_single",
+	"textures": {
+		"0": "furniture:block/acacia_dresser_front",
+		"1": "furniture:block/acacia_dresser_side",
+		"2": "furniture:block/acacia_cabinet_top",
+		"particle": "furniture:block/acacia_dresser_front"
+	}
+}

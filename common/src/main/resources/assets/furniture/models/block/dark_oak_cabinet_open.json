@@ -1,10 +1,10 @@
 {
   "parent": "furniture:block/oak_cabinet_open",
   "textures": {
-    "2": "furniture:block/dark_oak_drawer",
+    "2": "furniture:block/dark_oak_cabinet",
     "3": "furniture:block/dark_oak_cabinet_side",
     "4": "furniture:block/dark_oak_cabinet_top",
-    "5": "furniture:block/dark_oak_drawer_bottom",
+    "5": "furniture:block/dark_oak_cabinet_bottom",
     "6": "furniture:block/dark_oak_cabinet_front",
     "particle": "furniture:block/dark_oak_cabinet_top"
   }

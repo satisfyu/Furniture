@@ -2,7 +2,7 @@
 	"credit": "Made by Satisfy",
 	"textures": {
 		"0": "furniture:block/oak_desk",
-		"1": "furniture:block/oak_desk_mid",
+		"1": "furniture:block/oak_desk_connected_middle",
 		"2": "furniture:block/oak_desk_support",
 		"particle": "furniture:block/oak_desk"
 	},

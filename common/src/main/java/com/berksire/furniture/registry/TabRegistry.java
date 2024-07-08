@@ -22,6 +22,7 @@ public class TabRegistry {
                 String[] woodTypeOrder = {
                         "oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry"
                 };
+
                 for (String color : colorOrder) {
                     ObjectRegistry.SOFAS.get(color).ifPresent(out::accept);
                 }
@@ -34,6 +35,7 @@ public class TabRegistry {
                 for (String color : colorOrder) {
                     ObjectRegistry.CURTAINS.get(color).ifPresent(out::accept);
                 }
+
                 for (String woodType : woodTypeOrder) {
                     ObjectRegistry.SHUTTERS.get(woodType).ifPresent(out::accept);
                 }
@@ -41,18 +43,23 @@ public class TabRegistry {
                     ObjectRegistry.BENCHES.get(woodType).ifPresent(out::accept);
                 }
                 for (String woodType : woodTypeOrder) {
+                    ObjectRegistry.DESK_CHAIRS.get(woodType).ifPresent(out::accept);
+                }
+                for (String woodType : woodTypeOrder) {
                     ObjectRegistry.CABINETS.get(woodType).ifPresent(out::accept);
                 }
                 for (String woodType : woodTypeOrder) {
-                    ObjectRegistry.DRAWERS.get(woodType).ifPresent(out::accept);
+                    ObjectRegistry.DRESSER.get(woodType).ifPresent(out::accept);
                 }
                 for (String woodType : woodTypeOrder) {
                     ObjectRegistry.DESKS.get(woodType).ifPresent(out::accept);
                 }
+
                 out.accept(ObjectRegistry.STEAM_VENT.get());
                 out.accept(ObjectRegistry.STONE_BRICKS_CHIMNEY.get());
                 out.accept(ObjectRegistry.BRICK_CHIMNEY.get());
                 out.accept(ObjectRegistry.COPPER_CHIMNEY.get());
+
                 for (String woodType : woodTypeOrder) {
                     ObjectRegistry.CLOCKS.get(woodType).ifPresent(out::accept);
                 }
@@ -62,6 +69,7 @@ public class TabRegistry {
                 for (String woodType : woodTypeOrder) {
                     ObjectRegistry.MIRRORS.get(woodType).ifPresent(out::accept);
                 }
+
                 out.accept(ObjectRegistry.TELESCOPE.get());
                 out.accept(ObjectRegistry.GRAMOPHONE.get());
                 out.accept(ObjectRegistry.CASH_REGISTER.get());
@@ -73,6 +81,8 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.BOAT_IN_A_JAR.get());
                 out.accept(ObjectRegistry.COPPER_FISH_TANK.get());
                 out.accept(ObjectRegistry.IRON_FISH_TANK.get());
+                out.accept(ObjectRegistry.TERRARIUM.get());
+                out.accept(ObjectRegistry.DISPLAY.get());
                 out.accept(ObjectRegistry.CANVAS.get());
                 out.accept(ObjectRegistry.STREET_LANTERN_ITEM.get());
                 out.accept(ObjectRegistry.PLATED_STREET_LANTERN_ITEM.get());

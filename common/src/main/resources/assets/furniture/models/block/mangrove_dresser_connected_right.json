@@ -1,0 +1,12 @@
+{
+	"parent": "furniture:block/oak_dresser_connected_right",
+	"textures": {
+		"0": "furniture:block/mangrove_dresser_frontside",
+		"1": "furniture:block/mangrove_dresser_side",
+		"3": "furniture:block/mangrove_dresser_back",
+		"4": "furniture:block/mangrove_desk_connected_side",
+		"5": "furniture:block/mangrove_dresser_front",
+		"6": "furniture:block/mangrove_dresser_side_inner",
+		"particle": "furniture:block/mangrove_dresser_frontside"
+	}
+}

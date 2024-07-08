@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "furniture:spruce_desk"
+    },
+    {
+      "item": "furniture:spruce_cabinet"
+    }
+  ],
+  "result": {
+    "item": "furniture:spruce_dresser",
+    "count": 1
+  }
+}

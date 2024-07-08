@@ -1,0 +1,11 @@
+{
+  "parent": "furniture:block/oak_dresser_connected_middle",
+	"textures": {
+		"1": "furniture:block/jungle_dresser_side",
+		"2": "furniture:block/jungle_dresser_side_inner",
+		"3": "furniture:block/jungle_desk_connected_middle",
+		"4": "furniture:block/jungle_dresser_back_middle",
+		"6": "furniture:block/jungle_dresser_middle",
+		"particle": "furniture:block/jungle_dresser_side_inner"
+	}
+}

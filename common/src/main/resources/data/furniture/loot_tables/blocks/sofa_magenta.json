@@ -1,23 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X X",
-    "UUU",
-    "B B"
-  ],
-  "key": {
-    "B": {
-      "item": "minecraft:stick"
-    },
-    "U": {
-      "item": "minecraft:oak_slab"
-    },
-    "X": {
-      "item": "minecraft:magenta_wool"
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "furniture:sofa_magenta"
+        }
+      ],
+      "rolls": 1
     }
-  },
-  "result": {
-    "item": "furniture:sofa_magenta",
-    "count": 3
-  }
+  ]
 }

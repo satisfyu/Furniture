@@ -1,0 +1,9 @@
+{
+  "parent": "furniture:block/oak_desk_connected_middle",
+	"textures": {
+		"0": "furniture:block/spruce_desk",
+		"1": "furniture:block/spruce_desk_connected_middle",
+		"2": "furniture:block/spruce_desk_support",
+		"particle": "furniture:block/spruce_desk"
+	}
+}

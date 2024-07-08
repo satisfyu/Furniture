@@ -1,0 +1,9 @@
+{
+    "parent": "furniture:block/oak_desk_single",
+    "textures": {
+        "0": "furniture:block/dark_oak_desk",
+        "1": "furniture:block/dark_oak_desk_top",
+        "2": "furniture:block/dark_oak_desk_support",
+        "particle": "furniture:block/dark_oak_desk"
+    }
+}

@@ -1,6 +1,6 @@
 package com.berksire.furniture.util;
 
-import com.berksire.furniture.client.entity.ChairEntity;
+import com.berksire.furniture.client.entity.SeatEntity;
 import com.berksire.furniture.registry.EntityTypeRegistry;
 import com.mojang.datafixers.util.Pair;
 import dev.architectury.platform.Platform;
@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 public class FurnitureUtil {
-    private static final Map<ResourceLocation, Map<BlockPos, Pair<ChairEntity, BlockPos>>> CHAIRS = new HashMap<>();
+    private static final Map<ResourceLocation, Map<BlockPos, Pair<SeatEntity, BlockPos>>> CHAIRS = new HashMap<>();
 
     public static <T extends Block> RegistrySupplier<T> registerWithItem(DeferredRegister<Block> registerB, Registrar<Block> registrarB, DeferredRegister<Item> registerI, Registrar<Item> registrarI, ResourceLocation name, Supplier<T> block) {
         RegistrySupplier<T> toReturn = registerWithoutItem(registerB, registrarB, name, block);
@@ -66,7 +66,7 @@ public class FurnitureUtil {
         if (hit.getDirection() == Direction.DOWN) return InteractionResult.PASS;
         BlockPos hitPos = hit.getBlockPos();
         if (!FurnitureUtil.isOccupied(world, hitPos) && player.getItemInHand(hand).isEmpty()) {
-            ChairEntity chair = EntityTypeRegistry.CHAIR.get().create(world);
+            SeatEntity chair = EntityTypeRegistry.CHAIR.get().create(world);
             assert chair != null;
             chair.moveTo(hitPos.getX() + 0.5D, hitPos.getY() + 0.25D + extraHeight, hitPos.getZ() + 0.5D, 0, 0);
             if (FurnitureUtil.addChairEntity(world, hitPos, chair, player.blockPosition())) {
@@ -80,7 +80,7 @@ public class FurnitureUtil {
 
     public static void onStateReplaced(Level world, BlockPos pos) {
         if (!world.isClientSide) {
-            ChairEntity entity = FurnitureUtil.getChairEntity(world, pos);
+            SeatEntity entity = FurnitureUtil.getChairEntity(world, pos);
             if (entity != null) {
                 FurnitureUtil.removeChairEntity(world, pos);
                 entity.ejectPassengers();
@@ -88,7 +88,7 @@ public class FurnitureUtil {
         }
     }
 
-    public static boolean addChairEntity(Level world, BlockPos blockPos, ChairEntity entity, BlockPos playerPos) {
+    public static boolean addChairEntity(Level world, BlockPos blockPos, SeatEntity entity, BlockPos playerPos) {
         if (!world.isClientSide) {
             ResourceLocation id = getDimensionTypeId(world);
             if (!CHAIRS.containsKey(id)) CHAIRS.put(id, new HashMap<>());
@@ -107,7 +107,7 @@ public class FurnitureUtil {
         }
     }
 
-    public static ChairEntity getChairEntity(Level world, BlockPos pos) {
+    public static SeatEntity getChairEntity(Level world, BlockPos pos) {
         if (!world.isClientSide()) {
             ResourceLocation id = getDimensionTypeId(world);
             if (CHAIRS.containsKey(id) && CHAIRS.get(id).containsKey(pos))
@@ -116,11 +116,11 @@ public class FurnitureUtil {
         return null;
     }
 
-    public static BlockPos getPreviousPlayerPosition(Player player, ChairEntity chairEntity) {
+    public static BlockPos getPreviousPlayerPosition(Player player, SeatEntity chairEntity) {
         if (!player.level().isClientSide()) {
             ResourceLocation id = getDimensionTypeId(player.level());
             if (CHAIRS.containsKey(id)) {
-                for (Pair<ChairEntity, BlockPos> pair : CHAIRS.get(id).values()) {
+                for (Pair<SeatEntity, BlockPos> pair : CHAIRS.get(id).values()) {
                     if (pair.getFirst() == chairEntity)
                         return pair.getSecond();
                 }
@@ -136,7 +136,7 @@ public class FurnitureUtil {
 
     public static boolean isPlayerSitting(Player player) {
         for (ResourceLocation i : CHAIRS.keySet()) {
-            for (Pair<ChairEntity, BlockPos> pair : CHAIRS.get(i).values()) {
+            for (Pair<SeatEntity, BlockPos> pair : CHAIRS.get(i).values()) {
                 if (pair.getFirst().hasPassenger(player))
                     return true;
             }

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "furniture:birch_desk"
+    },
+    {
+      "item": "furniture:birch_cabinet"
+    }
+  ],
+  "result": {
+    "item": "furniture:birch_dresser",
+    "count": 1
+  }
+}

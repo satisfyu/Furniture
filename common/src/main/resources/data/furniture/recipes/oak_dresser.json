@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "furniture:oak_desk"
+    },
+    {
+      "item": "furniture:oak_cabinet"
+    }
+  ],
+  "result": {
+    "item": "furniture:oak_dresser",
+    "count": 1
+  }
+}

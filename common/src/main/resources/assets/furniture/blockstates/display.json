@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furniture:block/display",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furniture:block/display"
+    },
+    "facing=south": {
+      "model": "furniture:block/display",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/display",
+      "y": 270
+    }
+  }
+}

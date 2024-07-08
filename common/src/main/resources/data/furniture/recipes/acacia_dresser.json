@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "furniture:acacia_desk"
+    },
+    {
+      "item": "furniture:acacia_cabinet"
+    }
+  ],
+  "result": {
+    "item": "furniture:acacia_dresser",
+    "count": 1
+  }
+}

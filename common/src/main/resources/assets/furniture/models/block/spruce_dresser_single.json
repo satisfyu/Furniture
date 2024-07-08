@@ -1,0 +1,9 @@
+{
+  "parent": "furniture:block/oak_dresser_single",
+	"textures": {
+		"0": "furniture:block/spruce_dresser_front",
+		"1": "furniture:block/spruce_dresser_side",
+		"2": "furniture:block/spruce_cabinet_top",
+		"particle": "furniture:block/spruce_dresser_front"
+	}
+}

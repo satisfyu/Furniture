@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "furniture:dark_oak_desk"
+    },
+    {
+      "item": "furniture:dark_oak_cabinet"
+    }
+  ],
+  "result": {
+    "item": "furniture:dark_oak_dresser",
+    "count": 1
+  }
+}

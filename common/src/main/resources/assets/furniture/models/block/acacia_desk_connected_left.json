@@ -1,0 +1,9 @@
+{
+  "parent": "furniture:block/oak_desk_connected_left",
+	"textures": {
+		"0": "furniture:block/acacia_desk",
+		"1": "furniture:block/acacia_desk_connected_side",
+		"2": "furniture:block/acacia_desk_support",
+		"particle": "furniture:block/acacia_desk"
+	}
+}

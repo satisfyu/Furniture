@@ -148,6 +148,6 @@ public class LampBlock extends Block implements SimpleWaterloggedBlock {
             world.playSound(null, pos, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.SUCCESS;
         }
-        return super.use(state, world, pos, player, hand, hit);
+        return InteractionResult.SUCCESS;
     }
 }

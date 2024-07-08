@@ -1,10 +1,10 @@
 {
   "parent": "furniture:block/oak_cabinet_closed",
   "textures": {
-    "2": "furniture:block/jungle_drawer",
+    "2": "furniture:block/jungle_cabinet",
     "3": "furniture:block/jungle_cabinet_side",
     "4": "furniture:block/jungle_cabinet_top",
-    "5": "furniture:block/jungle_drawer_bottom",
+    "5": "furniture:block/jungle_cabinet_bottom",
     "6": "furniture:block/jungle_cabinet_front",
     "particle": "furniture:block/jungle_cabinet_top"
   }

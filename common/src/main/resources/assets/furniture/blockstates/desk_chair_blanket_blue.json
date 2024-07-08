@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "furniture:block/desk_chair_blanket_blue",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "furniture:block/desk_chair_blanket_blue"
+    },
+    "facing=south": {
+      "model": "furniture:block/desk_chair_blanket_blue",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "furniture:block/desk_chair_blanket_blue",
+      "y": 270
+    }
+  }
+}

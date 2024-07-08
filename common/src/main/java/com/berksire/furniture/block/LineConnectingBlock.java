@@ -20,7 +20,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-
 @SuppressWarnings("deprecation")
 public class LineConnectingBlock extends Block {
     public static final DirectionProperty FACING;
@@ -30,6 +29,7 @@ public class LineConnectingBlock extends Block {
         super(settings);
         this.registerDefaultState(((this.stateDefinition.any().setValue(FACING, Direction.NORTH)).setValue(TYPE, FurnitureUtil.LineConnectingType.NONE)));
     }
+
     public @NotNull InteractionResult use(BlockState arg, Level arg2, BlockPos arg3, Player arg4, InteractionHand arg5, BlockHitResult arg6) {
         return InteractionResult.PASS;
     }
@@ -44,14 +44,10 @@ public class LineConnectingBlock extends Block {
         BlockPos clickedPos = context.getClickedPos();
 
         return switch (facing) {
-            case EAST ->
-                    blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.south()), world.getBlockState(clickedPos.north())));
-            case SOUTH ->
-                    blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.west()), world.getBlockState(clickedPos.east())));
-            case WEST ->
-                    blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.north()), world.getBlockState(clickedPos.south())));
-            default ->
-                    blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.east()), world.getBlockState(clickedPos.west())));
+            case EAST -> blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.south()), world.getBlockState(clickedPos.north())));
+            case SOUTH -> blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.west()), world.getBlockState(clickedPos.east())));
+            case WEST -> blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.north()), world.getBlockState(clickedPos.south())));
+            default -> blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.east()), world.getBlockState(clickedPos.west())));
         };
     }
 
@@ -60,17 +56,12 @@ public class LineConnectingBlock extends Block {
         if (world.isClientSide) return;
 
         Direction facing = state.getValue(FACING);
-
         FurnitureUtil.LineConnectingType type;
         switch (facing) {
-            case EAST ->
-                    type = getType(state, world.getBlockState(pos.south()), world.getBlockState(pos.north()));
-            case SOUTH ->
-                    type =  getType(state, world.getBlockState(pos.west()), world.getBlockState(pos.east()));
-            case WEST ->
-                    type =  getType(state, world.getBlockState(pos.north()), world.getBlockState(pos.south()));
-            default ->
-                    type =  getType(state, world.getBlockState(pos.east()), world.getBlockState(pos.west()));
+            case EAST -> type = getType(state, world.getBlockState(pos.south()), world.getBlockState(pos.north()));
+            case SOUTH -> type = getType(state, world.getBlockState(pos.west()), world.getBlockState(pos.east()));
+            case WEST -> type = getType(state, world.getBlockState(pos.north()), world.getBlockState(pos.south()));
+            default -> type = getType(state, world.getBlockState(pos.east()), world.getBlockState(pos.west()));
         }
         if (state.getValue(TYPE) != type) {
             state = state.setValue(TYPE, type);
@@ -79,8 +70,8 @@ public class LineConnectingBlock extends Block {
     }
 
     public FurnitureUtil.LineConnectingType getType(BlockState state, BlockState left, BlockState right) {
-        boolean shape_left_same = left.getBlock() == state.getBlock() && left.getValue(FACING) == state.getValue(FACING);
-        boolean shape_right_same = right.getBlock() == state.getBlock() && right.getValue(FACING) == state.getValue(FACING);
+        boolean shape_left_same = isConnectable(left, state);
+        boolean shape_right_same = isConnectable(right, state);
 
         if (shape_left_same && shape_right_same) {
             return FurnitureUtil.LineConnectingType.MIDDLE;
@@ -92,11 +83,16 @@ public class LineConnectingBlock extends Block {
         return FurnitureUtil.LineConnectingType.NONE;
     }
 
+    protected boolean isConnectable(BlockState state1, BlockState state2) {
+        return (state1.getBlock() == state2.getBlock() && state1.getValue(FACING) == state2.getValue(FACING))
+                || (state1.getBlock() instanceof DeskBlock && state2.getBlock() instanceof DresserBlock)
+                || (state1.getBlock() instanceof DresserBlock && state2.getBlock() instanceof DeskBlock);
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, TYPE);
     }
-
 
     @Override
     public @NotNull BlockState rotate(BlockState state, Rotation rotation) {

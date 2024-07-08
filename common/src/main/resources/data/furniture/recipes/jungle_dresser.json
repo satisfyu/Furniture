@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "furniture:jungle_desk"
+    },
+    {
+      "item": "furniture:jungle_cabinet"
+    }
+  ],
+  "result": {
+    "item": "furniture:jungle_dresser",
+    "count": 1
+  }
+}

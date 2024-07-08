@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "ADE",
+    "BBB"
+  ],
+  "key": {
+    "A": {
+      "tag": "minecraft:saplings"
+    },
+    "B": {
+      "item": "minecraft:dirt"
+    },
+    "C": {
+      "item": "minecraft:glass"
+    },
+    "D": {
+      "item": "minecraft:grass"
+    },
+    "E": {
+      "tag": "minecraft:stone_tool_materials"
+    }
+  },
+  "result": {
+    "item": "furniture:terrarium",
+    "count": 2
+  }
+}

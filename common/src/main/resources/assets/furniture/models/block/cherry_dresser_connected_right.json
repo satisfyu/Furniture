@@ -1,0 +1,12 @@
+{
+	"parent": "furniture:block/oak_dresser_connected_right",
+	"textures": {
+		"0": "furniture:block/cherry_dresser_frontside",
+		"1": "furniture:block/cherry_dresser_side",
+		"3": "furniture:block/cherry_dresser_back",
+		"4": "furniture:block/cherry_desk_connected_side",
+		"5": "furniture:block/cherry_dresser_front",
+		"6": "furniture:block/cherry_dresser_side_inner",
+		"particle": "furniture:block/cherry_dresser_frontside"
+	}
+}

@@ -135,13 +135,13 @@ public class StreetLanternBlock extends HorizontalDirectionalBlock implements Si
 
     private static VoxelShape makeDoubleShape() {
         VoxelShape shape = Shapes.empty();
-        shape = Shapes.join(shape, Shapes.box(0, 0.625, 0.3125, 0.375, 1.0625, 0.6875), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.625, 0.625, 0.3125, 1, 1.0625, 0.6875), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.0625, 0.5625, 0.375, 0.3125, 0.625, 0.625), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.6875, 0.5625, 0.375, 0.9375, 0.625, 0.625), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0.5625, 0.3125, 0.375, 1, 0.6875), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.625, 0.5625, 0.3125, 1, 1, 0.6875), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.0625, 0.5, 0.375, 0.3125, 0.5625, 0.625), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.6875, 0.5, 0.375, 0.9375, 0.5625, 0.625), BooleanOp.OR);
         shape = Shapes.join(shape, Shapes.box(0.375, 0, 0.375, 0.625, 0.125, 0.625), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.4375, 0.125, 0.4375, 0.5625, 0.4375, 0.5625), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.125, 0.3125, 0.5, 0.875, 0.5625, 0.5), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.4375, 0.125, 0.4375, 0.5625, 0.375, 0.5625), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.125, 0.25, 0.5, 0.875, 0.5, 0.5), BooleanOp.OR);
         return shape;
     }
 

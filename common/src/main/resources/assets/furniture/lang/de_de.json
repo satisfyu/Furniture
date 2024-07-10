@@ -211,5 +211,15 @@
   "block.furniture.cherry_desk": "Kirschholzschreibtisch",
   "block.furniture.cherry_dresser": "Kirschholzkommode",
   "block.furniture.display": "Vitrine",
-  "block.furniture.terrarium": "Terrarium"
+  "block.furniture.terrarium": "Terrarium",
+  "block.furniture.wooden_planter": "Hölzerner Blumenkasten",
+  "block.furniture.stone_brick_planter": "Steinziegel Blumenkasten",
+  "block.furniture.oak_desk_chair": "Eichenholzschreibtischstuhl",
+  "block.furniture.spruce_desk_chair": "Fichtenschreibtischstuhl",
+  "block.furniture.birch_desk_chair": "Birkenschreibtischstuhl",
+  "block.furniture.jungle_desk_chair": "Dschungelschreibtischstuhl",
+  "block.furniture.acacia_desk_chair": "Akazienschreibtischstuhl",
+  "block.furniture.dark_oak_desk_chair": "Schwarzeichenholzschreibtischstuhl",
+  "block.furniture.mangrove_desk_chair": "Mangrovenschreibtischstuhl",
+  "block.furniture.cherry_desk_chair": "Kirschholzschreibtischstuhl"
 }

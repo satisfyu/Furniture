@@ -211,5 +211,15 @@
   "block.furniture.cherry_desk": "Cherry Desk",
   "block.furniture.cherry_dresser": "Cherry Dresser",
   "block.furniture.display": "Display",
-  "block.furniture.terrarium": "Terrarium"
+  "block.furniture.terrarium": "Terrarium",
+  "block.furniture.wooden_planter": "Wooden Planter",
+  "block.furniture.stone_brick_planter": "Stone Brick Planter",
+  "block.furniture.oak_desk_chair": "Oak Desk Chair",
+  "block.furniture.spruce_desk_chair": "Spruce Desk Chair",
+  "block.furniture.birch_desk_chair": "Birch Desk Chair",
+  "block.furniture.jungle_desk_chair": "Jungle Desk Chair",
+  "block.furniture.acacia_desk_chair": "Acacia Desk Chair",
+  "block.furniture.dark_oak_desk_chair": "Dark Oak Desk Chair",
+  "block.furniture.mangrove_desk_chair": "Mangrove Desk Chair",
+  "block.furniture.cherry_desk_chair": "Cherry Desk Chair"
 }

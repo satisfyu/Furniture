@@ -46,8 +46,6 @@ public class ObjectRegistry {
     public static final Map<String, RegistrySupplier<Block>> BENCHES = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> MIRRORS = new HashMap<>();
     public static final Map<String, RegistrySupplier<Block>> SHUTTERS = new HashMap<>();
-    public static final Map<String, RegistrySupplier<Block>> DESK_CHAIR_BLANKET = new HashMap<>();
-
     public static final RegistrySupplier<Block> GRAMOPHONE = registerWithItem("gramophone", () -> new GramophoneBlock(BlockBehaviour.Properties.copy(Blocks.JUKEBOX)));
     public static final RegistrySupplier<Block> TELESCOPE = registerWithItem("telescope", () -> new TelescopeBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistrySupplier<Block> COFFER = registerWithItem("coffer", () -> new CofferBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL).pushReaction(PushReaction.DESTROY)));
@@ -76,7 +74,9 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Item> CPHS_PRIDE = registerItem("cphs_pride", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE.get(), new Item.Properties().stacksTo(1), 196));
     public static final RegistrySupplier<Item> CPHS_PRIDE_REMIX = registerItem("cphs_pride_remix", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE_REMIX.get(), new Item.Properties().stacksTo(1), 196));
     public static final RegistrySupplier<Block> DISPLAY = registerWithItem("display", () -> new DisplayBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)));
-    public static final RegistrySupplier<Block> TERRARIUM = registerWithItem("terrarium", () -> new FacingBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)));
+    public static final RegistrySupplier<Block> TERRARIUM = registerWithItem("terrarium", () -> new TerrariumBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)));
+    public static final RegistrySupplier<Block> WOODEN_PLANTER = registerWithItem("wooden_planter", () -> new PlanterBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+    public static final RegistrySupplier<Block> STONE_BRICK_PLANTER = registerWithItem("stone_brick_planter", () -> new PlanterBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS)));
 
     public static final String[] colors = {
             "white", "light_gray", "gray", "black", "red", "orange", "yellow", "lime", "green", "cyan", "light_blue", "blue", "purple", "magenta", "pink", "brown"
@@ -99,7 +99,6 @@ public class ObjectRegistry {
             DESK_CHAIRS.put(woodType, registerWithItem(woodType + "_desk_chair", () -> new DeskChairBlock(BlockBehaviour.Properties.copy(getCorrespondingPlank(woodType)))));
         }
         for (String color : colors) {
-            DESK_CHAIR_BLANKET.put(color, registerWithoutItem("desk_chair_blanket_" + color, () -> new FacingBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL))));
             SOFAS.put(color, registerWithItem("sofa_" + color, () -> new SofaBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).pushReaction(PushReaction.DESTROY))));
             POUFFE.put(color, registerWithItem("pouffe_" + color, () -> new PouffeBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL).pushReaction(PushReaction.NORMAL))));
             CURTAINS.put(color, registerWithItem("curtain_" + color, () -> new CurtainBlock(BlockBehaviour.Properties.copy(Blocks.RED_WOOL).pushReaction(PushReaction.DESTROY))));

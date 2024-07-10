@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "furniture:block/dark_oak_dresser_front",
 		"1": "furniture:block/dark_oak_dresser_side",
-		"2": "furniture:block/dark_oak_cabinet_top",
+		"2": "furniture:block/dark_oak_desk_top",
 		"particle": "furniture:block/dark_oak_dresser_front"
 	}
 }

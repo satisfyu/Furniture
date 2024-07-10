@@ -1,10 +1,10 @@
 {
 	"credit": "Made by Satisfy",
 	"textures": {
-		"0": "furniture:block/display_case_side",
-		"1": "furniture:block/display_case_top",
-		"2": "furniture:block/display_case_glas",
-		"particle": "furniture:block/display_case_side"
+		"0": "furniture:block/display_side",
+		"1": "furniture:block/display_top",
+		"2": "furniture:block/display_glas",
+		"particle": "furniture:block/display_side"
 	},
 	"elements": [
 		{

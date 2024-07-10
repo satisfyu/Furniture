@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,type=none": {
+      "model": "furniture:block/wooden_planter_single"
+    },
+    "facing=east,type=none": {
+      "model": "furniture:block/wooden_planter_single",
+      "y": 90
+    },
+    "facing=south,type=none": {
+      "model": "furniture:block/wooden_planter_single",
+      "y": 180
+    },
+    "facing=west,type=none": {
+      "model": "furniture:block/wooden_planter_single",
+      "y": 270
+    },
+    "facing=north,type=middle": {
+      "model": "furniture:block/wooden_planter_connected_middle"
+    },
+    "facing=east,type=middle": {
+      "model": "furniture:block/wooden_planter_connected_middle",
+      "y": 90
+    },
+    "facing=south,type=middle": {
+      "model": "furniture:block/wooden_planter_connected_middle",
+      "y": 180
+    },
+    "facing=west,type=middle": {
+      "model": "furniture:block/wooden_planter_connected_middle",
+      "y": 270
+    },
+    "facing=north,type=left": {
+      "model": "furniture:block/wooden_planter_connected_side"
+    },
+    "facing=east,type=left": {
+      "model": "furniture:block/wooden_planter_connected_side",
+      "y": 90
+    },
+    "facing=south,type=left": {
+      "model": "furniture:block/wooden_planter_connected_side",
+      "y": 180
+    },
+    "facing=west,type=left": {
+      "model": "furniture:block/wooden_planter_connected_side",
+      "y": 270
+    },
+    "facing=north,type=right": {
+      "model": "furniture:block/wooden_planter_connected_side",
+      "y": 180
+    },
+    "facing=east,type=right": {
+      "model": "furniture:block/wooden_planter_connected_side",
+      "y": 270
+    },
+    "facing=south,type=right": {
+      "model": "furniture:block/wooden_planter_connected_side"
+    },
+    "facing=west,type=right": {
+      "model": "furniture:block/wooden_planter_connected_side",
+      "y": 90
+    }
+  }
+}

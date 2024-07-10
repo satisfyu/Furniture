@@ -2,10 +2,10 @@
   "parent": "furniture:block/oak_dresser_connected_middle",
 	"textures": {
 		"1": "furniture:block/dark_oak_dresser_side",
-		"2": "furniture:block/dark_dark_oak_dresser_side_inner",
+		"2": "furniture:block/dark_oak_dresser_side_inner",
 		"3": "furniture:block/dark_oak_desk_connected_middle",
 		"4": "furniture:block/dark_oak_dresser_back_middle",
 		"6": "furniture:block/dark_oak_dresser_middle",
-		"particle": "furniture:block/dark_dark_oak_dresser_side_inner"
+		"particle": "furniture:block/dark_oak_dresser_side_inner"
 	}
 }

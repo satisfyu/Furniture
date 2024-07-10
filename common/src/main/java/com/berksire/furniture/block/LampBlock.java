@@ -58,42 +58,38 @@ public class LampBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        super.createBlockStateDefinition(builder);
         builder.add(TYPE, WATERLOGGED, LIT);
     }
-
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockPos clickedPos = context.getClickedPos();
         Level world = context.getLevel();
         BlockPos belowPos = clickedPos.below();
+        BlockPos abovePos = clickedPos.above();
 
-        if (!world.getBlockState(belowPos).isFaceSturdy(world, belowPos, context.getClickedFace())) {
-            return null;
-        }
+        BlockState belowState = world.getBlockState(belowPos);
+        BlockState aboveState = world.getBlockState(abovePos);
 
         BlockState blockState = this.defaultBlockState();
-        blockState = blockState.setValue(TYPE, getType(blockState, world.getBlockState(clickedPos.above()), world.getBlockState(belowPos)));
-        return blockState.setValue(WATERLOGGED, world.getFluidState(clickedPos).getType() == Fluids.WATER);
+        blockState = blockState.setValue(TYPE, getType(aboveState, belowState));
+        blockState = blockState.setValue(WATERLOGGED, world.getFluidState(clickedPos).getType() == Fluids.WATER);
+        return blockState;
     }
 
-
     @Override
-    @SuppressWarnings("deprecation")
     public void neighborChanged(BlockState state, Level world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
         if (world.isClientSide) return;
 
-        FurnitureUtil.VerticalConnectingType type = getType(state, world.getBlockState(pos.above()), world.getBlockState(pos.below()));
+        FurnitureUtil.VerticalConnectingType type = getType(world.getBlockState(pos.above()), world.getBlockState(pos.below()));
         if (state.getValue(TYPE) != type) {
-            state = state.setValue(TYPE, type);
+            world.setBlock(pos, state.setValue(TYPE, type), 3);
         }
-        world.setBlock(pos, state, 3);
     }
 
-    public FurnitureUtil.VerticalConnectingType getType(BlockState state, BlockState above, BlockState below) {
-        boolean shapeAboveSame = above.getBlock() == state.getBlock();
-        boolean shapeBelowSame = below.getBlock() == state.getBlock();
+    public FurnitureUtil.VerticalConnectingType getType(BlockState above, BlockState below) {
+        boolean shapeAboveSame = above.getBlock() instanceof LampBlock;
+        boolean shapeBelowSame = below.getBlock() instanceof LampBlock;
 
         if (shapeAboveSame && shapeBelowSame) {
             return FurnitureUtil.VerticalConnectingType.MIDDLE;
@@ -108,8 +104,7 @@ public class LampBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-        FurnitureUtil.VerticalConnectingType type = state.getValue(TYPE);
-        return SHAPES.get(type);
+        return SHAPES.get(state.getValue(TYPE));
     }
 
     private static VoxelShape makeTopShape() {
@@ -148,6 +143,6 @@ public class LampBlock extends Block implements SimpleWaterloggedBlock {
             world.playSound(null, pos, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.SUCCESS;
         }
-        return InteractionResult.SUCCESS;
+        return super.use(state, world, pos, player, hand, hit);
     }
 }

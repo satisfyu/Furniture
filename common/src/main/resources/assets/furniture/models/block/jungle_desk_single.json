@@ -2,7 +2,7 @@
     "parent": "furniture:block/oak_desk_single",
     "textures": {
         "0": "furniture:block/jungle_desk",
-        "1": "furniture:block/jungle_desk_top",
+        "1": "furniture:block/jungle_cabinet_top",
         "2": "furniture:block/jungle_desk_support",
         "particle": "furniture:block/jungle_desk"
     }

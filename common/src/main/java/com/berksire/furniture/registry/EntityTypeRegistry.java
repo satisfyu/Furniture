@@ -4,7 +4,7 @@ import com.berksire.furniture.Furniture;
 import com.berksire.furniture.block.entity.*;
 import com.berksire.furniture.client.entity.FakeFishTankEntity;
 import com.berksire.furniture.client.entity.CanvasEntity;
-import com.berksire.furniture.client.entity.SeatEntity;
+import com.berksire.furniture.client.entity.ChairEntity;
 import com.berksire.furniture.client.entity.PellsEntity;
 import com.berksire.furniture.util.FurnitureIdentifier;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
@@ -33,9 +33,8 @@ public final class EntityTypeRegistry {
     public static final RegistrySupplier<BlockEntityType<ChimneyBlockEntity>> CHIMNEY_BLOCK_ENTITY = registerBlockEntity("chimney", () -> BlockEntityType.Builder.of(ChimneyBlockEntity::new, COPPER_CHIMNEY.get(), STONE_BRICKS_CHIMNEY.get(), BRICK_CHIMNEY.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<DresserBlockEntity>> DRESSER_BLOCK_ENTITY = registerBlockEntity("dresser", () -> BlockEntityType.Builder.of(DresserBlockEntity::new, DRESSER.get("oak").get(), DRESSER.get("birch").get(), DRESSER.get("acacia").get(), DRESSER.get("cherry").get(), DRESSER.get("dark_oak").get(), DRESSER.get("jungle").get(), DRESSER.get("mangrove").get(), DRESSER.get("spruce").get()).build(null));
     public static final RegistrySupplier<BlockEntityType<DisplayBlockEntity>> DISPLAY_BLOCK_ENTITY = registerBlockEntity("display", () -> BlockEntityType.Builder.of(DisplayBlockEntity::new, DISPLAY.get()).build(null));
-    public static final RegistrySupplier<BlockEntityType<DeskChairBlockEntity>> DESK_CHAIR_BLOCK_ENTITY = registerBlockEntity("desk_chair", () -> BlockEntityType.Builder.of(DeskChairBlockEntity::new, DESK_CHAIRS.get("oak").get(), DESK_CHAIRS.get("birch").get(), DESK_CHAIRS.get("acacia").get(), DESK_CHAIRS.get("cherry").get(), DESK_CHAIRS.get("dark_oak").get(), DESK_CHAIRS.get("jungle").get(), DESK_CHAIRS.get("mangrove").get(), DESK_CHAIRS.get("spruce").get()).build(null));
 
-    public static final RegistrySupplier<EntityType<SeatEntity>> CHAIR = registerEntity("chair", () -> EntityType.Builder.of(SeatEntity::new, MobCategory.MISC).sized(0.001F, 0.001F).build(new FurnitureIdentifier("chair").toString()));
+    public static final RegistrySupplier<EntityType<ChairEntity>> CHAIR = registerEntity("chair", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC).sized(0.001F, 0.001F).build(new FurnitureIdentifier("chair").toString()));
     public static final RegistrySupplier<EntityType<CanvasEntity>> CANVAS = registerEntity("canvas", () -> EntityType.Builder.<CanvasEntity>of(CanvasEntity::new, MobCategory.MISC).sized(1.0F, 2.0F).build(new FurnitureIdentifier("canvas").toString()));
     public static final RegistrySupplier<EntityType<FakeFishTankEntity>> FAKE_FISH_TANK = registerEntity("fake_fish_tank", () -> EntityType.Builder.of(FakeFishTankEntity::new, MobCategory.MISC).sized(0.5F, 0.5F).clientTrackingRange(1000).build(new FurnitureIdentifier("fake_fish_tank").toString()));
     public static final RegistrySupplier<EntityType<PellsEntity>> PELLS = registerEntity("pells", () -> EntityType.Builder.of(PellsEntity::new, MobCategory.MISC).sized(1.0F, 2.0F).build(new FurnitureIdentifier("pells").toString()));

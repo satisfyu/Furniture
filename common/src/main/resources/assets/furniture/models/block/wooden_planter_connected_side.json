@@ -1,0 +1,24 @@
+{
+	"credit": "Made by Satisfy",
+	"textures": {
+		"0": "furniture:block/wooden_planter_bottom_connected_side",
+		"1": "furniture:block/wooden_planter_top_connected_side",
+		"2": "furniture:block/wooden_planter_side",
+		"3": "furniture:block/wooden_planter_side_connected_side",
+		"particle": "furniture:block/wooden_planter_bottom_connected_side"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 0]},
+			"faces": {
+				"north": {"uv": [16, 0, 0, 16], "texture": "#3"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"west": {"uv": [16, 0, 0, 16], "texture": "#2"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#0"}
+			}
+		}
+	]
+}

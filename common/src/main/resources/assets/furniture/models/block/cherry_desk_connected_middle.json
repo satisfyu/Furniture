@@ -1,5 +1,5 @@
 {
-  "parent": "furniture:block/cherry_desk_connected_middle",
+  "parent": "furniture:block/oak_desk_connected_middle",
 	"textures": {
 		"0": "furniture:block/cherry_desk",
 		"1": "furniture:block/cherry_desk_connected_middle",

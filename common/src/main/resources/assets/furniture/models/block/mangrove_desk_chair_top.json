@@ -1,0 +1,7 @@
+{
+  "parent": "furniture:block/oak_desk_chair_top",
+  "textures": {
+    "2": "furniture:block/mangrove_desk_chair",
+    "particle": "furniture:block/mangrove_desk_chair"
+  }
+}

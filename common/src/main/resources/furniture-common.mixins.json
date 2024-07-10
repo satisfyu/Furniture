@@ -9,6 +9,7 @@
   "mixins": [
     "CartographyTableMenuMixin",
     "CraftingMenuMixin",
+    "CropBlockMixin",
     "LoomMenuMixin",
     "SmithingMenuMixin"
   ],

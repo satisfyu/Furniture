@@ -184,4 +184,12 @@ public class StreetLanternBlock extends HorizontalDirectionalBlock implements Si
     public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
         return useContext.isSecondaryUseActive() && useContext.getItemInHand().is(this.asItem()) && state.getValue(BULBS) < 1 || super.canBeReplaced(state, useContext);
     }
+
+    public static boolean canProvideLight(BlockState state) {
+        return state.getValue(LIT) && (state.getValue(TYPE) == FurnitureUtil.VerticalConnectingType.TOP || state.getValue(TYPE) == FurnitureUtil.VerticalConnectingType.NONE);
+    }
+
+    public static int vanillaLightLevel(BlockState state) {
+        return state.getValue(LIT) ? 15 : 0;
+    }
 }

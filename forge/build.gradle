@@ -39,6 +39,8 @@ dependencies {
     modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+
+    modImplementation("com.lowdragmc.shimmer:Shimmer-forge:${rootProject.minecraft_version}-${rootProject.shimmer_version}")
 }
 
 processResources {

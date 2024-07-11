@@ -11,8 +11,6 @@ def jarFileName = 'letsdo-addon-furniture-fabric'
 
 archivesBaseName = jarFileName
 
-
-
 loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
 }
@@ -32,6 +30,8 @@ dependencies {
     modApi( "dev.architectury:architectury-fabric:${rootProject.architectury_version}") { exclude group: 'net.fabricmc', module: 'fabric-loader' }
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+
+    modImplementation("com.lowdragmc.shimmer:Shimmer-fabric:${rootProject.minecraft_version}-${rootProject.shimmer_version}")
 }
 
 processResources {

@@ -32,3 +32,10 @@ mandatory = true
 versionRange = "[9.0.8,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.furniture]]
+modId = "shimmer"
+mandatory = false
+versionRange = "Any"
+ordering = "NONE"
+side = "CLIENT"

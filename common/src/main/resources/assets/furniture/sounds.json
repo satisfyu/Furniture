@@ -35,10 +35,10 @@
       "furniture:cphs_pride"
     ]
   },
-  "cphs_pride_remix": {
-    "subtitle": "subtitles.furniture.cphs_price_remix",
+  "letsdo_theme": {
+    "subtitle": "subtitles.furniture.letsdo_theme",
     "sounds": [
-      "furniture:cphs_pride_remix"
+      "furniture:letsdo_theme"
     ]
   }
 }

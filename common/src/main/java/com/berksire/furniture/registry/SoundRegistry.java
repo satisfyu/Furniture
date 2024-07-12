@@ -18,7 +18,7 @@ public class SoundRegistry {
     public static final RegistrySupplier<SoundEvent> COFFER_OPEN = create("coffer_open");
     public static final RegistrySupplier<SoundEvent> COFFER_CLOSE = create("coffer_close");
     public static final RegistrySupplier<SoundEvent> CPHS_PRIDE = create("cphs_pride");
-    public static final RegistrySupplier<SoundEvent> CPHS_PRIDE_REMIX = create("cphs_pride_remix");
+    public static final RegistrySupplier<SoundEvent> LETSDO_THEME = create("letsdo_theme");
 
     private static RegistrySupplier<SoundEvent> create(String name) {
         final ResourceLocation id = new FurnitureIdentifier(name);

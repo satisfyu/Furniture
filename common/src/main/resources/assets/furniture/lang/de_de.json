@@ -183,9 +183,6 @@
   "tooltip.furniture.off": "AUS",
   "subtitles.furniture.cphs_pride": "CPH101 - Pride",
   "item.furniture.cphs_pride.desc": "CPH101 - Pride",
-  "item.furniture.cphs_pride_remix": "Schallplatte",
-  "subtitles.furniture.cphs_pride_remix": "CPH101 - Pride (Lilitu Remix)",
-  "item.furniture.cphs_pride_remix.desc": "CPH101 - Pride (Lilitu Remix)",
   "block.furniture.oak_shutter": "Eichenholzfensterladen",
   "block.furniture.spruce_shutter": "Fichtenholzfensterladen",
   "block.furniture.acacia_shutter": "Akazienholzfensterladen",
@@ -221,5 +218,10 @@
   "block.furniture.acacia_desk_chair": "Akazienschreibtischstuhl",
   "block.furniture.dark_oak_desk_chair": "Schwarzeichenholzschreibtischstuhl",
   "block.furniture.mangrove_desk_chair": "Mangrovenschreibtischstuhl",
-  "block.furniture.cherry_desk_chair": "Kirschholzschreibtischstuhl"
+  "block.furniture.cherry_desk_chair": "Kirschholzschreibtischstuhl",
+  "item.furniture.letsdo_theme": "Music Disc",
+  "subtitles.furniture.letsdo_theme": "MissLilitu - Let's Do Theme",
+  "item.furniture.letsdo_theme.desc": "MissLilitu - Let's Do Theme",
+  "jukebox_song.furniture.cphs_pride": "CPH101 - Pride",
+  "jukebox_song.furniture.letsdo_theme": "MissLilitu - Let's Do Theme"
 }

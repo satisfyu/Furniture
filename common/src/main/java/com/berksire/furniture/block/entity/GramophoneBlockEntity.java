@@ -1,10 +1,14 @@
 package com.berksire.furniture.block.entity;
 
 import com.berksire.furniture.registry.EntityTypeRegistry;
+import com.berksire.furniture.registry.ObjectRegistry;
+import com.berksire.furniture.registry.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.game.ClientboundStopSoundPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Clearable;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
@@ -103,6 +107,7 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
             BlockPos blockPos = this.getBlockPos();
             ItemStack itemStack = this.recordItem;
             if (!itemStack.isEmpty()) {
+                System.out.println("Popping out record: " + itemStack); // Debug-Ausgabe
                 this.recordItem = ItemStack.EMPTY;
                 this.stopPlaying();
                 Vec3 vec3 = Vec3.atLowerCornerWithOffset(blockPos, 0.5, 1.01, 0.5).offsetRandom(this.level.random, 0.7F);
@@ -120,6 +125,7 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
             }
         }
     }
+
 
     public void setRecord(ItemStack record) {
         this.recordItem = record;
@@ -146,13 +152,25 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
     }
 
     public void stopPlaying() {
-        this.isPlaying = false;
-        assert this.level != null;
-        this.level.gameEvent(GameEvent.JUKEBOX_STOP_PLAY, this.worldPosition, GameEvent.Context.of(this.getBlockState()));
-        this.level.updateNeighborsAt(this.worldPosition, this.getBlockState().getBlock());
-        this.level.levelEvent(1011, this.worldPosition, 0);
-        this.setChanged();
+        if (this.isPlaying) {
+            this.isPlaying = false;
+            assert this.level != null;
+
+            if (!this.recordItem.isEmpty() && (this.recordItem.getItem() == ObjectRegistry.CPHS_PRIDE.get() || this.recordItem.getItem() == ObjectRegistry.LETSDO_THEME.get())) {
+
+                ((ServerLevel) this.level).players().forEach(player -> {
+                    player.connection.send(new ClientboundStopSoundPacket(SoundRegistry.CPHS_PRIDE.get().getLocation(), SoundSource.RECORDS));
+                    player.connection.send(new ClientboundStopSoundPacket(SoundRegistry.LETSDO_THEME.get().getLocation(), SoundSource.RECORDS));
+                });
+            }
+
+            this.level.gameEvent(GameEvent.JUKEBOX_STOP_PLAY, this.worldPosition, GameEvent.Context.of(this.getBlockState()));
+            this.level.updateNeighborsAt(this.worldPosition, this.getBlockState().getBlock());
+            this.level.levelEvent(1011, this.worldPosition, 0);
+            this.setChanged();
+        }
     }
+
 
     @Override
     public void clearContent() {

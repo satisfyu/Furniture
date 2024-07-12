@@ -71,8 +71,8 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> PLATED_STREET_WALL_LANTERN = registerWithoutItem("plated_street_lantern_wall", () -> new StreetLanternWallBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT).lightLevel(StreetLanternBlock::vanillaLightLevel)));
     public static final RegistrySupplier<Item> PLATED_STREET_LANTERN_ITEM = registerItem("plated_street_lantern_item", () -> new StandingAndWallBlockItem(ObjectRegistry.PLATED_STREET_LANTERN.get(), ObjectRegistry.PLATED_STREET_WALL_LANTERN.get(), new Item.Properties(), Direction.DOWN));
     public static final RegistrySupplier<Item> PELLS = registerItem("pells", () -> new PellsSpawnItem(new Item.Properties()));
-    public static final RegistrySupplier<Item> CPHS_PRIDE = registerItem("cphs_pride", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE.get(), new Item.Properties().stacksTo(1), 196));
-    public static final RegistrySupplier<Item> CPHS_PRIDE_REMIX = registerItem("cphs_pride_remix", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE_REMIX.get(), new Item.Properties().stacksTo(1), 196));
+    public static final RegistrySupplier<Item> CPHS_PRIDE = registerItem("cphs_pride", () -> new RecordItem(1, SoundRegistry.CPHS_PRIDE.get(), new Item.Properties().stacksTo(1), 91));
+    public static final RegistrySupplier<Item> LETSDO_THEME = registerItem("letsdo_theme", () -> new RecordItem(1, SoundRegistry.LETSDO_THEME.get(), new Item.Properties().stacksTo(1), 91));
     public static final RegistrySupplier<Block> DISPLAY = registerWithItem("display", () -> new DisplayBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)));
     public static final RegistrySupplier<Block> TERRARIUM = registerWithItem("terrarium", () -> new TerrariumBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)));
     public static final RegistrySupplier<Block> WOODEN_PLANTER = registerWithItem("wooden_planter", () -> new PlanterBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));

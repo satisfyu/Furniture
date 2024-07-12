@@ -95,13 +95,10 @@ public class GramophoneBlock extends BaseEntityBlock {
     public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState newState, boolean isMoving) {
         if (!blockState.is(newState.getBlock())) {
             BlockEntity blockEntity = level.getBlockEntity(blockPos);
-            if (blockEntity instanceof GramophoneBlockEntity) {
-                ((GramophoneBlockEntity) blockEntity).popOutRecord();
+            if (blockEntity instanceof GramophoneBlockEntity gramophoneBlockEntity) {
+                gramophoneBlockEntity.popOutRecord();
+                gramophoneBlockEntity.stopPlaying();
                 level.removeBlockEntity(blockPos);
-            }
-
-            if (blockEntity instanceof GramophoneBlockEntity) {
-                ((GramophoneBlockEntity) blockEntity).stopPlaying();
             }
 
             DoubleBlockHalf half = blockState.getValue(HALF);

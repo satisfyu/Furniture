@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "furniture:item/cphs_pride_remix"
+    "layer0": "furniture:item/letsdo_theme"
   }
 }

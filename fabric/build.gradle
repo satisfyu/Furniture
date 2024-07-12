@@ -7,7 +7,7 @@ architectury {
     fabric()
 }
 
-def jarFileName = 'letsdo-addon-furniture-fabric'
+def jarFileName = 'letsdo-furniture-fabric'
 
 archivesBaseName = jarFileName
 

@@ -3,9 +3,9 @@
 	"textures": {
 		"3": "furniture:block/terrarium_bottom",
 		"4": "furniture:block/terrarium_glass",
-		"5": "furniture:block/terrarium_parts",
-		"6": "furniture:block/terrarium_top",
-		"particle": "furniture:block/terrarium_top"
+		"5": "furniture:block/terrarium_taiga_parts",
+		"6": "furniture:block/terrarium_taiga_top",
+		"particle": "furniture:block/terrarium_taiga_top"
 	},
 	"elements": [
 		{

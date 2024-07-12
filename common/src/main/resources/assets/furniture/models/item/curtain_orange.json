@@ -1,3 +1,6 @@
 {
-  "parent": "furniture:block/curtain_single_closed_orange"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "furniture:item/curtain_orange"
+  }
 }

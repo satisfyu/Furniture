@@ -31,9 +31,6 @@ public class TabRegistry {
                 for (String color : colorOrder) {
                     ObjectRegistry.LAMP_ITEMS.get(color).ifPresent(out::accept);
                 }
-                for (String color : colorOrder) {
-                    ObjectRegistry.CURTAINS.get(color).ifPresent(out::accept);
-                }
                 for (String woodType : woodTypeOrder) {
                     ObjectRegistry.SHUTTERS.get(woodType).ifPresent(out::accept);
                 }
@@ -66,6 +63,9 @@ public class TabRegistry {
                 }
                 for (String woodType : woodTypeOrder) {
                     ObjectRegistry.MIRRORS.get(woodType).ifPresent(out::accept);
+                }
+                for (String color : colorOrder) {
+                    ObjectRegistry.CURTAINS.get(color).ifPresent(out::accept);
                 }
                 out.accept(ObjectRegistry.TELESCOPE.get());
                 out.accept(ObjectRegistry.GRAMOPHONE.get());

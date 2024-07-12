@@ -1,3 +1,6 @@
 {
-  "parent": "furniture:block/display"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "furniture:item/display"
+  }
 }

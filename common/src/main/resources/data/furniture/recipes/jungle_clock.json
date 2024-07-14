@@ -3,9 +3,12 @@
   "pattern": [
     "###",
     "#B#",
-    "###"
+    "#A#"
   ],
   "key": {
+    "A": {
+      "item": "minecraft:jungle_slab"
+    },
     "#": {
       "item": "minecraft:stick"
     },

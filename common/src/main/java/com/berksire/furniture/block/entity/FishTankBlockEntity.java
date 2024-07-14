@@ -89,8 +89,8 @@ public class FishTankBlockEntity extends BlockEntity {
 
     @Override
     public void setRemoved() {
-        this.linkedRealTankBlock = -1;
         this.getLinkedRealEntity().ifPresent(e -> e.remove(Entity.RemovalReason.DISCARDED));
+        this.linkedRealTankBlock = -1;
         super.setRemoved();
     }
 }

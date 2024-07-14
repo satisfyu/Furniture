@@ -68,10 +68,10 @@ public class LampWallBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public @NotNull InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (player.isShiftKeyDown() && !state.getValue(LIT)) {
+        if (player.isShiftKeyDown()) {
             boolean lit = !state.getValue(LIT);
             world.setBlock(pos, state.setValue(LIT, lit), 3);
-            world.playSound(null, pos, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 1.0F, 1.0F);
+            world.playSound(null, pos, lit ? SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON : SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
             return InteractionResult.SUCCESS;
         }
         return super.use(state, world, pos, player, hand, hit);

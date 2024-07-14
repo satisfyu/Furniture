@@ -144,6 +144,22 @@
     "furniture:dark_oak_desk_chair",
     "furniture:mangrove_desk_chair",
     "furniture:cherry_desk_chair",
-    "furniture:wooden_planter"
+    "furniture:wooden_planter",
+    "furniture:lamp_wall_black",
+    "furniture:lamp_wall_blue",
+    "furniture:lamp_wall_brown",
+    "furniture:lamp_wall_cyan",
+    "furniture:lamp_wall_gray",
+    "furniture:lamp_wall_green",
+    "furniture:lamp_wall_light_blue",
+    "furniture:lamp_wall_light_gray",
+    "furniture:lamp_wall_lime",
+    "furniture:lamp_wall_magenta",
+    "furniture:lamp_wall_orange",
+    "furniture:lamp_wall_pink",
+    "furniture:lamp_wall_purple",
+    "furniture:lamp_wall_red",
+    "furniture:lamp_wall_white",
+    "furniture:lamp_wall_yellow"
   ]
 }

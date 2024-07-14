@@ -3,9 +3,7 @@ package com.berksire.furniture.block;
 import com.berksire.furniture.block.entity.ChimneyBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -82,31 +80,19 @@ public class ChimneyBlock extends Block implements EntityBlock {
 
         if (smokeType == SmokeType.HEAVY_SMOKE) {
             for (int i = 0; i < 10; i++) {
-                spawnParticles(world, pos, ParticleTypes.CAMPFIRE_COSY_SMOKE);
-                spawnParticles(world, pos, ParticleTypes.CAMPFIRE_SIGNAL_SMOKE);
+                world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0.0, 0.1, 0.0);
+                world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0.0, 0.1, 0.0);
             }
         } else if (smokeType == SmokeType.SMOKE) {
             for (int i = 0; i < 5; i++) {
-                spawnParticles(world, pos, ParticleTypes.CAMPFIRE_COSY_SMOKE);
+                world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0.0, 0.1, 0.0);
             }
         }
 
         if (isSooty) {
             for (int i = 0; i < 5; i++) {
-                spawnParticles(world, pos, ParticleTypes.SMOKE);
+                world.addParticle(ParticleTypes.SMOKE, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 0.0, 0.1, 0.0);
             }
-        }
-    }
-
-    private void spawnParticles(Level world, BlockPos pos, SimpleParticleType particleType) {
-        double x = pos.getX() + 0.5;
-        double y = pos.getY() + 1.0;
-        double z = pos.getZ() + 0.5;
-        double dx = 0.0;
-        double dy = 0.1;
-        double dz = 0.0;
-        if (world instanceof ServerLevel serverLevel) {
-            serverLevel.sendParticles(particleType, x, y, z, 1, dx, dy, dz, 0.1);
         }
     }
 

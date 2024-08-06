@@ -48,6 +48,7 @@ public class TrashBagItem extends Item {
                             && !itemName.equals("structure_void")
                             && !itemName.equals("structure_block")
                             && !itemName.equals("jigsaw")
+                            && !itemName.equals("bedrock")
                             && !itemName.contains("command_block");
                 })
                 .toList();

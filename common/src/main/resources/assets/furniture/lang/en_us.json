@@ -158,6 +158,7 @@
   "tooltip.furniture.on": "ON",
   "tooltip.furniture.off": "OFF",
   "tooltip.furniture.trash_bag": "Strange what some people throw away...",
+  "tooltip.furniture.trash_bag.cooldown": "Ugh! You've already opened one.\nWait a bit before you can open the next Trash Bag.",
   "painting.furniture.lonely_daisy.title": "Lonely Daisy",
   "painting.furniture.lonely_daisy.author": "Tugkan",
   "painting.furniture.sunflower.title": "Sunflower",

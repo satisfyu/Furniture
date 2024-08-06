@@ -223,5 +223,6 @@
   "subtitles.furniture.letsdo_theme": "MissLilitu - Let's Do Theme",
   "item.furniture.letsdo_theme.desc": "MissLilitu - Let's Do Theme",
   "jukebox_song.furniture.cphs_pride": "CPH101 - Pride",
-  "jukebox_song.furniture.letsdo_theme": "MissLilitu - Let's Do Theme"
+  "jukebox_song.furniture.letsdo_theme": "MissLilitu - Let's Do Theme",
+  "tooltip.furniture.trash_bag.cooldown": "Uff! Du hast doch bereits einen geöffnet.\nWarte kurz, bis du den nächsten Müllsack öffnen kannst."
 }

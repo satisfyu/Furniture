@@ -17,10 +17,16 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 
 public class TrashBagItem extends Item {
+    private static final int COOLDOWN_TICKS = 1200;
+    private static final Map<UUID, Long> cooldowns = new HashMap<>();
+
     public TrashBagItem(Properties properties) {
         super(properties);
     }
@@ -30,6 +36,13 @@ public class TrashBagItem extends Item {
     public @NotNull InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
         if (world.isClientSide || user.isCrouching()) {
             return super.use(world, user, hand);
+        }
+
+        UUID userUUID = user.getUUID();
+        long currentTime = world.getGameTime();
+        if (!user.isCreative() && cooldowns.containsKey(userUUID) && (currentTime - cooldowns.get(userUUID)) < COOLDOWN_TICKS) {
+            user.displayClientMessage(Component.translatable("tooltip.furniture.trash_bag.cooldown").withStyle(ChatFormatting.RED), true);
+            return InteractionResultHolder.fail(user.getItemInHand(hand));
         }
 
         ItemStack itemStack = user.getItemInHand(hand);
@@ -67,6 +80,7 @@ public class TrashBagItem extends Item {
 
         if (!user.isCreative()) {
             itemStack.shrink(1);
+            cooldowns.put(userUUID, currentTime);
         }
 
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.BUNDLE_INSERT, SoundSource.PLAYERS, 1.0F, 1.0F);

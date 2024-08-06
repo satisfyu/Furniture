@@ -39,11 +39,24 @@ public class TrashBagItem extends Item {
                 .filter(item -> {
                     String itemName = BuiltInRegistries.ITEM.getKey(item).getPath();
                     return !item.builtInRegistryHolder().is(TagRegistry.TRASH_BAG_BLACKLIST)
+                            && !itemName.contains("book")
+                            && !itemName.contains("command_block")
+                            && !itemName.contains("creative")
+                            && !itemName.contains("debug")
+                            && !itemName.contains("diamond")
+                            && !itemName.contains("egg")
+                            && !itemName.contains("ender")
+                            && !itemName.contains("map")
+                            && !itemName.contains("netherite")
+                            && !itemName.contains("netherstar")
+                            && !itemName.contains("ore")
+                            && !itemName.contains("shulker")
                             && !itemName.contains("spawn_egg")
+                            && !itemName.contains("spawn_keg")
+                            && !itemName.contains("worldshaper")
                             && !itemName.contains("_head")
-                            && !itemName.equals("dragon_egg")
-                            && !itemName.equals("light")
-                            && !itemName.contains("command_block");
+                            && !itemName.contains("dragon")
+                            && !itemName.contains("light");
                 })
                 .toList();
 

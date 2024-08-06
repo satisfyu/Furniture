@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "minecraft:ochre_froglight",
-    "minecraft:verdant_froglight",
-    "minecraft:pearlescent_froglight"
+    "minecraft:verdant_froglight"
   ]
 }

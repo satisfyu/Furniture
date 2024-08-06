@@ -43,6 +43,11 @@ public class TrashBagItem extends Item {
                             && !itemName.contains("_head")
                             && !itemName.equals("dragon_egg")
                             && !itemName.equals("light")
+                            && !itemName.equals("debug_stick")
+                            && !itemName.equals("barrier")
+                            && !itemName.equals("structure_void")
+                            && !itemName.equals("structure_block")
+                            && !itemName.equals("jigsaw")
                             && !itemName.contains("command_block");
                 })
                 .toList();

@@ -87,8 +87,8 @@ public class MirrorBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     public FurnitureUtil.VerticalConnectingType getType(BlockState state, BlockState above, BlockState below) {
-        boolean shapeAboveSame = above.getBlock() == state.getBlock();
-        boolean shapeBelowSame = below.getBlock() == state.getBlock();
+        boolean shapeAboveSame = above.getBlock() == state.getBlock() && above.getValue(FACING) == state.getValue(FACING);
+        boolean shapeBelowSame = below.getBlock() == state.getBlock() && below.getValue(FACING) == state.getValue(FACING);
 
         if (shapeAboveSame && shapeBelowSame) {
             return FurnitureUtil.VerticalConnectingType.MIDDLE;

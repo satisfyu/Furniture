@@ -126,6 +126,11 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
         }
     }
 
+    @Override
+    public void setRemoved() {
+        this.stopPlaying();
+        super.setRemoved();
+    }
 
     public void setRecord(ItemStack record) {
         this.recordItem = record;
@@ -156,12 +161,15 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
             this.isPlaying = false;
             assert this.level != null;
 
-            if (!this.recordItem.isEmpty() && (this.recordItem.getItem() == ObjectRegistry.CPHS_PRIDE.get() || this.recordItem.getItem() == ObjectRegistry.LETSDO_THEME.get())) {
-
-                ((ServerLevel) this.level).players().forEach(player -> {
-                    player.connection.send(new ClientboundStopSoundPacket(SoundRegistry.CPHS_PRIDE.get().getLocation(), SoundSource.RECORDS));
-                    player.connection.send(new ClientboundStopSoundPacket(SoundRegistry.LETSDO_THEME.get().getLocation(), SoundSource.RECORDS));
-                });
+            if (!this.level.isClientSide) {
+                if (!this.recordItem.isEmpty() && (this.recordItem.getItem() == ObjectRegistry.CPHS_PRIDE.get() || this.recordItem.getItem() == ObjectRegistry.LETSDO_THEME.get())) {
+                    ((ServerLevel) this.level).getPlayers(player -> player.distanceToSqr(this.worldPosition.getX(), this.worldPosition.getY(), this.worldPosition.getZ()) < 64.0D).forEach(player -> {
+                        for (SoundSource source : SoundSource.values()) {
+                            player.connection.send(new ClientboundStopSoundPacket(SoundRegistry.CPHS_PRIDE.get().getLocation(), source));
+                            player.connection.send(new ClientboundStopSoundPacket(SoundRegistry.LETSDO_THEME.get().getLocation(), source));
+                        }
+                    });
+                }
             }
 
             this.level.gameEvent(GameEvent.JUKEBOX_STOP_PLAY, this.worldPosition, GameEvent.Context.of(this.getBlockState()));
@@ -170,7 +178,6 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
             this.setChanged();
         }
     }
-
 
     @Override
     public void clearContent() {

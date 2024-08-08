@@ -4,7 +4,8 @@ import com.berksire.furniture.registry.ObjectRegistry;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.CartographyTableMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CartographyTableBlock;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -14,17 +15,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CartographyTableMenu.class)
 public class CartographyTableMenuMixin {
-    @Shadow
-    @Final
-    private ContainerLevelAccess access;
+    @Shadow @Final private ContainerLevelAccess access;
 
     @Inject(method = "stillValid", at = @At("HEAD"), cancellable = true)
     public void stillValid(Player player, CallbackInfoReturnable<Boolean> cir) {
-        boolean isValid = this.access.evaluate((world, pos) ->
-                world.getBlockState(pos).is(ObjectRegistry.EXPLORERS_BOX.get()) ||
-                        world.getBlockState(pos).is(Blocks.CARTOGRAPHY_TABLE), true);
+        boolean isValid = this.access.evaluate((world, pos) -> {
+            Block block = world.getBlockState(pos).getBlock();
+            return world.getBlockState(pos).is(ObjectRegistry.EXPLORERS_BOX.get()) || block instanceof CartographyTableBlock;
+        }, true);
         cir.setReturnValue(isValid);
     }
 }
-
-

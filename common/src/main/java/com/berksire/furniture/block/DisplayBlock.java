@@ -37,7 +37,7 @@ public class DisplayBlock extends FacingBlock implements EntityBlock {
 
         ItemStack stack = player.getItemInHand(hand);
         if (!stack.isEmpty()) {
-            if (!level.isClientSide && displayBlockEntity.setDisplayedItem(new ItemStack(stack.getItem(), 1))) {
+            if (!level.isClientSide && displayBlockEntity.setDisplayedItem(stack.copy())) {
                 if (!player.getAbilities().instabuild) {
                     stack.shrink(1);
                 }
@@ -50,7 +50,6 @@ public class DisplayBlock extends FacingBlock implements EntityBlock {
         if (!displayBlockEntity.getDisplayedItem().isEmpty()) {
             if (!level.isClientSide) {
                 ItemStack item = displayBlockEntity.getDisplayedItem().copy();
-                item.setCount(1);
                 if (!player.addItem(item)) {
                     ItemEntity itemEntity = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), item);
                     level.addFreshEntity(itemEntity);

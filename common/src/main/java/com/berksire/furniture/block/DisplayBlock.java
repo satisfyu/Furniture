@@ -35,26 +35,31 @@ public class DisplayBlock extends FacingBlock implements EntityBlock {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (!(blockEntity instanceof DisplayBlockEntity displayBlockEntity)) return InteractionResult.PASS;
 
-        ItemStack stack = player.getItemInHand(hand);
-        if (!stack.isEmpty()) {
-            if (!level.isClientSide && displayBlockEntity.setDisplayedItem(stack.copy())) {
-                if (!player.getAbilities().instabuild) {
-                    stack.shrink(1);
+        ItemStack stackInHand = player.getItemInHand(hand);
+
+        if (!stackInHand.isEmpty()) {
+            if (!level.isClientSide && displayBlockEntity.getDisplayedItem().isEmpty()) {
+                ItemStack singleItemStack = stackInHand.copy();
+                singleItemStack.setCount(1);
+                if (displayBlockEntity.setDisplayedItem(singleItemStack)) {
+                    if (!player.getAbilities().instabuild) {
+                        stackInHand.shrink(1);
+                    }
+                    level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    return InteractionResult.SUCCESS;
                 }
-                level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
-                return InteractionResult.SUCCESS;
             }
             return InteractionResult.CONSUME;
         }
 
         if (!displayBlockEntity.getDisplayedItem().isEmpty()) {
             if (!level.isClientSide) {
-                ItemStack item = displayBlockEntity.getDisplayedItem().copy();
-                if (!player.addItem(item)) {
-                    ItemEntity itemEntity = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), item);
+                ItemStack displayedItem = displayBlockEntity.getDisplayedItem().copy();
+                if (!player.addItem(displayedItem)) {
+                    ItemEntity itemEntity = new ItemEntity(level, player.getX(), player.getY(), player.getZ(), displayedItem);
                     level.addFreshEntity(itemEntity);
                 }
-                displayBlockEntity.removeDisplayedItem(1);
+                displayBlockEntity.removeDisplayedItem(1); // Remove the displayed item from the block entity
                 level.playSound(null, pos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
                 return InteractionResult.SUCCESS;
             }
@@ -62,6 +67,7 @@ public class DisplayBlock extends FacingBlock implements EntityBlock {
 
         return InteractionResult.PASS;
     }
+
 
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {

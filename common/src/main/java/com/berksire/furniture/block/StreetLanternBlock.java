@@ -8,9 +8,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -86,7 +84,10 @@ public class StreetLanternBlock extends HorizontalDirectionalBlock implements Si
         BlockPos belowPos = clickedPos.below();
         BlockState belowBlockState = context.getLevel().getBlockState(belowPos);
 
-        if (!belowBlockState.is(this) && !belowBlockState.isFaceSturdy(context.getLevel(), belowPos, Direction.UP)) {
+        if (!belowBlockState.is(this)
+                && !(belowBlockState.getBlock() instanceof WallBlock)
+                && !(belowBlockState.getBlock() instanceof FenceBlock)
+                && !belowBlockState.isFaceSturdy(context.getLevel(), belowPos, Direction.UP)) {
             return null;
         }
 
@@ -94,10 +95,12 @@ public class StreetLanternBlock extends HorizontalDirectionalBlock implements Si
         if (blockState.is(this) && (blockState.getValue(TYPE) == FurnitureUtil.VerticalConnectingType.TOP || blockState.getValue(TYPE) == FurnitureUtil.VerticalConnectingType.NONE)) {
             return blockState.setValue(BULBS, Math.min(1, blockState.getValue(BULBS) + 1));
         }
+
         boolean flag = context.getLevel().getFluidState(clickedPos).getType() == Fluids.WATER;
         Direction direction = context.getHorizontalDirection().getOpposite();
         blockState = this.defaultBlockState().setValue(FACING, direction);
         blockState = blockState.setValue(TYPE, getType(blockState, context.getLevel().getBlockState(clickedPos.above()), context.getLevel().getBlockState(clickedPos.below())));
+
         return blockState.setValue(WATERLOGGED, flag);
     }
 
@@ -105,9 +108,13 @@ public class StreetLanternBlock extends HorizontalDirectionalBlock implements Si
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
         BlockPos belowPos = pos.below();
         BlockState belowState = world.getBlockState(belowPos);
-        return belowState.is(this) || belowState.isFaceSturdy(world, belowPos, Direction.UP);
-    }
 
+        return belowState.is(this)
+                || belowState.getBlock() instanceof WallBlock
+                || belowState.getBlock() instanceof FenceBlock
+                || belowState.isFaceSturdy(world, belowPos, Direction.UP);
+    }
+    
     @Override
     @SuppressWarnings("deprecation")
     public void neighborChanged(BlockState state, Level world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {

@@ -96,8 +96,10 @@ public class GramophoneBlock extends BaseEntityBlock {
         if (!blockState.is(newState.getBlock())) {
             BlockEntity blockEntity = level.getBlockEntity(blockPos);
             if (blockEntity instanceof GramophoneBlockEntity gramophoneBlockEntity) {
+                gramophoneBlockEntity.stopPlayingOnRemove();
+
                 gramophoneBlockEntity.popOutRecord();
-                gramophoneBlockEntity.stopPlaying();
+
                 level.removeBlockEntity(blockPos);
             }
 
@@ -112,6 +114,7 @@ public class GramophoneBlock extends BaseEntityBlock {
         }
         super.onRemove(blockState, level, blockPos, newState, isMoving);
     }
+
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {

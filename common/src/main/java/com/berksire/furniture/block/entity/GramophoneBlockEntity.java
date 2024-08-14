@@ -1,14 +1,10 @@
 package com.berksire.furniture.block.entity;
 
 import com.berksire.furniture.registry.EntityTypeRegistry;
-import com.berksire.furniture.registry.ObjectRegistry;
-import com.berksire.furniture.registry.SoundRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.protocol.game.ClientboundStopSoundPacket;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Clearable;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
@@ -71,8 +67,13 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
     }
 
     public static void playRecordTick(Level level, BlockPos pos, BlockState state, GramophoneBlockEntity blockEntity) {
-        blockEntity.tick(level, pos, state);
+        if (level.getBlockEntity(pos) instanceof GramophoneBlockEntity && blockEntity.isRecordPlaying()) {
+            blockEntity.tick(level, pos, state);
+        } else {
+            blockEntity.stopPlaying();
+        }
     }
+
 
     @SuppressWarnings("all")
     public void tick(Level level, BlockPos pos, BlockState state) {
@@ -88,6 +89,7 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
                 } else if (this.tickCount % 20 == 0) {
                     level.gameEvent(GameEvent.JUKEBOX_PLAY, pos, GameEvent.Context.of(state));
                     this.spawnMusicParticles(level, pos);
+
                 }
             }
         }
@@ -104,12 +106,11 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
 
     public void popOutRecord() {
         if (this.level != null && !this.level.isClientSide) {
+            this.stopPlaying();
             BlockPos blockPos = this.getBlockPos();
             ItemStack itemStack = this.recordItem;
             if (!itemStack.isEmpty()) {
-                System.out.println("Popping out record: " + itemStack); // Debug-Ausgabe
                 this.recordItem = ItemStack.EMPTY;
-                this.stopPlaying();
                 Vec3 vec3 = Vec3.atLowerCornerWithOffset(blockPos, 0.5, 1.01, 0.5).offsetRandom(this.level.random, 0.7F);
                 ItemEntity itemEntity = new ItemEntity(this.level, vec3.x(), vec3.y(), vec3.z(), itemStack.copy());
                 itemEntity.setDefaultPickUpDelay();
@@ -128,7 +129,7 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
 
     @Override
     public void setRemoved() {
-        this.stopPlaying();
+        this.stopPlayingOnRemove();
         super.setRemoved();
     }
 
@@ -160,24 +161,24 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
         if (this.isPlaying) {
             this.isPlaying = false;
             assert this.level != null;
-
-            if (!this.level.isClientSide) {
-                if (!this.recordItem.isEmpty() && (this.recordItem.getItem() == ObjectRegistry.CPHS_PRIDE.get() || this.recordItem.getItem() == ObjectRegistry.LETSDO_THEME.get())) {
-                    ((ServerLevel) this.level).getPlayers(player -> player.distanceToSqr(this.worldPosition.getX(), this.worldPosition.getY(), this.worldPosition.getZ()) < 64.0D).forEach(player -> {
-                        for (SoundSource source : SoundSource.values()) {
-                            player.connection.send(new ClientboundStopSoundPacket(SoundRegistry.CPHS_PRIDE.get().getLocation(), source));
-                            player.connection.send(new ClientboundStopSoundPacket(SoundRegistry.LETSDO_THEME.get().getLocation(), source));
-                        }
-                    });
-                }
-            }
-
+            
             this.level.gameEvent(GameEvent.JUKEBOX_STOP_PLAY, this.worldPosition, GameEvent.Context.of(this.getBlockState()));
-            this.level.updateNeighborsAt(this.worldPosition, this.getBlockState().getBlock());
             this.level.levelEvent(1011, this.worldPosition, 0);
+
+            this.level.updateNeighborsAt(this.worldPosition, this.getBlockState().getBlock());
+
             this.setChanged();
         }
     }
+
+
+
+    public void stopPlayingOnRemove() {
+        if (this.isPlaying) {
+            this.stopPlaying();
+        }
+    }
+
 
     @Override
     public void clearContent() {

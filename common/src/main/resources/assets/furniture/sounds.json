@@ -32,13 +32,19 @@
   "cphs_pride": {
     "subtitle": "subtitles.furniture.cphs_pride",
     "sounds": [
-      "furniture:cphs_pride"
+      {
+        "name": "furniture:cphs_pride",
+        "stream": true
+      }
     ]
   },
   "letsdo_theme": {
     "subtitle": "subtitles.furniture.letsdo_theme",
     "sounds": [
-      "furniture:letsdo_theme"
+      {
+        "name": "furniture:letsdo_theme",
+        "stream": true
+      }
     ]
   }
 }

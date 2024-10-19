@@ -77,13 +77,33 @@ public class FishTankBlock extends BaseEntityBlock implements EntityBlock {
         shape = Shapes.join(shape, Shapes.box(-0.9375, 0.125, 0.0625, 0.9375, 0.875, 0.9375), BooleanOp.OR);
         shape = Shapes.join(shape, Shapes.box(-1, 0.875, 0, 1, 1, 1), BooleanOp.OR);
 
+
+        BedPart part = state.getValue(PART);
+        if (part == BedPart.FOOT) {
+            shape = mirrorShape(shape, state.getValue(FACING));
+        }
+
         return rotate(shape, Direction.NORTH, state.getValue(FACING));
+    }
+
+    private VoxelShape mirrorShape(VoxelShape shape, Direction facing) {
+
+        final VoxelShape[] mirrored = new VoxelShape[]{Shapes.empty()};
+
+        shape.forAllBoxes((x1, y1, z1, x2, y2, z2) -> {
+            mirrored[0] = Shapes.or(mirrored[0], Shapes.box(1 - x2, y1, z1, 1 - x1, y2, z2));
+        });
+
+        return mirrored[0];
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         Direction direction = context.getHorizontalDirection().getOpposite();
-        return this.defaultBlockState().setValue(FACING, direction);
+
+        return this.defaultBlockState()
+                .setValue(FACING, direction)
+                .setValue(PART, BedPart.FOOT);
     }
 
     @Override
@@ -92,7 +112,6 @@ public class FishTankBlock extends BaseEntityBlock implements EntityBlock {
             world.playLocalSound(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D, SoundEvents.WATER_AMBIENT, SoundSource.BLOCKS, 0.05F, 0.95F, false);
         }
     }
-
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {

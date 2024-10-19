@@ -18,6 +18,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Quaternionf;
 
 public class FishTankRenderer extends EntityRenderer<FakeFishTankEntity> {
@@ -108,8 +109,7 @@ public class FishTankRenderer extends EntityRenderer<FakeFishTankEntity> {
     }
 
     @Override
-    @SuppressWarnings("all")
-    public ResourceLocation getTextureLocation(FakeFishTankEntity entity) {
-        return null;
+    public @NotNull ResourceLocation getTextureLocation(FakeFishTankEntity entity) {
+        return NORMAL_TEXTURE;
     }
 }

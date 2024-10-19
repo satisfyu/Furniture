@@ -124,8 +124,6 @@ public class FishTankModel extends HierarchicalModel<FakeFishTankEntity> {
         fish_tank.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
     }
 
-
-
     public static final AnimationDefinition FISHY = AnimationDefinition.Builder.withLength(6.1333F).looping()
             .addAnimation("salmon_1", new AnimationChannel(AnimationChannel.Targets.ROTATION,
                     new Keyframe(0.0F, KeyframeAnimations.degreeVec(0.0F, -10.0F, 0.0F), AnimationChannel.Interpolations.CATMULLROM),

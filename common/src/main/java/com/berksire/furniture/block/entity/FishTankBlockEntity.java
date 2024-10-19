@@ -69,23 +69,20 @@ public class FishTankBlockEntity extends BlockEntity {
     }
 
     public Optional<FakeFishTankEntity> getLinkedRealEntity() {
-        if (Objects.requireNonNull(this.getLevel()).getEntity(linkedRealTankBlock) instanceof FakeFishTankEntity entity) {
-            return Optional.of(entity);
-        } else return Optional.empty();
+        return Objects.requireNonNull(this.getLevel()).getEntitiesOfClass(FakeFishTankEntity.class, new AABB(this.getBlockPos()))
+                .stream().findFirst();
     }
 
     public static void tick(Level level, BlockPos pos, FishTankBlockEntity blockEntity) {
-        if (blockEntity.linkedRealTankBlock == -1) {
-            level.getEntitiesOfClass(FakeFishTankEntity.class, new AABB(pos)).stream().findAny().ifPresentOrElse(
-                    e -> blockEntity.linkedRealTankBlock = e.getId(), () -> {
-                        FakeFishTankEntity fishTank = EntityTypeRegistry.FAKE_FISH_TANK.get().create(level);
-                        assert fishTank != null;
-                        fishTank.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
-                        level.addFreshEntity(fishTank);
-                    }
-            );
+        if (blockEntity.getLinkedRealEntity().isEmpty()) {
+            FakeFishTankEntity fishTank = EntityTypeRegistry.FAKE_FISH_TANK.get().create(level);
+            if (fishTank != null) {
+                fishTank.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                level.addFreshEntity(fishTank);
+            }
         }
     }
+
 
     @Override
     public void setRemoved() {

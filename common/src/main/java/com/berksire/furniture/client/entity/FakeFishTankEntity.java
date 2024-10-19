@@ -9,7 +9,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
 
@@ -42,7 +41,6 @@ public class FakeFishTankEntity extends Entity {
         } else return Optional.empty();
     }
 
-
     @Override
     public void handleDamageEvent(DamageSource damageSource) {
     }
@@ -66,20 +64,14 @@ public class FakeFishTankEntity extends Entity {
 
     @Override
     public void addAdditionalSaveData(CompoundTag compoundTag) {
-        Vec3 blockPos = this.position();
-        compoundTag.putDouble("TankX", blockPos.x());
-        compoundTag.putDouble("TankY", blockPos.y());
-        compoundTag.putDouble("TankZ", blockPos.z());
+        compoundTag.putLong("TankPos", this.blockPosition().asLong());
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag compoundTag) {
-        Vec3 blockPos = new Vec3(
-                compoundTag.getDouble("TankX"),
-                compoundTag.getDouble("TankY"),
-                compoundTag.getDouble("TankZ")
-        );
-        this.setPos(blockPos);
+        long posLong = compoundTag.getLong("TankPos");
+        BlockPos pos = BlockPos.of(posLong);
+        this.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
     }
 
     @Override

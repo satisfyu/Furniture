@@ -111,8 +111,10 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
             ItemStack itemStack = this.recordItem;
             if (!itemStack.isEmpty()) {
                 this.recordItem = ItemStack.EMPTY;
+                ItemStack singleDisk = itemStack.copy();
+                singleDisk.setCount(1);
                 Vec3 vec3 = Vec3.atLowerCornerWithOffset(blockPos, 0.5, 1.01, 0.5).offsetRandom(this.level.random, 0.7F);
-                ItemEntity itemEntity = new ItemEntity(this.level, vec3.x(), vec3.y(), vec3.z(), itemStack.copy());
+                ItemEntity itemEntity = new ItemEntity(this.level, vec3.x(), vec3.y(), vec3.z(), singleDisk);
                 itemEntity.setDefaultPickUpDelay();
                 this.level.addFreshEntity(itemEntity);
                 this.setChanged();
@@ -134,10 +136,13 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
     }
 
     public void setRecord(ItemStack record) {
-        this.recordItem = record;
-        this.setHasRecordBlockState(true);
-        this.startPlaying();
-        this.setChanged();
+        if (!record.isEmpty()) {
+            this.recordItem = record.copy();
+            this.recordItem.setCount(1);
+            this.setHasRecordBlockState(true);
+            this.startPlaying();
+            this.setChanged();
+        }
     }
 
     public void setRepeat(boolean repeat) {
@@ -171,14 +176,13 @@ public class GramophoneBlockEntity extends BlockEntity implements Clearable {
         }
     }
 
-
-
     public void stopPlayingOnRemove() {
         if (this.isPlaying) {
             this.stopPlaying();
         }
-    }
 
+
+    }
 
     @Override
     public void clearContent() {

@@ -7,9 +7,11 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -21,9 +23,15 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("deprecation")
 public class PouffeBlock extends Block {
     private static final VoxelShape SHAPE = Shapes.box(0.0, 0.0, 0.0, 1.0, 0.4375, 1.0);
+    private final DyeColor color;
 
-    public PouffeBlock(Properties settings) {
-        super(settings);
+    public PouffeBlock(BlockBehaviour.Properties properties, DyeColor color) {
+        super(properties);
+        this.color = color;
+    }
+
+    public DyeColor getColor() {
+        return color;
     }
 
     @Override

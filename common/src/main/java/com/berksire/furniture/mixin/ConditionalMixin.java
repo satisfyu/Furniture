@@ -10,3 +10,5 @@ public @interface ConditionalMixin {
     String forgeRequired() default "";
     String fabricRequired() default "";
 }
+
+

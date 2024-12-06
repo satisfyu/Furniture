@@ -7,11 +7,13 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -37,6 +39,7 @@ public class LampBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
     private static final Map<FurnitureUtil.VerticalConnectingType, Supplier<VoxelShape>> SHAPES_SUPPLIERS = new HashMap<>();
     private static final Map<FurnitureUtil.VerticalConnectingType, VoxelShape> SHAPES = new HashMap<>();
+    private final DyeColor color;
 
     static {
         SHAPES_SUPPLIERS.put(FurnitureUtil.VerticalConnectingType.NONE, LampBlock::makeSingleShape);
@@ -49,12 +52,17 @@ public class LampBlock extends Block implements SimpleWaterloggedBlock {
         }
     }
 
-    public LampBlock(Properties settings) {
-        super(settings);
+    public LampBlock(BlockBehaviour.Properties properties, DyeColor color) {
+        super(properties);
+        this.color = color;
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(TYPE, FurnitureUtil.VerticalConnectingType.NONE)
                 .setValue(LIT, false)
                 .setValue(WATERLOGGED, false));
+    }
+
+    public DyeColor getColor() {
+        return color;
     }
 
     @Override

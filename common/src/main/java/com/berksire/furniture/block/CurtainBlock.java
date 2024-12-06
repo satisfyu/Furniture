@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -44,10 +46,16 @@ public class CurtainBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty OPEN;
     public static final BooleanProperty POWERED;
     public static final BooleanProperty WATERLOGGED;
+    private final DyeColor color;
 
-    public CurtainBlock(Properties settings) {
-        super(settings);
+    public CurtainBlock(BlockBehaviour.Properties properties, DyeColor color) {
+        super(properties);
+        this.color = color;
         this.registerDefaultState(((((this.stateDefinition.any().setValue(FACING, Direction.NORTH)).setValue(TYPE, FurnitureUtil.VerticalConnectingType.NONE)).setValue(OPEN, false).setValue(POWERED, false)).setValue(WATERLOGGED, false)));
+    }
+
+    public DyeColor getColor() {
+        return color;
     }
 
     @Nullable

@@ -9,8 +9,10 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
@@ -31,6 +33,7 @@ public class SofaBlock extends LineConnectingBlock {
     public static final Map<Direction, VoxelShape> MIDDLE_SHAPE;
     public static final Map<Direction, VoxelShape> LEFT_SHAPE;
     public static final Map<Direction, VoxelShape> RIGHT_SHAPE;
+    private final DyeColor color;
 
     private static final Supplier<VoxelShape> noneShapeSupplier = () -> {
         VoxelShape shape = Shapes.empty();
@@ -84,8 +87,13 @@ public class SofaBlock extends LineConnectingBlock {
         return voxelShape.get(state.getValue(FACING));
     }
 
-    public SofaBlock(Properties settings) {
-        super(settings);
+    public SofaBlock(BlockBehaviour.Properties properties, DyeColor color) {
+        super(properties);
+        this.color = color;
+    }
+
+    public DyeColor getColor() {
+        return color;
     }
 
     @Override

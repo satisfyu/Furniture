@@ -15,6 +15,7 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class FishTankModel extends HierarchicalModel<FakeFishTankEntity> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Furniture.MODID, "fish_tank"), "main");
@@ -348,11 +349,11 @@ public class FishTankModel extends HierarchicalModel<FakeFishTankEntity> {
     @Override
     public void setupAnim(FakeFishTankEntity entity, float f, float g, float h, float i, float j) {
         this.root().getAllParts().forEach(ModelPart::resetPose);
-        this.animate(entity.idleAnimationState, FISHY, h, 1.0F); // state, anim, tick time, speed multiplier
+        this.animate(entity.idleAnimationState, FISHY, h, 1.0F);
     }
 
     @Override
-    public ModelPart root() {
+    public @NotNull ModelPart root() {
         return fish_tank;
     }
 }

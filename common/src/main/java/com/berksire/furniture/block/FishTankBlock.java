@@ -30,7 +30,6 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -71,40 +70,50 @@ public class FishTankBlock extends BaseEntityBlock implements EntityBlock {
     }
 
     @Override
-    public @NotNull VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
-        VoxelShape shape = Shapes.empty();
-        shape = Shapes.join(shape, Shapes.box(-1, 0, 0, 1, 0.125, 1), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(-0.9375, 0.125, 0.0625, 0.9375, 0.875, 0.9375), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(-1, 0.875, 0, 1, 1, 1), BooleanOp.OR);
-
-
-        BedPart part = state.getValue(PART);
-        if (part == BedPart.FOOT) {
-            shape = mirrorShape(shape, state.getValue(FACING));
+    public void setPlacedBy(Level world, BlockPos pos, BlockState state, @Nullable net.minecraft.world.entity.LivingEntity placer, ItemStack stack) {
+        if (state.getValue(PART) == BedPart.FOOT) {
+            BlockPos headPos = pos.relative(state.getValue(FACING));
+            world.setBlock(headPos, state.setValue(PART, BedPart.HEAD), 3);
         }
-
-        return rotate(shape, Direction.NORTH, state.getValue(FACING));
     }
 
-    private VoxelShape mirrorShape(VoxelShape shape, Direction facing) {
+    @Override
+    public @NotNull VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+        BedPart part = state.getValue(PART);
+        Direction facing = state.getValue(FACING);
 
-        final VoxelShape[] mirrored = new VoxelShape[]{Shapes.empty()};
+        VoxelShape footShape = Shapes.or(
+                Shapes.box(0, 0, 0, 1, 0.125, 1),
+                Shapes.box(0.0625, 0.125, 0, 0.9375, 0.875, 0.9375)
+        );
+        footShape = Shapes.or(footShape, Shapes.box(0, 0.875, 0, 1, 1, 1));
 
-        shape.forAllBoxes((x1, y1, z1, x2, y2, z2) -> {
-            mirrored[0] = Shapes.or(mirrored[0], Shapes.box(1 - x2, y1, z1, 1 - x1, y2, z2));
-        });
+        VoxelShape headShape = Shapes.or(
+                Shapes.box(0, 0, 0, 1, 0.125, 1),
+                Shapes.box(0.0625, 0.125, 0.0625, 0.9375, 0.875, 1)
+        );
+        headShape = Shapes.or(headShape, Shapes.box(0, 0.875, 0, 1, 1, 1));
 
-        return mirrored[0];
+        VoxelShape selectedShape = part == BedPart.FOOT ? footShape : headShape;
+
+        return rotate(selectedShape, Direction.NORTH, facing);
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        Direction direction = context.getHorizontalDirection().getOpposite();
+        Level world = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        Direction facing = context.getHorizontalDirection().getOpposite();
 
-        return this.defaultBlockState()
-                .setValue(FACING, direction)
-                .setValue(PART, BedPart.FOOT);
+        BlockPos headPos = pos.relative(facing);
+        if (world.getBlockState(headPos).canBeReplaced(context)) {
+            return this.defaultBlockState()
+                    .setValue(FACING, facing)
+                    .setValue(PART, BedPart.FOOT);
+        }
+        return null;
     }
+
 
     @Override
     public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
@@ -148,29 +157,39 @@ public class FishTankBlock extends BaseEntityBlock implements EntityBlock {
         FishTankBlockEntity blockEntity = (FishTankBlockEntity) world.getBlockEntity(pos);
 
         if (blockEntity != null) {
+            boolean hasModified = false;
+
             if (itemStack.getItem() == Items.SALMON_BUCKET && !blockEntity.hasSalmon()) {
                 blockEntity.setHasSalmon(true);
-                world.setBlock(pos, state.setValue(HAS_SALMON, true), 3);
-                if (!player.isCreative()) {
-                    itemStack.shrink(1);
-                    player.setItemInHand(hand, new ItemStack(Items.BUCKET));
-                }
-                return InteractionResult.SUCCESS;
+                hasModified = true;
             } else if (itemStack.getItem() == Items.PUFFERFISH_BUCKET && !blockEntity.hasPufferfish()) {
                 blockEntity.setHasPufferfish(true);
-                world.setBlock(pos, state.setValue(HAS_PUFFERFISH, true), 3);
-                if (!player.isCreative()) {
-                    itemStack.shrink(1);
-                    player.setItemInHand(hand, new ItemStack(Items.BUCKET));
-                }
-                return InteractionResult.SUCCESS;
+                hasModified = true;
             } else if (itemStack.getItem() == Items.COD_BUCKET && !blockEntity.hasCod()) {
                 blockEntity.setHasCod(true);
-                world.setBlock(pos, state.setValue(HAS_COD, true), 3);
+                hasModified = true;
+            }
+
+            if (hasModified) {
+                world.setBlock(pos, state.setValue(HAS_SALMON, blockEntity.hasSalmon())
+                        .setValue(HAS_PUFFERFISH, blockEntity.hasPufferfish())
+                        .setValue(HAS_COD, blockEntity.hasCod()), 3);
+
+                BlockPos otherPartPos = state.getValue(PART) == BedPart.FOOT
+                        ? pos.relative(state.getValue(FACING))
+                        : pos.relative(state.getValue(FACING).getOpposite());
+
+                BlockState otherPartState = world.getBlockState(otherPartPos);
+                if (otherPartState.getBlock() == this) {
+                    world.setBlock(otherPartPos, otherPartState.setValue(HAS_SALMON, blockEntity.hasSalmon())
+                            .setValue(HAS_PUFFERFISH, blockEntity.hasPufferfish())
+                            .setValue(HAS_COD, blockEntity.hasCod()), 3);
+                }
                 if (!player.isCreative()) {
                     itemStack.shrink(1);
                     player.setItemInHand(hand, new ItemStack(Items.BUCKET));
                 }
+
                 return InteractionResult.SUCCESS;
             }
         }
@@ -181,22 +200,32 @@ public class FishTankBlock extends BaseEntityBlock implements EntityBlock {
     @Override
     public void playerWillDestroy(Level world, BlockPos pos, BlockState state, net.minecraft.world.entity.player.Player player) {
         super.playerWillDestroy(world, pos, state, player);
+
+        BlockPos otherPartPos = state.getValue(PART) == BedPart.FOOT
+                ? pos.relative(state.getValue(FACING))
+                : pos.relative(state.getValue(FACING).getOpposite());
+
+        BlockState otherPartState = world.getBlockState(otherPartPos);
+        if (otherPartState.getBlock() == this && otherPartState.getValue(PART) != state.getValue(PART)) {
+            world.destroyBlock(otherPartPos, false);
+        }
+
         FishTankBlockEntity blockEntity = (FishTankBlockEntity) world.getBlockEntity(pos);
 
         if (blockEntity != null) {
             if (blockEntity.hasCod()) {
                 Cod cod = new Cod(EntityType.COD, world);
-                cod.moveTo(pos, 0.0F, 0.0F);
+                cod.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0.0F, 0.0F);
                 world.addFreshEntity(cod);
             }
             if (blockEntity.hasSalmon()) {
                 Salmon salmon = new Salmon(EntityType.SALMON, world);
-                salmon.moveTo(pos, 0.0F, 0.0F);
+                salmon.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0.0F, 0.0F);
                 world.addFreshEntity(salmon);
             }
             if (blockEntity.hasPufferfish()) {
                 Pufferfish pufferfish = new Pufferfish(EntityType.PUFFERFISH, world);
-                pufferfish.moveTo(pos, 0.0F, 0.0F);
+                pufferfish.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0.0F, 0.0F);
                 world.addFreshEntity(pufferfish);
             }
         }

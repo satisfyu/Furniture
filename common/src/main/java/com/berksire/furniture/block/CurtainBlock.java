@@ -215,6 +215,16 @@ public class CurtainBlock extends Block implements SimpleWaterloggedBlock {
         }
     }
 
+    @Override
+    public @NotNull VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        return Shapes.empty();
+    }
+
+    @Override
+    public boolean isOcclusionShapeFullBlock(BlockState state, BlockGetter world, BlockPos pos) {
+        return false;
+    }
+
     public static final Map<Direction, VoxelShape> SHAPE_TOP_OR_SINGLE = Util.make(new HashMap<>(), map -> {
         Supplier<VoxelShape> voxelShapeSupplier = CurtainBlock::makeTopOrSingleShape;
         for (Direction direction : Direction.Plane.HORIZONTAL.stream().toList()) {

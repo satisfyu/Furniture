@@ -17,6 +17,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Quaternionf;
@@ -46,9 +47,15 @@ public class FishTankRenderer extends EntityRenderer<FakeFishTankEntity> {
         if (assertNonNullOrPop(blockEntity, poseStack)) return;
 
         assert blockEntity != null;
+        boolean isFoot = blockEntity.getBlockState().getValue(FishTankBlock.PART) == BedPart.FOOT;
+        if (!isFoot) {
+            poseStack.popPose();
+            return;
+        }
+
         Direction direction = blockEntity.getBlockState().getValue(FishTankBlock.FACING);
         float rotation = -direction.toYRot();
-        Quaternionf theGreatRotator = new Quaternionf().rotateY((float) Math.toRadians(rotation));
+        Quaternionf theGreatRotator = new Quaternionf().rotateY((float) Math.toRadians(rotation - 90));
         poseStack.mulPose(theGreatRotator);
 
         poseStack.mulPose(Axis.XP.rotationDegrees(180));

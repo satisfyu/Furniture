@@ -9,6 +9,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.joml.Vector3d;
 
 import java.util.Optional;
 
@@ -56,7 +57,6 @@ public class FakeFishTankEntity extends Entity {
 
     @Override
     public void tick() {
-        super.tick();
         if (this.level().isClientSide()) {
             this.updateAnimations();
         }
@@ -71,7 +71,8 @@ public class FakeFishTankEntity extends Entity {
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         long posLong = compoundTag.getLong("TankPos");
         BlockPos pos = BlockPos.of(posLong);
-        this.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+        Vector3d v = new Vector3d(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+        this.setPos(v.x, v.y, v.z);
     }
 
     @Override
